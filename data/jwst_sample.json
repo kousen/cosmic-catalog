@@ -1,0 +1,38 @@
+[
+  {
+    "obsId": "jw02736-o001_t001_nircam_clear-f200w",
+    "programId": "2736",
+    "target": "NGC 3324",
+    "ra": 10.684708,
+    "dec": -59.70444,
+    "obsDate": "2022-07-12T12:00:00Z",
+    "instrument": "NIRCAM",
+    "filters": "F200W",
+    "exposureSec": 75,
+    "imageUrl": "https://stsci-opo.org/STScI-01G7JJT8C56C8G3R4E4B5N5T5T.png"
+  },
+  {
+    "obsId": "jw02736-o001_t001_nircam_clear-f444w",
+    "programId": "2736",
+    "target": "NGC 3324",
+    "ra": 10.684708,
+    "dec": -59.70444,
+    "obsDate": "2022-07-12T12:10:00Z",
+    "instrument": "NIRCAM",
+    "filters": "F444W",
+    "exposureSec": 75,
+    "imageUrl": "https://stsci-opo.org/STScI-01G7JJT8C56C8G3R4E4B5N5T5T.png"
+  },
+  {
+    "obsId": "jw02736-o001_t001_nircam_clear-f200w-dupe",
+    "programId": "2736",
+    "target": "NGC 3324",
+    "ra": 10.684710, 
+    "dec": -59.70445,
+    "obsDate": "2022-07-12T12:20:00Z",
+    "instrument": "NIRCAM",
+    "filters": "F200W",
+    "exposureSec": 90,
+    "imageUrl": "https://stsci-opo.org/STScI-01G7JJT8C56C8G3R4E4B5N5T5T.png"
+  }
+]
