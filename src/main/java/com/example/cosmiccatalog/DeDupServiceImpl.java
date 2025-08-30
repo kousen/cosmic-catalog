@@ -16,7 +16,7 @@ public class DeDupServiceImpl implements DeDupService {
 
     @Override
     public Optional<Observation> findDuplicate(Observation newObservation) {
-        List<Observation> candidates = observationRepository.findByTelescopeAndTargetNameAndFilters(
+        var candidates = observationRepository.findByTelescopeAndTargetNameAndFilters(
                 newObservation.getTelescope(), newObservation.getTargetName(), newObservation.getFilters());
 
         return candidates.stream()
@@ -25,15 +25,27 @@ public class DeDupServiceImpl implements DeDupService {
     }
 
     private boolean isDuplicate(Observation existing, Observation fresh) {
-        // Check for same telescope, target, and filter set is already done by the query
-
-        // Check spatial proximity (within a few arcseconds)
-        double raDiff = Math.abs(existing.getRa() - fresh.getRa()) * 3600; // degrees to arcseconds
-        double decDiff = Math.abs(existing.getDec() - fresh.getDec()) * 3600; // degrees to arcseconds
+        // Using pattern matching with record patterns would be ideal here with DTOs
+        // For now, using var for type inference
+        
+        var raDiff = Math.abs(existing.getRa() - fresh.getRa()) * 3600; // degrees to arcseconds
+        var decDiff = Math.abs(existing.getDec() - fresh.getDec()) * 3600; // degrees to arcseconds
 
         // BUG: This threshold is 10x too large, it should be ~5 arcseconds
-        double threshold = 50.0;
-
-        return raDiff < threshold && decDiff < threshold;
+        var threshold = 50.0;
+        
+        // Modern approach: could use pattern matching in future iterations
+        return switch (checkProximity(raDiff, decDiff, threshold)) {
+            case DUPLICATE -> true;
+            case DISTINCT -> false;
+        };
+    }
+    
+    private enum ProximityResult { DUPLICATE, DISTINCT }
+    
+    private ProximityResult checkProximity(double raDiff, double decDiff, double threshold) {
+        return (raDiff < threshold && decDiff < threshold) 
+            ? ProximityResult.DUPLICATE 
+            : ProximityResult.DISTINCT;
     }
 }
