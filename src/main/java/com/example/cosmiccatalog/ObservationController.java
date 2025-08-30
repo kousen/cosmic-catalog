@@ -2,47 +2,27 @@ package com.example.cosmiccatalog;
 
 import com.example.cosmiccatalog.dto.ObservationDTO;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @RestController
 @RequestMapping("/api/observations")
 public class ObservationController {
 
     private final ObservationRepository observationRepository;
-    // Virtual threads for async operations (Java 21+)
-    private final ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
+    private final ObservationService observationService;
 
-    public ObservationController(ObservationRepository observationRepository) {
+    public ObservationController(ObservationRepository observationRepository,
+                                 ObservationService observationService) {
         this.observationRepository = observationRepository;
+        this.observationService = observationService;
     }
 
     @GetMapping
     public Page<ObservationDTO> getObservations(Pageable pageable) {
         var observations = observationRepository.findAll(pageable);
         return observations.map(ObservationDTO::from);
-    }
-
-    @GetMapping("/featured")
-    public CompletableFuture<List<ObservationDTO>> getFeaturedObservations(
-            @RequestParam(defaultValue = "10") int limit) {
-        
-        return CompletableFuture.supplyAsync(() -> {
-            var pageable = PageRequest.of(0, limit, Sort.by(Sort.Direction.DESC, "score"));
-            var featuredObs = observationRepository.findByStatus(Observation.Status.APPROVED, pageable);
-            
-            return featuredObs.stream()
-                    .map(ObservationDTO::from)
-                    .toList(); // Using Java 16+ toList()
-        }, executor);
     }
 
     @PostMapping("/{id}/approve")
@@ -59,7 +39,7 @@ public class ObservationController {
             }
             
             obs.setStatus(Observation.Status.APPROVED);
-            var saved = observationRepository.save(obs);
+            var saved = observationService.saveWithScore(obs);
             return ResponseEntity.ok(ObservationDTO.from(saved));
         }).orElse(ResponseEntity.notFound().build());
     }

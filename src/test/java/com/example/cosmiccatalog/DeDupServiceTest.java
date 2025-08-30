@@ -49,7 +49,33 @@ public class DeDupServiceTest {
 
         Optional<Observation> result = deDupService.findDuplicate(fresh);
 
-        // This assertion will fail because the threshold in DeDupServiceImpl is too high
         assertTrue(result.isPresent(), "A near-duplicate should have been found");
+    }
+
+    @Test
+    void testFindDuplicate_shouldNotFindWhenBeyondThreshold() {
+        Observation existing = new Observation();
+        existing.setTelescope("JWST");
+        existing.setTargetName("Carina");
+        existing.setFilters("F200W");
+        existing.setRa(10.684708);
+        existing.setDec(-59.70444);
+        existing.setObsDate(LocalDateTime.now());
+
+        Observation fresh = new Observation();
+        fresh.setTelescope("JWST");
+        fresh.setTargetName("Carina");
+        fresh.setFilters("F200W");
+        // RA/Dec differ by > 5 arcseconds (e.g., ~10 arcseconds)
+        fresh.setRa(10.684708 + 10.0 / 3600.0);
+        fresh.setDec(-59.70444);
+        fresh.setObsDate(LocalDateTime.now().plusHours(1));
+
+        when(observationRepository.findByTelescopeAndTargetNameAndFilters("JWST", "Carina", "F200W"))
+                .thenReturn(Collections.singletonList(existing));
+
+        Optional<Observation> result = deDupService.findDuplicate(fresh);
+
+        assertTrue(result.isEmpty(), "Observations beyond threshold should not be treated as duplicates");
     }
 }

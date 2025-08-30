@@ -31,8 +31,8 @@ public class DeDupServiceImpl implements DeDupService {
         var raDiff = Math.abs(existing.getRa() - fresh.getRa()) * 3600; // degrees to arcseconds
         var decDiff = Math.abs(existing.getDec() - fresh.getDec()) * 3600; // degrees to arcseconds
 
-        // BUG: This threshold is 10x too large, it should be ~5 arcseconds
-        var threshold = 50.0;
+        // Threshold of ~5 arcseconds for near-duplicate detection
+        var threshold = 5.0;
         
         // Modern approach: could use pattern matching in future iterations
         return switch (checkProximity(raDiff, decDiff, threshold)) {
