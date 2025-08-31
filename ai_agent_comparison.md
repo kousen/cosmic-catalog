@@ -109,7 +109,7 @@ graph LR
 
 | Feature | Gemini CLI | OpenAI Codex CLI | Claude Code | JetBrains Junie | Cursor |
 |---|---|---|---|---|---|
-| **Core Model** | Gemini (1.5/Pro family) | OpenAI models (e.g., GPT‑4o) | Claude 3 family | Uses configured providers (IDE context) | OpenAI + Anthropic |
+| **Core Model** | Gemini (1.5/Pro family) | GPT‑5 (Low/Medium/High modes) | Claude 3 family | Uses configured providers (IDE context) | OpenAI + Anthropic |
 | **UI** | CLI | CLI | CLI | IDE Integrated | IDE (AI‑first) |
 | **Tooling** | MCP + shell/FS | Shell/FS + MCP (varies) | MCP + shell/FS | IDE actions, builds, VCS | Local FS + provider APIs |
 
@@ -176,21 +176,21 @@ graph LR
 
 ---
 
-## Deep Dive: OpenAI (CLI)
+## Deep Dive: OpenAI Codex CLI
 
-OpenAI CLIs typically expose multiple models and tunables so you can trade latency for capability depending on the task.
+Codex CLI now runs GPT‑5 with three modes so you can trade latency for capability depending on the task.
 
 ```mermaid
 graph LR
-    A[Prompt] --> B{Model Selection};
-    B --> C[o4‑mini<br/><i>Fast</i>];
-    B --> D[o4<br/><i>Balanced</i>];
-    B --> E[gpt‑4o<br/><i>Rich output</i>];
+    A[Prompt] --> B{Mode};
+    B --> C[Low\nFast];
+    B --> D[Medium\nBalanced];
+    B --> E[High\nMax Power];
 ```
 
 Notes
-- Refer to your CLI’s docs for the exact flags/env vars to set the model.
-- Some CLIs also expose temperature, JSON mode, and tool‑use toggles.
+- Modes: Low (fastest), Medium (balanced), High (maximum capability).
+- Configure via your CLI flags or environment variables.
 
 ---
 
