@@ -36,6 +36,19 @@ graph LR
 
 ---
 
+<style>
+/* Compact utilities to keep dense slides within viewport */
+.compact { font-size: 0.95rem; }
+.compact h1 { font-size: 2.2rem; margin-bottom: 0.6rem; }
+.compact h2 { font-size: 1.25rem; margin: 0.5rem 0; }
+.compact pre { font-size: 0.8rem; line-height: 1.25; white-space: pre-wrap; word-break: break-word; }
+.compact code { font-size: 0.95em; }
+.compact .grid { gap: 1rem; }
+.compact ul { margin: 0.25rem 0 0.5rem; }
+</style>
+
+---
+
 ## Key Capabilities for Comparison
 
 When evaluating AI agents, we consider several factors:
@@ -114,6 +127,9 @@ graph LR
 | **Tooling** | MCP + shell/FS | Shell/FS + MCP (varies) | MCP + shell/FS | IDE actions, builds, VCS | Local FS + provider APIs |
 
 ---
+---
+class: compact
+---
 
 ## Feature Matrix (2/2)
 
@@ -175,6 +191,8 @@ graph LR
 ```
 
 ---
+class: compact
+---
 
 ## Deep Dive: OpenAI Codex CLI
 
@@ -183,15 +201,17 @@ Codex CLI now runs GPT‑5 with three modes so you can trade latency for capabil
 ```mermaid
 graph LR
     A[Prompt] --> B{Mode};
-    B --> C[Low\nFast];
-    B --> D[Medium\nBalanced];
-    B --> E[High\nMax Power];
+    B --> C[Low<br/>Fast];
+    B --> D[Medium<br/>Balanced];
+    B --> E[High<br/>Max Power];
 ```
 
 Notes
 - Modes: Low (fastest), Medium (balanced), High (maximum capability).
 - Configure via your CLI flags or environment variables.
 
+---
+class: compact
 ---
 
 ## MCP Configuration (CLI vs IDE)
