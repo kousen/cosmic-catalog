@@ -34,6 +34,17 @@ Today's premise: Start with feature-complete but un-reviewed code, then use mult
 This isn't about AI replacing developers - it's about AI as "B-students with infinite office hours" helping us deliver better code.
 -->
 
+<style>
+/* Compact utility to keep content within viewport on dense slides */
+.compact { font-size: 0.95rem; }
+.compact h1 { font-size: 2.2rem; margin-bottom: 0.6rem; }
+.compact h2 { font-size: 1.25rem; margin: 0.5rem 0; }
+.compact pre { font-size: 0.8rem; line-height: 1.25; white-space: pre-wrap; word-break: break-word; }
+.compact code { font-size: 0.95em; }
+.compact .grid { gap: 1rem; }
+.compact ul { margin: 0.25rem 0 0.5rem; }
+</style>
+
 ---
 layout: default
 ---
@@ -379,6 +390,7 @@ The AI reviewer catches these subtle but critical issues that could become major
 
 ---
 layout: default
+class: compact
 ---
 
 # Code Review Improvements
@@ -526,6 +538,7 @@ Notice how the AI thinks systematically about testing - it's not just adding mor
 
 ---
 layout: default
+class: compact
 ---
 
 # Enhanced Test Suite
@@ -592,6 +605,7 @@ This is where AI agents really shine - they have the patience to write comprehen
 
 ---
 layout: default
+class: compact
 ---
 
 # Integration Test Outputs
@@ -782,6 +796,7 @@ layout: section
 
 ---
 layout: default
+class: compact
 ---
 
 # Release Readiness Assessment
