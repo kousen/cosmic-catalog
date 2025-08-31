@@ -228,6 +228,21 @@ layout: default
 <!-- Operational crib sheet for live demo flow. -->
 
 ---
+layout: default
+---
+
+# Live Checklist
+
+- Port check: ensure `:8080` free (fallback `server.port=8081`)
+- Warm up app: open `/health` once before demo
+- Data: sample JSON present under `cosmic-catalog/data/`
+- Tests: E2E can be @Disabled until live run
+- Artifacts: screenshots under `build/reports/` (e.g., playwright.png)
+- Backups: have static UI screenshot as fallback
+
+<!-- Quick pre-flight to reduce live-demo risks. -->
+
+---
 layout: section
 ---
 
@@ -1013,6 +1028,26 @@ layout: default
 - **Improved developer productivity**
 
 </v-clicks>
+
+---
+layout: default
+---
+
+# Grades and Next Steps
+
+## Grades (demo narrative)
+- Claude (Deps + Bug Fix): B+
+- Gemini (Feature Dev): B
+- Playwright (QA): Hall monitor energy
+- Junie (Finisher): A-
+
+## Next Steps
+- Add approve 409 integration test
+- Wire import runner and apply scoring on import
+- Consider caching health counts (conceptual)
+- Optional: Add `/api/observations` filters + pagination demo
+
+<!-- Close with a pragmatic roadmap. -->
 
 <!--
 The quantifiable results demonstrate real business value from AI collaboration.
