@@ -256,7 +256,7 @@ layout: default
 # Scoreboard Template
 
 <div class="grid grid-cols-4 gap-4 text-center">
-<div class="bg-blue-100 p-4 rounded-lg">
+<div class="bg-blue-100 p-4 rounded-lg text-gray-900">
 
 ### Claude Code + context7
 #### Dependency Specialist
@@ -264,7 +264,7 @@ layout: default
 <div class="mt-2 text-sm text-gray-600">Grade pending</div>
 
 </div>
-<div class="bg-green-100 p-4 rounded-lg">
+<div class="bg-green-100 p-4 rounded-lg text-gray-900">
 
 ### Gemini CLI  
 #### Feature Developer
@@ -272,7 +272,7 @@ layout: default
 <div class="mt-2 text-sm text-gray-600">Grade pending</div>
 
 </div>
-<div class="bg-purple-100 p-4 rounded-lg">
+<div class="bg-purple-100 p-4 rounded-lg text-gray-900">
 
 ### Playwright
 #### QA Agent
@@ -280,7 +280,7 @@ layout: default
 <div class="mt-2 text-sm text-gray-600">Grade pending</div>
 
 </div>
-<div class="bg-orange-100 p-4 rounded-lg">
+<div class="bg-orange-100 p-4 rounded-lg text-gray-900">
 
 ### Junie/IntelliJ
 #### Finisher (Refactoring)
@@ -854,7 +854,7 @@ layout: default
 # Final Scoreboard
 
 <div class="grid grid-cols-4 gap-4 text-center">
-<div class="bg-blue-100 p-4 rounded-lg">
+<div class="bg-blue-100 p-4 rounded-lg text-gray-900">
 
 ### Gemini CLI
 #### Code Reviewer
@@ -862,7 +862,7 @@ layout: default
 <div class="mt-2 text-sm text-gray-600">Excellent issue detection</div>
 
 </div>
-<div class="bg-green-100 p-4 rounded-lg">
+<div class="bg-green-100 p-4 rounded-lg text-gray-900">
 
 ### Gemini CLI  
 #### Test Engineer
@@ -870,7 +870,7 @@ layout: default
 <div class="mt-2 text-sm text-gray-600">Comprehensive coverage</div>
 
 </div>
-<div class="bg-purple-100 p-4 rounded-lg">
+<div class="bg-purple-100 p-4 rounded-lg text-gray-900">
 
 ### Junie/IntelliJ
 #### Refactoring Expert
@@ -878,7 +878,7 @@ layout: default
 <div class="mt-2 text-sm text-gray-600">Context-aware optimization</div>
 
 </div>
-<div class="bg-orange-100 p-4 rounded-lg">
+<div class="bg-orange-100 p-4 rounded-lg text-gray-900">
 
 ### Gemini CLI
 #### Release Manager
