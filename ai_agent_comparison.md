@@ -10,6 +10,17 @@ mdc: true
 
 A look at the current landscape of AI Agent tools for software developers.
 
+<style>
+/* Compact utilities to keep dense slides within viewport */
+.compact { font-size: 0.95rem; }
+.compact h1 { font-size: 2.2rem; margin-bottom: 0.6rem; }
+.compact h2 { font-size: 1.25rem; margin: 0.5rem 0; }
+.compact pre { font-size: 0.8rem; line-height: 1.25; white-space: pre-wrap; word-break: break-word; }
+.compact code { font-size: 0.95em; }
+.compact .grid { gap: 1rem; }
+.compact ul { margin: 0.25rem 0 0.5rem; }
+</style>
+
 ---
 
 ## What is an AI Agent?
@@ -33,19 +44,6 @@ graph LR
     E --> B;
     D --> F[Final Output];
 ```
-
----
-
-<style>
-/* Compact utilities to keep dense slides within viewport */
-.compact { font-size: 0.95rem; }
-.compact h1 { font-size: 2.2rem; margin-bottom: 0.6rem; }
-.compact h2 { font-size: 1.25rem; margin: 0.5rem 0; }
-.compact pre { font-size: 0.8rem; line-height: 1.25; white-space: pre-wrap; word-break: break-word; }
-.compact code { font-size: 0.95em; }
-.compact .grid { gap: 1rem; }
-.compact ul { margin: 0.25rem 0 0.5rem; }
-</style>
 
 ---
 
@@ -127,7 +125,6 @@ graph LR
 | **Tooling** | MCP + shell/FS | Shell/FS + MCP (varies) | MCP + shell/FS | IDE actions, builds, VCS | Local FS + provider APIs |
 
 ---
----
 class: compact
 ---
 
@@ -206,15 +203,20 @@ graph LR
     B --> E[High<br/>Max Power];
 ```
 
-Notes
-- Modes: Low (fastest), Medium (balanced), High (maximum capability).
-- Configure via your CLI flags or environment variables.
+---
+class: compact
+---
+
+### OpenAI Codex Modes: Notes
+
+- Low: fastest; Medium: balanced; High: maximum capability
+- Configure via CLI flags or environment variables
 
 ---
 class: compact
 ---
 
-## MCP Configuration (CLI vs IDE)
+## MCP Configuration (CLI)
 
 CLI example (generic)
 
@@ -235,7 +237,11 @@ CLI example (generic)
 }
 ```
 
-IDE example (conceptual)
+---
+class: compact
+---
+
+## MCP Configuration (IDE)
 
 ```json
 {
