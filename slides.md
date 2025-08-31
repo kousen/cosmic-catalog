@@ -120,8 +120,10 @@ layout: default
 
 <v-clicks>
 
-## The "Don't Panic" Easter Egg
-Any observation scoring exactly **42** points gets a special badge - a nod to Douglas Adams' *Hitchhiker's Guide to the Galaxy*.
+<div class="mt-8 text-center p-4 bg-gray-100 rounded-lg text-gray-900">
+<h3 class="font-bold">The "Don't Panic" Easter Egg</h3>
+<p class="text-sm">A fun detail: any observation scoring exactly **42** gets a special badge - a nod to Douglas Adams' *Hitchhiker's Guide to the Galaxy*. This is the kind of domain-specific logic our agents must understand and preserve.</p>
+</div>
 
 </v-clicks>
 
@@ -194,6 +196,20 @@ The var keyword and method references show how modern Java can be both concise a
 -->
 
 ---
+layout: default
+---
+
+# Run of Show (15 minutes)
+
+- Claude Code + context7: Safe dependency upgrades + one targeted bug fix
+- Gemini CLI (Developer): Implement GET /health with counts and lastImport
+- Playwright (QA): E2E UI flow check and screenshot artifact
+- Gemini CLI (Reviewer): Summarize risks, missing tests, and release notes
+- Junie/IntelliJ (Finisher): Small refactor with tests green
+
+<!-- Quick agenda to anchor the demo flow. -->
+
+---
 layout: section
 ---
 
@@ -209,8 +225,8 @@ layout: default
 <div class="grid grid-cols-4 gap-4 text-center">
 <div class="bg-blue-100 p-4 rounded-lg">
 
-### Gemini CLI
-#### Code Reviewer
+### Claude Code + context7
+#### Dependency Specialist
 <div class="text-6xl font-bold mt-4 text-blue-600">?</div>
 <div class="mt-2 text-sm text-gray-600">Grade pending</div>
 
@@ -218,23 +234,23 @@ layout: default
 <div class="bg-green-100 p-4 rounded-lg">
 
 ### Gemini CLI  
-#### Test Engineer
+#### Feature Developer
 <div class="text-6xl font-bold mt-4 text-green-600">?</div>
 <div class="mt-2 text-sm text-gray-600">Grade pending</div>
 
 </div>
 <div class="bg-purple-100 p-4 rounded-lg">
 
-### Junie/IntelliJ
-#### Refactoring Expert
+### Playwright
+#### QA Agent
 <div class="text-6xl font-bold mt-4 text-purple-600">?</div>
 <div class="mt-2 text-sm text-gray-600">Grade pending</div>
 
 </div>
 <div class="bg-orange-100 p-4 rounded-lg">
 
-### Gemini CLI
-#### Release Manager
+### Junie/IntelliJ
+#### Finisher (Refactoring)
 <div class="text-6xl font-bold mt-4 text-orange-600">?</div>
 <div class="mt-2 text-sm text-gray-600">Grade pending</div>
 
@@ -272,6 +288,8 @@ layout: default
 ---
 
 # Initial Code Review
+
+<p style="color: #333;">I'll ask Gemini to analyze all the changes since the initial commit.</p>
 
 <div class="grid grid-cols-2 gap-6">
 <div>
@@ -346,7 +364,7 @@ public ResponseEntity<?> approveObservation(
     var observationOpt = observationRepository.findById(id);
     
     return observationOpt.map(obs -> {
-        // Pattern matching for optimistic locking check
+        // Optimistic locking check
         if (expectedVersion != null && 
             !expectedVersion.equals(obs.getVersion())) {
             return ResponseEntity.status(409)
@@ -406,6 +424,8 @@ layout: default
 
 # Test Coverage Analysis
 
+<p style="color: #333;">In phase two, the AI switches roles to become our test engineer, analyzing existing test coverage and identifying gaps.</p>
+
 <div class="grid grid-cols-2 gap-6">
 <div>
 
@@ -433,8 +453,8 @@ class HealthControllerIT {
         ResponseEntity<Map> resp = rest.getForEntity(
             "http://localhost:" + port + "/health", 
             Map.class);
-            
         assertEquals(200, resp.getStatusCode().value());
+        Map body = resp.getBody();
         assertEquals("1.0.0", body.get("version"));
     }
 }
@@ -490,10 +510,8 @@ void approveObservationHandlesVersionConflict() {
     obs = observationRepository.save(obs);
     
     // Test optimistic locking
-    ResponseEntity<?> result = rest.postForEntity(
-        "/api/observations/" + obs.getId() + "/approve" +
-        "?expectedVersion=999", // Wrong version
-        null, String.class);
+    String url = "http://localhost:" + port + "/api/observations/" + obs.getId() + "/approve?expectedVersion=999"; // Wrong version
+    ResponseEntity<String> result = rest.postForEntity(url, null, String.class);
         
     assertEquals(409, result.getStatusCode().value());
     assertTrue(result.getBody().toString()
@@ -507,16 +525,15 @@ void approveObservationHandlesVersionConflict() {
 ## Scoring Edge Cases
 ```java
 @Test
-void scoringAlgorithmReturns42ForEasterEgg() {
+void scoringAlgorithmDeterministicExample() {
     Observation obs = new Observation();
-    obs.setInstrument("NIRCAM");     // 30 points
-    obs.setExposureSec(700);         // 30 points (>600s)
-    obs.setObsDate(LocalDateTime.now().minusDays(100)); // 20 points
-    obs.setFilters("F200W");         // 0 points
-    // Total: 80, but algorithm caps at 42 for easter egg
-    
+    obs.setInstrument("WFC3");        // 25 points
+    obs.setExposureSec(700);          // 30 points (>600s)
+    obs.setObsDate(LocalDateTime.now().minusDays(30)); // 20 points
+    obs.setFilters("none");           // 0 points
+
     int score = scoringService.calculateScore(obs);
-    assertEquals(42, score); // Don't Panic!
+    assertEquals(75, score);
 }
 ```
 
@@ -526,7 +543,7 @@ void scoringAlgorithmReturns42ForEasterEgg() {
 <v-clicks>
 
 ## Test Quality Metrics
-- **Coverage**: 85%+ line coverage achieved
+- **Coverage**: Expanded line and branch coverage
 - **Edge Cases**: All boundary conditions tested  
 - **Error Paths**: Negative scenarios validated
 - **Integration**: Full API contract testing
@@ -555,6 +572,8 @@ layout: default
 
 # AI-Powered Refactoring
 
+<p style="color: #333;">In phase three, we bring in Junie - the AI pair programmer integrated into IntelliJ IDEA.</p>
+
 <div class="grid grid-cols-2 gap-6">
 <div>
 
@@ -580,6 +599,7 @@ layout: default
 <div>
 
 ## Health Endpoint Optimization
+> Note: Conceptual refactor example (not implemented in repo)
 ```java
 @GetMapping("/health")
 public HealthInfo getHealth() {
@@ -640,6 +660,7 @@ public class HealthService {
 <div>
 
 ## After: Optimized with Caching
+> Note: Conceptual refactor example (not implemented in repo)
 ```java
 @Service
 public class HealthService {
@@ -704,7 +725,7 @@ layout: default
 <v-clicks>
 
 - ✅ Code quality metrics passed
-- ✅ Test coverage > 85%  
+  - ✅ Broader test coverage  
 - ✅ Security vulnerabilities addressed
 - ✅ Performance benchmarks met
 - ✅ Documentation updated
@@ -721,17 +742,8 @@ layout: default
 ```json
 {
   "version": "1.0.0",
-  "counts": {
-    "obs": 1247,
-    "targets": 89
-  },
-  "lastImport": "2025-08-30T14:23:15",
-  "status": "healthy",
-  "uptime": "2d 14h 32m",
-  "memoryUsage": {
-    "used": "128MB",
-    "max": "512MB"
-  }
+  "counts": { "obs": 2, "targets": 1 },
+  "lastImport": "2025-08-30T14:23:15"
 }
 ```
 
@@ -909,34 +921,31 @@ layout: default
 <div class="text-center">
 
 ## Code Quality
-<div class="text-4xl font-bold text-blue-600 mb-4">↑ 300%</div>
+<div class="text-4xl font-bold text-blue-600 mb-4">Improved</div>
 
 - Optimistic locking implemented
 - Error handling standardized  
-- Security vulnerabilities addressed
 - Best practices enforced
 
 </div>
 <div class="text-center">
 
 ## Test Coverage  
-<div class="text-4xl font-bold text-green-600 mb-4">85%</div>
+<div class="text-4xl font-bold text-green-600 mb-4">Broader</div>
 
 - Integration tests added
 - Edge cases covered
-- Concurrency testing implemented
-- Performance benchmarks established
+- Concurrency scenarios included
 
 </div>
 <div class="text-center">
 
 ## Performance
-<div class="text-4xl font-bold text-purple-600 mb-4">↑ 60%</div>
+<div class="text-4xl font-bold text-purple-600 mb-4">More Efficient</div>
 
-- Database query optimization
-- Caching implementation
-- Memory usage reduction
-- Response time improvements
+- Database access streamlined
+- Caching opportunities identified (conceptual)
+- Response paths simplified
 
 </div>
 </div>
