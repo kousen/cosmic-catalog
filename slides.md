@@ -210,6 +210,24 @@ layout: default
 <!-- Quick agenda to anchor the demo flow. -->
 
 ---
+layout: default
+---
+
+# How to Run the Demo
+
+- Build: `cd cosmic-catalog && ./gradlew build`
+- Start app: `./gradlew bootRun` (serves at `http://localhost:8080`)
+- Hit endpoints:
+  - `GET /health` → version, counts, lastImport
+  - `GET /api/featured?limit=5` → top approved observations
+- Run tests (unit + integration): `./gradlew test`
+- Notes:
+  - Tests use a random port and in-memory H2.
+  - `app.version` comes from `src/main/resources/application.properties`.
+
+<!-- Operational crib sheet for live demo flow. -->
+
+---
 layout: section
 ---
 
@@ -557,6 +575,42 @@ The concurrency test specifically validates our optimistic locking implementatio
 
 This is where AI agents really shine - they have the patience to write comprehensive test suites that human developers often skip due to time pressure.
 -->
+
+---
+layout: default
+---
+
+# Integration Test Outputs
+
+## Sample Responses (example shape)
+
+```bash
+# Health endpoint
+curl -s http://localhost:8080/health | jq
+```
+
+```json
+{
+  "version": "1.0.0",
+  "counts": { "obs": 2, "targets": 1 },
+  "lastImport": "2025-08-30T14:23:15"
+}
+```
+
+```bash
+# Featured observations (showing selected fields)
+curl -s 'http://localhost:8080/api/featured?limit=2' \
+  | jq '[.[] | {id, targetName, score, status}]'
+```
+
+```json
+[
+  { "id": 1, "targetName": "Carina", "score": 90, "status": "APPROVED" },
+  { "id": 2, "targetName": "Carina", "score": 10, "status": "APPROVED" }
+]
+```
+
+> Values vary by data; shapes match the implemented DTOs and endpoints.
 
 ---
 layout: section  
