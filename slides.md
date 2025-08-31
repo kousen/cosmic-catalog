@@ -1085,7 +1085,7 @@ layout: end
 </div>
 </div>
 
-<div class="text-center mt-8 text-sm text-gray-600">
+<div class="mt-8 text-sm text-gray-600">
 Remember: AI agents aren't here to replace developers—they're here to make us better developers.
 </div>
 
