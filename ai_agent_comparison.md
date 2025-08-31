@@ -1,6 +1,6 @@
 ---
 theme: seriph
-title: The Developer's AI Co‑pilot: A Comparative Analysis
+title: "The Developer's AI Co‑pilot: A Comparative Analysis"
 layout: cover
 transition: slide-left
 mdc: true
