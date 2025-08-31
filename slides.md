@@ -1066,7 +1066,7 @@ layout: end
 ## Questions & Discussion
 
 <div class="grid grid-cols-2 gap-12 mt-12">
-<div>
+<div class="text-left">
 
 ### Contact Information
 - **Email**: ken@kousenit.com
@@ -1075,7 +1075,7 @@ layout: end
 - **GitHub**: kousen
 
 </div>
-<div>
+<div class="text-left">
 
 ### Resources
 - **Cosmic Catalog Demo**: github.com/kousen/cosmic-catalog
