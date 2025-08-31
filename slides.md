@@ -7,7 +7,6 @@ info: |
   Demonstrating AI-driven code review, testing, and release management
   for the Cosmic Catalog Spring Boot application.
 
-class: text-center
 highlighter: shiki
 drawings:
   enabled: false
@@ -778,7 +777,7 @@ layout: section
 ---
 
 # Phase 4: Release Management
-## Gemini CLI as DevOps Engineer  
+## Gemini CLI as Reviewer  
 ### (12:00 - 15:00)
 
 ---
@@ -856,34 +855,34 @@ layout: default
 <div class="grid grid-cols-4 gap-4 text-center">
 <div class="bg-blue-100 p-4 rounded-lg text-gray-900">
 
-### Gemini CLI
-#### Code Reviewer
-<div class="text-6xl font-bold mt-4 text-blue-600">A-</div>
-<div class="mt-2 text-sm text-gray-600">Excellent issue detection</div>
+### Claude Code + context7
+#### Dependency Specialist
+<div class="text-6xl font-bold mt-4 text-blue-600">B+</div>
+<div class="mt-2 text-sm text-gray-600">Safe upgrades + one fix</div>
 
 </div>
 <div class="bg-green-100 p-4 rounded-lg text-gray-900">
 
 ### Gemini CLI  
-#### Test Engineer
-<div class="text-6xl font-bold mt-4 text-green-600">B+</div>
-<div class="mt-2 text-sm text-gray-600">Comprehensive coverage</div>
+#### Feature Developer
+<div class="text-6xl font-bold mt-4 text-green-600">B</div>
+<div class="mt-2 text-sm text-gray-600">/health shipped + tests</div>
 
 </div>
 <div class="bg-purple-100 p-4 rounded-lg text-gray-900">
 
-### Junie/IntelliJ
-#### Refactoring Expert
-<div class="text-6xl font-bold mt-4 text-purple-600">A</div>
-<div class="mt-2 text-sm text-gray-600">Context-aware optimization</div>
+### Playwright
+#### QA Agent
+<div class="text-6xl font-bold mt-4 text-purple-600">B</div>
+<div class="mt-2 text-sm text-gray-600">E2E flow validated</div>
 
 </div>
 <div class="bg-orange-100 p-4 rounded-lg text-gray-900">
 
-### Gemini CLI
-#### Release Manager
-<div class="text-4xl font-bold mt-4 text-orange-600">42</div>
-<div class="mt-2 text-sm text-gray-600">Don't Panic!</div>
+### Junie/IntelliJ
+#### Finisher (Refactoring)
+<div class="text-6xl font-bold mt-4 text-orange-600">A-</div>
+<div class="mt-2 text-sm text-gray-600">Safe polish, tests green</div>
 
 </div>
 </div>
