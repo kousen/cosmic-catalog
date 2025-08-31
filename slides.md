@@ -987,7 +987,7 @@ layout: default
 # Production Impact
 
 <div class="grid grid-cols-3 gap-6">
-<div class="text-center">
+<div>
 
 ## Code Quality
 <div class="text-4xl font-bold text-blue-600 mb-4">Improved</div>
@@ -997,7 +997,7 @@ layout: default
 - Best practices enforced
 
 </div>
-<div class="text-center">
+<div>
 
 ## Test Coverage  
 <div class="text-4xl font-bold text-green-600 mb-4">Broader</div>
@@ -1007,7 +1007,7 @@ layout: default
 - Concurrency scenarios included
 
 </div>
-<div class="text-center">
+<div>
 
 ## Performance
 <div class="text-4xl font-bold text-purple-600 mb-4">More Efficient</div>
