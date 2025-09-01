@@ -200,6 +200,9 @@ The goal is to demonstrate each AI agent's unique strengths and approaches to im
 - [x] Task 3.2: README Enhancement - Completed
  - **Last Updated:** September 1, 2025
  - **Notes:** Added `docs/API.md`, `docs/openapi.yaml`, `docs/postman_collection.json`, and `docs/curl-examples.sh`. Enhanced `README.md` with Quick Start, Docker usage, and pointers to docs. Added JavaDoc to public controllers. Included `docs/ARCHITECTURE.md`. Added Springdoc Swagger UI configured to load `/openapi.yaml` and a `docker-compose.yml` with a Postgres-backed `postgres` profile for persistence.
+ - [x] Task 3.3: CI/CD Pipeline - Completed (basic CI)
+   - Added GitHub Actions workflow (`.github/workflows/ci.yml`) to run Gradle tests on PRs and main, and build Docker image.
+   - Synced API docs to include `POST /api/import/sample` and current `ErrorResponse` shape.
 
 ## Next Planned Steps
 

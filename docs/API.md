@@ -12,11 +12,8 @@ All responses are JSON unless stated otherwise.
 
 ```
 {
-  "error": "VERSION_CONFLICT|NOT_FOUND|VALIDATION_ERROR",
-  "message": "Human friendly details",
-  "status": 409,
-  "timestamp": "2025-09-01T12:34:56.789",
-  "path": "/api/..."
+  "error": "VERSION_CONFLICT|NOT_FOUND|VALIDATION_ERROR|BAD_REQUEST|IO_ERROR|INTERNAL_ERROR",
+  "message": "Human friendly details"
 }
 ```
 
@@ -116,10 +113,27 @@ Response 409:
 ```
 {
   "error": "VERSION_CONFLICT",
-  "message": "Version conflict: expected 999, but was 0",
-  "status": 409,
-  "timestamp": "...",
-  "path": "/api/observations/1/approve"
+  "message": "Version conflict: expected 999, but was 0"
+}
+```
+
+### POST /api/import/sample
+Imports sample JWST observations from the bundled JSON file.
+
+- 200 OK: `ImportSummary`
+- 500 Internal Server Error: `ErrorResponse` when file read fails
+
+ImportSummary
+```
+{
+  "source": "data/jwst_sample.json",
+  "startedAt": "2025-08-31T18:21:00",
+  "completedAt": "2025-08-31T18:21:05",
+  "totalProcessed": 100,
+  "duplicatesFound": 5,
+  "imported": 95,
+  "status": "SUCCEEDED",
+  "notes": "Imported 95 records, skipped 5 duplicates"
 }
 ```
 
@@ -133,10 +147,11 @@ Response 409:
   - `curl -s -X POST "http://localhost:8080/api/observations/1/approve?expectedVersion=0" | jq`
 - Health check:
   - `curl -s http://localhost:8080/health | jq`
+- Import sample data:
+  - `curl -s -X POST http://localhost:8080/api/import/sample | jq`
 
 ## Notes
 
 - Scores are computed on save; a score of 42 sets `hasDontPanicBadge=true`.
 - Pagination follows Spring Data conventions.
 - H2 in-memory DB is used; data resets on restart unless externalized.
-

@@ -83,6 +83,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+  /api/import/sample:
+    post:
+      summary: Import sample JWST observations
+      responses:
+        '200':
+          description: Import summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportSummary'
+        '500':
+          description: IO error during import
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
     ErrorResponse:
@@ -90,10 +106,7 @@ components:
       properties:
         error: { type: string }
         message: { type: string }
-        status: { type: integer }
-        timestamp: { type: string, format: date-time }
-        path: { type: string }
-      required: [error, message, status, timestamp, path]
+      required: [error, message]
     HealthInfo:
       type: object
       properties:
@@ -136,4 +149,15 @@ components:
         size: { type: integer }
         number: { type: integer }
       required: [content]
-
+    ImportSummary:
+      type: object
+      properties:
+        source: { type: string }
+        startedAt: { type: string, format: date-time }
+        completedAt: { type: string, format: date-time }
+        totalProcessed: { type: integer }
+        duplicatesFound: { type: integer }
+        imported: { type: integer }
+        status: { type: string, enum: [SUCCEEDED, FAILED, PARTIAL] }
+        notes: { type: string }
+      required: [source, totalProcessed, imported, status]
