@@ -184,10 +184,10 @@ The goal is to demonstrate each AI agent's unique strengths and approaches to im
 ## Completion Status
 
 ### Gemini CLI
-- [ ] Task 1.1: Code Review - Not started
-- [ ] Task 1.2: Version Conflict Test - Not started
+- [x] Task 1.1: Code Review - Completed (see `docs/CODE_REVIEW.md`)
+- [x] Task 1.2: Version Conflict Test - Completed
 - **Last Updated:** September 1, 2025
-- **Notes:** Stabilized failing tests by adding robust global exception handling (400 for validation/type mismatch, 500 fallback) and aligning ImportController error handling so Import tests pass. All tests now green (`./gradlew test`).
+- **Notes:** Stabilized failing tests by adding robust global exception handling (400 for validation/type mismatch, 404 not found, 409 version conflict, 500 fallback) and aligning ImportController error handling so Import tests pass. All tests green (`./gradlew test`). Tagged `v13-gemini-fixes`.
 
 ### Claude Code  
 - [x] Task 2.1: Extract HealthService - Completed
@@ -200,6 +200,13 @@ The goal is to demonstrate each AI agent's unique strengths and approaches to im
 - [x] Task 3.2: README Enhancement - Completed
  - **Last Updated:** September 1, 2025
  - **Notes:** Added `docs/API.md`, `docs/openapi.yaml`, `docs/postman_collection.json`, and `docs/curl-examples.sh`. Enhanced `README.md` with Quick Start, Docker usage, and pointers to docs. Added JavaDoc to public controllers. Included `docs/ARCHITECTURE.md`. Added Springdoc Swagger UI configured to load `/openapi.yaml` and a `docker-compose.yml` with a Postgres-backed `postgres` profile for persistence.
+
+## Next Planned Steps
+
+- Sync OpenAPI + API.md with new import endpoint (`POST /api/import/sample`) and error responses.
+- Add GitHub Actions CI to run tests and build Docker image on PRs/main.
+- Optionally enable caching (Caffeine) for featured results with cache eviction on approvals/imports.
+- Add an E2E UI smoke test (Playwright) for homepage and basic API flows.
 
 ### Playwright/Junie
 - [ ] Task 4.1: E2E UI Test - Not started
@@ -224,8 +231,13 @@ During the presentation, we'll show progression:
 3. `v7-gemini-test` - Test added
 4. `v8-claude-refactor` - Service extracted
 5. `v9-codex-docs` - Documentation added
-6. `v10-codex-readme` - README updated
-7. `v11-e2e-test` - (Optional) E2E test
+6. `v10-codex-dx` - README and DX updates
+7. `v10-codex-swagger` - Swagger UI wired to static spec
+8. `v10-codex-compose` - Docker Compose with Postgres
+9. `v11-claude-services` - Service consolidation + validation
+10. `v12-claude-import` - ImportService and endpoint
+11. `v13-gemini-fixes` - Stabilization and error handling
+12. `v11-e2e-test` - (Optional) E2E test
 
 ## Success Criteria
 
@@ -246,5 +258,5 @@ Each agent should:
 - If you encounter issues, document them in the Notes section
 
 ---
-*Last Updated: [Current Date]*
+*Last Updated: September 1, 2025*
 *Demo Date: AI Codecon September 2025*
