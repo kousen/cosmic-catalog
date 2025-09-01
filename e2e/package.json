@@ -1,0 +1,12 @@
+{
+  "name": "cosmic-catalog-e2e",
+  "version": "1.0.0",
+  "description": "E2E tests for Cosmic Catalog application",
+  "scripts": {
+    "test": "playwright test",
+    "install:browsers": "playwright install --with-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.46.0"
+  }
+}

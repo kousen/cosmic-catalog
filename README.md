@@ -50,6 +50,28 @@ To run the full test suite, use the `test` Gradle task:
 
 Tests include unit and integration coverage. Integration tests boot the app on a random port and use `TestRestTemplate`.
 
+## E2E Tests
+
+The project includes Playwright end-to-end tests that verify the application's UI and API functionality.
+
+To run E2E tests locally:
+
+```bash
+cd cosmic-catalog/e2e
+npm ci
+npm run install:browsers
+npm test
+```
+
+The E2E tests will:
+- Start the Spring Boot application automatically
+- Verify the home page loads correctly
+- Test the import API endpoint
+- Verify the featured observations API
+- Check pagination functionality
+
+E2E tests are also run automatically in CI on pull requests and pushes to main.
+
 ## API Documentation
 
 - Human-friendly guide: `docs/API.md`

@@ -1,0 +1,62 @@
+[
+  {
+    "telescope": "JWST",
+    "programId": "JWST-2024-001",
+    "targetName": "Carina Nebula",
+    "ra": 161.2675,
+    "dec": -59.8675,
+    "obsDate": "2024-03-15T14:30:00",
+    "instrument": "NIRCam",
+    "filters": "F200W",
+    "exposureSec": 7200,
+    "imageUrl": "https://example.com/jwst-carina.jpg"
+  },
+  {
+    "telescope": "JWST",
+    "programId": "JWST-2024-002",
+    "targetName": "Stephan's Quintet",
+    "ra": 339.0146,
+    "dec": 33.9608,
+    "obsDate": "2024-04-02T09:15:00",
+    "instrument": "MIRI",
+    "filters": "F770W",
+    "exposureSec": 5400,
+    "imageUrl": "https://example.com/jwst-quintet.jpg"
+  },
+  {
+    "telescope": "Hubble",
+    "programId": "HST-2024-101",
+    "targetName": "Pillars of Creation",
+    "ra": 274.7000,
+    "dec": -13.8167,
+    "obsDate": "2024-02-28T18:45:00",
+    "instrument": "WFC3",
+    "filters": "F814W",
+    "exposureSec": 3600,
+    "imageUrl": "https://example.com/hubble-pillars.jpg"
+  },
+  {
+    "telescope": "JWST",
+    "programId": "JWST-2024-003",
+    "targetName": "NGC 7469",
+    "ra": 345.8154,
+    "dec": 8.8739,
+    "obsDate": "2024-05-10T22:00:00",
+    "instrument": "NIRSpec",
+    "filters": "G395H",
+    "exposureSec": 10800,
+    "imageUrl": "https://example.com/jwst-ngc7469.jpg"
+  },
+  {
+    "telescope": "Hubble",
+    "programId": "HST-2024-102",
+    "targetName": "Orion Nebula",
+    "ra": 83.8200,
+    "dec": -5.3911,
+    "obsDate": "2024-01-20T05:30:00",
+    "instrument": "ACS",
+    "filters": "F555W",
+    "exposureSec": 2400,
+    "imageUrl": "https://example.com/hubble-orion.jpg"
+  }
+]

@@ -211,10 +211,10 @@ The goal is to demonstrate each AI agent's unique strengths and approaches to im
 - Optionally enable caching (Caffeine) for featured results with cache eviction on approvals/imports.
 - Add an E2E UI smoke test (Playwright) for homepage and basic API flows.
 
-### Playwright/Junie
-- [ ] Task 4.1: E2E UI Test - Not started
-- **Last Updated:** [Date/Time]
-- **Notes:**
+### Playwright/Claude Code
+- [x] Task 4.1: E2E UI Test - Completed
+- **Last Updated:** September 1, 2025
+- **Notes:** Added comprehensive Playwright E2E tests covering home page, API import, featured observations, and pagination. Tests are integrated into GitHub Actions CI pipeline. Tagged `v15-claude-e2e`.
 
 ## Git Tag Convention
 
@@ -240,7 +240,8 @@ During the presentation, we'll show progression:
 9. `v11-claude-services` - Service consolidation + validation
 10. `v12-claude-import` - ImportService and endpoint
 11. `v13-gemini-fixes` - Stabilization and error handling
-12. `v11-e2e-test` - (Optional) E2E test
+12. `v14-gemini-production` - (If created by Gemini)
+13. `v15-claude-e2e` - Playwright E2E tests with CI integration
 
 ## Success Criteria
 
