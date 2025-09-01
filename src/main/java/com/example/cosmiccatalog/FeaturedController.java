@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * REST endpoint for featured observations.
+ * Returns top-N approved observations sorted by score.
+ */
 @RestController
 public class FeaturedController {
 
@@ -18,6 +22,12 @@ public class FeaturedController {
         this.observationRepository = observationRepository;
     }
 
+    /**
+     * Returns top-N approved observations sorted by score desc.
+     *
+     * @param limit maximum number of results (default 10)
+     * @return list of ObservationDTO
+     */
     @GetMapping("/api/featured")
     public List<ObservationDTO> getFeatured(@RequestParam(defaultValue = "10") int limit) {
         var pageable = PageRequest.of(0, limit, Sort.by(Sort.Direction.DESC, "score"));
@@ -27,4 +37,3 @@ public class FeaturedController {
                 .toList();
     }
 }
-

@@ -8,6 +8,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * REST endpoints for managing observations.
+ * Exposes listing and approval with optimistic locking via expectedVersion.
+ */
 @RestController
 @RequestMapping("/api/observations")
 public class ObservationController {
@@ -21,12 +25,27 @@ public class ObservationController {
         this.observationService = observationService;
     }
 
+    /**
+     * Returns a paginated list of observations as DTOs.
+     *
+     * @param pageable Spring Data pagination and sorting
+     * @return page of ObservationDTO
+     */
     @GetMapping
     public Page<ObservationDTO> getObservations(Pageable pageable) {
         var observations = observationRepository.findAll(pageable);
         return observations.map(ObservationDTO::from);
     }
 
+    /**
+     * Approves an observation.
+     * If expectedVersion is provided and doesn't match the entity version, a 409 response is returned.
+     *
+     * @param id observation id
+     * @param expectedVersion optional optimistic lock guard
+     * @param request http request (for error path)
+     * @return approved ObservationDTO or ErrorResponse
+     */
     @PostMapping("/{id}/approve")
     public ResponseEntity<?> approveObservation(@PathVariable Long id, 
                                                @RequestParam(required = false) Integer expectedVersion,

@@ -196,10 +196,10 @@ The goal is to demonstrate each AI agent's unique strengths and approaches to im
 - **Notes:** Extracted HealthService from HealthController following SOLID principles. Added structured ErrorResponse DTO for consistent API error handling. All tests pass.
 
 ### OpenAI Codex CLI
-- [ ] Task 3.1: API Documentation - Not started
-- [ ] Task 3.2: README Enhancement - Not started
-- **Last Updated:** [Date/Time]
-- **Notes:**
+- [x] Task 3.1: API Documentation - Completed
+- [x] Task 3.2: README Enhancement - Completed
+- **Last Updated:** September 1, 2025
+- **Notes:** Added `docs/API.md`, `docs/openapi.yaml`, `docs/postman_collection.json`, and `docs/curl-examples.sh`. Enhanced `README.md` with Quick Start, Docker usage, and pointers to docs. Added JavaDoc to public controllers. Included `docs/ARCHITECTURE.md`.
 
 ### Playwright/Junie
 - [ ] Task 4.1: E2E UI Test - Not started

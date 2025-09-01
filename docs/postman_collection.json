@@ -1,0 +1,26 @@
+{
+  "info": {
+    "name": "Cosmic Catalog API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "cosmic-catalog-collection"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "http://localhost:8080/health" }
+    },
+    {
+      "name": "List Observations",
+      "request": { "method": "GET", "url": "http://localhost:8080/api/observations?size=5" }
+    },
+    {
+      "name": "Featured (limit=3)",
+      "request": { "method": "GET", "url": "http://localhost:8080/api/featured?limit=3" }
+    },
+    {
+      "name": "Approve Observation (id=1, expectedVersion=0)",
+      "request": { "method": "POST", "url": "http://localhost:8080/api/observations/1/approve?expectedVersion=0" }
+    }
+  ]
+}
+

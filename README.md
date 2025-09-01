@@ -11,6 +11,25 @@ A simple Spring Boot application for curating astronomical observations from tel
 *   **Thymeleaf** for the simple UI
 *   **JUnit 5** for unit and integration tests
 
+## Quick Start
+
+Run locally with Gradle:
+
+```bash
+./gradlew bootRun
+```
+
+Then visit `http://localhost:8080`.
+
+Try the API:
+
+```bash
+curl -s http://localhost:8080/health | jq
+curl -s 'http://localhost:8080/api/featured?limit=2' | jq
+```
+
+Or use the ready-made examples: `docs/curl-examples.sh`.
+
 ## Building the Project
 
 You can build the project using the included Gradle wrapper:
@@ -18,16 +37,6 @@ You can build the project using the included Gradle wrapper:
 ```bash
 ./gradlew build
 ```
-
-## Running the Application
-
-To run the application, use the `bootRun` Gradle task:
-
-```bash
-./gradlew bootRun
-```
-
-The application will be available at `http://localhost:8080`.
 
 The home page is served at `/` and resolves `src/main/resources/templates/index.html`.
 
@@ -41,12 +50,17 @@ To run the full test suite, use the `test` Gradle task:
 
 Tests include unit and integration coverage. Integration tests boot the app on a random port and use `TestRestTemplate`.
 
-## API Endpoints
+## API Documentation
 
-*   `GET /api/observations`: Pageable list of observations (DTO).
-*   `GET /api/featured`: Top-N approved observations, sorted by score desc. Query param: `limit` (default 10).
-*   `POST /api/observations/{id}/approve`: Approves an observation; supports optimistic locking via `expectedVersion` query param, returns 409 on version conflict.
-*   `GET /health`: Returns `{ version, counts: { obs, targets }, lastImport }`. Version comes from `app.version` in `application.properties`.
+- Human-friendly guide: `docs/API.md`
+- OpenAPI spec: `docs/openapi.yaml`
+- Postman collection: `docs/postman_collection.json`
+
+Key endpoints:
+- `GET /api/observations`: pageable list of observations (DTO)
+- `GET /api/featured?limit=10`: top-N approved observations
+- `POST /api/observations/{id}/approve?expectedVersion=0`: approve with optimistic locking
+- `GET /health`: version, counts, last import
 
 Notes:
 - Observation scores are calculated on save via `ObservationService` using `ScoringService`.
@@ -62,3 +76,28 @@ app.version=1.0.0
 ```
 
 Update `app.version` as needed; it is reported by `GET /health`.
+
+## Docker
+
+Build and run using Docker (no local JDK/Gradle required):
+
+```bash
+docker build -t cosmic-catalog .
+docker run --rm -p 8080:8080 cosmic-catalog
+```
+
+Pass JVM options if needed:
+
+```bash
+docker run --rm -p 8080:8080 -e JAVA_OPTS="-Xms256m -Xmx512m" cosmic-catalog
+```
+
+## Architecture
+
+See `docs/ARCHITECTURE.md` for layers, decisions, and future enhancements.
+
+## Contributing
+
+Pull requests welcome. Please:
+- Keep changes focused and include tests where appropriate
+- Use clear commit messages and reference tasks/tags in `AI_AGENT_TASKS.md`
