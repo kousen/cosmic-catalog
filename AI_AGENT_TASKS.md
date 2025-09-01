@@ -190,10 +190,10 @@ The goal is to demonstrate each AI agent's unique strengths and approaches to im
 - **Notes:** 
 
 ### Claude Code  
-- [ ] Task 2.1: Extract HealthService - Not started
-- [ ] Task 2.2: Additional Refactoring - Not started
-- **Last Updated:** [Date/Time]
-- **Notes:**
+- [x] Task 2.1: Extract HealthService - Completed
+- [x] Task 2.2: Additional Refactoring - Completed (ErrorResponse DTO)
+- **Last Updated:** September 1, 2025
+- **Notes:** Extracted HealthService from HealthController following SOLID principles. Added structured ErrorResponse DTO for consistent API error handling. All tests pass.
 
 ### OpenAI Codex CLI
 - [ ] Task 3.1: API Documentation - Not started
