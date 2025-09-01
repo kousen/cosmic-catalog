@@ -70,11 +70,12 @@ class HealthControllerIT {
         o2.setExposureSec(50);
         observationRepository.save(o2);
 
-        // seed latest import batch
+        // seed latest import batch with fixed timestamp for consistent testing
         ImportBatch ib = new ImportBatch();
         ib.setSource("jwst_sample.json");
-        ib.setStartedAt(LocalDateTime.now().minusHours(2));
-        LocalDateTime completed = LocalDateTime.now().minusHours(1);
+        // Use fixed timestamp without nanoseconds for consistent formatting
+        LocalDateTime completed = LocalDateTime.of(2024, 9, 1, 12, 0, 0);
+        ib.setStartedAt(completed.minusHours(1));
         ib.setCompletedAt(completed);
         ib.setTotalRows(2);
         ib.setImportedCount(2);
