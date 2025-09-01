@@ -802,3 +802,124 @@ background: 'linear-gradient(to bottom, #581c87, #6b21a8)'
 </div>
 
 </div>
+
+---
+background: 'linear-gradient(135deg, #1e40af, #1e3a8a)'
+---
+
+## <span style="color: #fbbf24;">🚀 Get the Code</span>
+
+<div style="text-align: center; font-size: 1.1em;">
+
+<div style="margin: 1em 0; padding: 1em; background: rgba(251, 191, 36, 0.1); border-radius: 10px; border: 2px solid #fbbf24;">
+
+<div style="font-size: 1.6em; margin: 0.5em 0;">
+<a href="https://github.com/kousen/cosmic-catalog" style="color: #60a5fa; text-decoration: none;">
+github.com/kousen/cosmic-catalog
+</a>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin: 0.8em 0; color: #e0f2fe; font-size: 0.95em;">
+<div style="text-align: left;">
+• Complete Spring Boot app<br/>
+• All AI contributions (v5-v15)<br/>
+• Full documentation
+</div>
+<div style="text-align: left;">
+• CI/CD pipeline<br/>
+• E2E Playwright tests<br/>
+• This presentation
+</div>
+</div>
+
+<div style="margin-top: 0.8em; padding: 0.6em; background: rgba(16, 185, 129, 0.15); border-radius: 8px;">
+<pre style="color: #86efac; font-size: 0.85em; margin: 0;">git clone https://github.com/kousen/cosmic-catalog.git
+./gradlew bootRun    # Start the application</pre>
+</div>
+
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #7c3aed, #6d28d9)'
+---
+
+## <span style="color: #fbbf24;">About Ken Kousen</span>
+
+<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; align-items: start; margin-top: 1em;">
+
+<div style="text-align: center;">
+<img src="https://www.kousenit.com/wp-content/uploads/2020/08/ken_kousen_headshot.jpg" style="border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); width: 100%; max-width: 200px;" />
+</div>
+
+<div style="color: #e0f2fe; font-size: 0.9em;">
+
+### <span style="color: #fde047;">Kenneth A. Kousen</span>
+<span style="color: #c4b5fd;">President, Kousen IT, Inc.</span>
+
+<div style="margin-top: 0.8em; line-height: 1.4;">
+
+**🏆 Java Champion & Groovy Champion**
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em; margin-top: 0.5em;">
+<div>
+<strong>📚 Books:</strong><br/>
+• Help Your Boss Help You<br/>
+• Modern Java Recipes<br/>
+• Kotlin Cookbook<br/>
+• Mockito Made Clear<br/>
+• Gradle Recipes for Android<br/>
+• Making Java Groovy
+</div>
+<div>
+<strong>💼 Speaker:</strong><br/>
+• O'Reilly Media instructor<br/>
+• NFJS tour speaker<br/>
+• Spring, Java, Kotlin, AI/ML<br/>
+• MIT MS, Princeton PhD
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div style="margin-top: 1em; text-align: center; padding: 0.6em; background: rgba(251, 191, 36, 0.1); border-radius: 8px;">
+<strong style="color: #fde047;">📧</strong> <span style="color: #fef3c7;">Newsletter: <a href="https://kenkousen.substack.com" style="color: #60a5fa;">kenkousen.substack.com</a></span><br/>
+<strong style="color: #fde047;">📺</strong> <span style="color: #fef3c7;">YouTube: <a href="https://youtube.com/@talesfromthejarside" style="color: #60a5fa;">@talesfromthejarside</a></span>
+</div>
+
+---
+background: 'linear-gradient(135deg, #dc2626, #991b1b)'
+---
+
+## <span style="color: #fbbf24;">Thank You!</span>
+
+<div style="text-align: center; font-size: 1.1em; margin-top: 1.5em;">
+
+### <span style="color: #fde047;">Let's Connect!</span>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3em; margin: 1.5em auto; max-width: 650px; line-height: 1.6;">
+<div style="text-align: left; color: #e0f2fe;">
+📧 ken.kousen@kousenit.com<br/>
+🦋 bsky.app/profile/kousenit.com<br/>
+💼 linkedin.com/in/kenkousen
+</div>
+<div style="text-align: left; color: #e0f2fe;">
+🐙 github.com/kousen<br/>
+📝 kousenit.substack.com<br/>
+📺 @talesfromthejarside
+</div>
+</div>
+
+<div style="margin-top: 1.5em; padding: 1em; background: rgba(251, 191, 36, 0.1); border-radius: 10px; border: 2px solid #fbbf24;">
+<span style="color: #fef3c7;">
+Remember: AI agents aren't here to replace developers—<br/>
+they're here to make us better developers.
+</span>
+</div>
+
+</div>

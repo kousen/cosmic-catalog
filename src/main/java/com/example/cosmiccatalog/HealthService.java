@@ -52,9 +52,9 @@ public class HealthService {
      */
     private String getLastImportTime() {
         return importBatchRepository.findTopByOrderByCompletedAtDesc()
-                .map(batch -> batch.getCompletedAt() != null
-                        ? batch.getCompletedAt().format(DateTimeFormatter.ISO_DATE_TIME)
-                        : null)
+                .filter(batch -> batch.getCompletedAt() != null)
+                .map(batch -> batch.getCompletedAt()
+                        .format(DateTimeFormatter.ISO_DATE_TIME))
                 .orElse(null);
     }
 }

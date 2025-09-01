@@ -1,11 +1,8 @@
 package com.example.cosmiccatalog;
 
 import com.example.cosmiccatalog.dto.ObservationDTO;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**

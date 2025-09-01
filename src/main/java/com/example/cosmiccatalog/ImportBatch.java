@@ -1,6 +1,7 @@
 package com.example.cosmiccatalog;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Entity

@@ -1072,6 +1072,80 @@ This is the practical benefit of treating AI as senior collaborators rather than
 -->
 
 ---
+layout: default
+---
+
+# GitHub Repository
+
+<div class="text-center">
+
+## 🚀 Get the Code
+
+<div class="text-6xl mt-8 mb-8">
+<a href="https://github.com/kousen/cosmic-catalog" class="text-blue-600">
+github.com/kousen/cosmic-catalog
+</a>
+</div>
+
+### What's Included:
+- Complete Spring Boot application with all AI agent contributions
+- Git tags showing progression (v5 through v15)
+- Documentation of each agent's work
+- CI/CD pipeline configuration
+- E2E tests with Playwright
+- This presentation
+
+<div class="mt-8 p-4 bg-blue-50 rounded-lg">
+<strong>Clone and explore:</strong>
+<pre class="text-left">
+git clone https://github.com/kousen/cosmic-catalog.git
+cd cosmic-catalog
+git tag -l  # See all version tags
+./gradlew bootRun  # Start the application
+</pre>
+</div>
+
+</div>
+
+---
+layout: default
+---
+
+# About Ken Kousen
+
+<div class="grid grid-cols-3 gap-8">
+<div class="col-span-1">
+<img src="https://www.kousenit.com/wp-content/uploads/2020/08/ken_kousen_headshot.jpg" class="rounded-lg shadow-lg" />
+</div>
+<div class="col-span-2">
+
+## Kenneth A. Kousen
+
+### President, Kousen IT, Inc.
+- **Java Champion** and **Groovy Champion**
+- **Author** of multiple programming books including:
+  - *Help Your Boss Help You* (Pragmatic Programmers)
+  - *Modern Java Recipes* (O'Reilly)
+  - *Gradle Recipes for Android* (O'Reilly)
+  - *Making Java Groovy* (Manning)
+
+### Trainer & Speaker
+- **O'Reilly Learning Platform** instructor
+- **NFJS (No Fluff Just Stuff)** tour speaker
+- Specializes in Spring, Java, Groovy, Kotlin, Android, and AI/ML
+
+### Education
+- MS in Mechanical Engineering, MIT
+- PhD in Aerospace Engineering, Princeton
+
+</div>
+</div>
+
+<div class="mt-6 text-center">
+<strong>Newsletter:</strong> Subscribe to "Tales from the jar side" at kousenit.substack.com
+</div>
+
+---
 layout: end
 ---
 
@@ -1079,28 +1153,21 @@ layout: end
 
 ## Questions & Discussion
 
-<div class="grid grid-cols-2 gap-12 mt-12">
-<div class="text-left">
+<div class="text-center text-2xl mt-12">
 
-### Contact Information
+### Let's Connect!
+
 - **Email**: ken@kousenit.com
 - **Twitter/X**: @kenkousen  
 - **LinkedIn**: kenneth-kousen
 - **GitHub**: kousen
+- **Newsletter**: kousenit.substack.com
 
 </div>
-<div class="text-left">
 
-### Resources
-- **Cosmic Catalog Demo**: github.com/kousen/cosmic-catalog
-- **AI Collaboration Guide**: Available in repository docs
-- **Slides**: Available on GitHub Pages
-
-</div>
-</div>
-
-<div class="mt-8 text-sm text-gray-600">
-Remember: AI agents aren't here to replace developers—they're here to make us better developers.
+<div class="mt-12 text-lg text-gray-600 text-center">
+Remember: AI agents aren't here to replace developers—<br/>
+they're here to make us better developers.
 </div>
 
 <!--

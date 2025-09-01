@@ -20,18 +20,15 @@ import java.util.List;
 public class ImportService {
     private static final Logger logger = LoggerFactory.getLogger(ImportService.class);
     
-    private final ObservationRepository observationRepository;
     private final ImportBatchRepository importBatchRepository;
     private final DeDupService deDupService;
     private final ObservationService observationService;
     private final ObjectMapper objectMapper;
 
-    public ImportService(ObservationRepository observationRepository,
-                        ImportBatchRepository importBatchRepository,
+    public ImportService(ImportBatchRepository importBatchRepository,
                         DeDupService deDupService,
                         ObservationService observationService,
                         ObjectMapper objectMapper) {
-        this.observationRepository = observationRepository;
         this.importBatchRepository = importBatchRepository;
         this.deDupService = deDupService;
         this.observationService = observationService;

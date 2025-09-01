@@ -1,6 +1,7 @@
 package com.example.cosmiccatalog.dto;
 
 import com.example.cosmiccatalog.Observation;
+
 import java.time.LocalDateTime;
 
 /**
