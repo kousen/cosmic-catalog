@@ -186,8 +186,8 @@ The goal is to demonstrate each AI agent's unique strengths and approaches to im
 ### Gemini CLI
 - [ ] Task 1.1: Code Review - Not started
 - [ ] Task 1.2: Version Conflict Test - Not started
-- **Last Updated:** [Date/Time]
-- **Notes:** 
+- **Last Updated:** September 1, 2025
+- **Notes:** Stabilized failing tests by adding robust global exception handling (400 for validation/type mismatch, 500 fallback) and aligning ImportController error handling so Import tests pass. All tests now green (`./gradlew test`).
 
 ### Claude Code  
 - [x] Task 2.1: Extract HealthService - Completed
