@@ -1,0 +1,203 @@
+### Cosmic Catalog API - IntelliJ IDEA HTTP Client
+### Run the application first: ./gradlew bootRun
+### Click the green arrow next to each request to execute it
+
+@baseUrl = http://localhost:8080
+
+### ============================================
+### QUICK START - RUN THESE FIRST!
+### ============================================
+
+### 1. Health Check - Verify App is Running
+# @name health
+GET {{baseUrl}}/health
+Accept: application/json
+
+### 2. Import Sample Data - IMPORTANT: Run this to populate the database!
+# This will load 5 sample observations (3 JWST, 2 Hubble)
+# @name importSampleData
+POST {{baseUrl}}/api/import/sample
+Content-Type: application/json
+Accept: application/json
+
+### 3. Verify Data Was Imported - Should show observations now
+GET {{baseUrl}}/api/observations?page=0&size=10
+Accept: application/json
+
+### 4. Get Featured Observations - Should return high-scoring observations
+GET {{baseUrl}}/api/featured?limit=3
+Accept: application/json
+
+### ============================================
+### MAIN API ENDPOINTS
+### ============================================
+
+### Health Check (Detailed)
+# @name healthDetailed
+GET {{baseUrl}}/health
+Accept: application/json
+
+### Get All Observations (Paginated) - First Page
+# @name getAllObservations
+GET {{baseUrl}}/api/observations?page=0&size=5
+Accept: application/json
+
+### Get All Observations - Second Page
+GET {{baseUrl}}/api/observations?page=1&size=5
+Accept: application/json
+
+### Get All Observations - Sorted by Score Descending
+GET {{baseUrl}}/api/observations?page=0&size=10&sort=score,desc
+Accept: application/json
+
+### Get Featured Observations (Default Limit)
+# @name getFeatured
+GET {{baseUrl}}/api/featured?limit=3
+Accept: application/json
+
+### Get Featured Observations - Single Result
+GET {{baseUrl}}/api/featured?limit=1
+Accept: application/json
+
+### Get Featured Observations - Maximum (10)
+GET {{baseUrl}}/api/featured?limit=10
+Accept: application/json
+
+### Approve an Observation (Replace 1 with actual ID)
+# @name approveObservation
+POST {{baseUrl}}/api/observations/1/approve
+Accept: application/json
+
+### Approve with Optimistic Locking (Replace 1 with ID, 0 with version)
+# @name approveWithVersion
+POST {{baseUrl}}/api/observations/1/approve?expectedVersion=0
+Accept: application/json
+
+### Test Version Conflict (Wrong Version - Should Return 409)
+# @name testVersionConflict
+POST {{baseUrl}}/api/observations/1/approve?expectedVersion=999
+Accept: application/json
+
+### Test Pagination - Small Page Size
+GET {{baseUrl}}/api/observations?page=0&size=2&sort=score,desc
+Accept: application/json
+
+### Test Pagination - Different Sort
+GET {{baseUrl}}/api/observations?page=0&size=5&sort=targetName,asc
+Accept: application/json
+
+### ERROR HANDLING TESTS ###
+
+### Test 404 - Non-existent Observation
+# @name test404
+POST {{baseUrl}}/api/observations/99999/approve
+Accept: application/json
+
+### Test Validation Error - Invalid Limit (Too Low)
+# @name testValidationLow
+GET {{baseUrl}}/api/featured?limit=0
+Accept: application/json
+
+### Test Validation Error - Invalid Limit (Too High)
+# @name testValidationHigh
+GET {{baseUrl}}/api/featured?limit=101
+Accept: application/json
+
+### ADVANCED SCENARIOS ###
+
+### Get Observations and Then Approve First One
+# First run getAllObservations above, then use the ID here
+POST {{baseUrl}}/api/observations/1/approve
+Accept: application/json
+
+> {%
+    // You can add JavaScript test scripts here
+    client.test("Status is 200", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+    
+    client.test("Response has observation data", function() {
+        client.assert(response.body.id !== undefined, "Response should have an id");
+        client.assert(response.body.status === "APPROVED", "Status should be APPROVED");
+    });
+%}
+
+### Import and Verify Count
+# Step 1: Check current count
+GET {{baseUrl}}/health
+Accept: application/json
+
+> {%
+    client.global.set("initialObsCount", response.body.counts.obs);
+    client.log("Initial observation count: " + response.body.counts.obs);
+%}
+
+###
+# Step 2: Import sample data
+POST {{baseUrl}}/api/import/sample
+Accept: application/json
+
+> {%
+    client.test("Import successful", function() {
+        client.assert(response.status === 200, "Import should succeed");
+        client.assert(response.body.importedCount > 0, "Should import some observations");
+    });
+    client.global.set("importedCount", response.body.importedCount);
+%}
+
+###
+# Step 3: Verify count increased
+GET {{baseUrl}}/health
+Accept: application/json
+
+> {%
+    const initialCount = client.global.get("initialObsCount");
+    const importedCount = client.global.get("importedCount");
+    const expectedCount = initialCount + importedCount;
+    
+    client.test("Observation count increased", function() {
+        client.assert(response.body.counts.obs >= expectedCount, 
+            "Count should increase by imported amount");
+    });
+%}
+
+### PERFORMANCE TEST - Cache Verification ###
+
+### First Featured Request (Will be cached)
+GET {{baseUrl}}/api/featured?limit=5
+Accept: application/json
+
+> {%
+    client.global.set("featuredTime1", new Date().getTime());
+    client.global.set("featuredData", JSON.stringify(response.body));
+%}
+
+###
+### Second Featured Request (Should be from cache - faster)
+GET {{baseUrl}}/api/featured?limit=5
+Accept: application/json
+
+> {%
+    const time1 = client.global.get("featuredTime1");
+    const time2 = new Date().getTime();
+    const timeDiff = time2 - time1;
+    
+    client.test("Cache is working", function() {
+        // Second request should be much faster (assuming cache is warm)
+        client.log("Time difference: " + timeDiff + "ms");
+        
+        const data1 = client.global.get("featuredData");
+        const data2 = JSON.stringify(response.body);
+        client.assert(data1 === data2, "Data should be identical from cache");
+    });
+%}
+
+### SWAGGER/OPENAPI ###
+
+### Get OpenAPI Specification
+GET {{baseUrl}}/v3/api-docs
+Accept: application/json
+
+### Get Swagger UI (Open in Browser)
+# Note: This returns HTML, better to open in browser at http://localhost:8080/swagger-ui.html
+GET {{baseUrl}}/swagger-ui.html

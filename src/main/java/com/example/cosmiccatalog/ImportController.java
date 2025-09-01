@@ -38,4 +38,21 @@ public class ImportController {
             throw new RuntimeException("Failed to import sample data", e);
         }
     }
+    
+    /**
+     * Imports realistic telescope observations based on actual JWST and Hubble programs.
+     * 
+     * @return import summary with statistics
+     */
+    @Operation(summary = "Import realistic telescope data", 
+               description = "Loads 12 realistic observations from actual JWST and Hubble programs, with real target names and program IDs")
+    @PostMapping("/realistic")
+    public ResponseEntity<ImportSummary> importRealisticData() {
+        try {
+            var summary = importService.importRealisticData();
+            return ResponseEntity.ok(summary);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to import realistic data", e);
+        }
+    }
 }

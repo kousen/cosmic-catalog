@@ -48,6 +48,17 @@ public class ImportService {
     public ImportSummary importSampleData() throws IOException {
         return importFromFile("data/jwst_sample.json");
     }
+    
+    /**
+     * Imports realistic observations based on actual JWST/Hubble programs.
+     * 
+     * @return import summary with statistics
+     * @throws IOException if file cannot be read
+     */
+    @Transactional
+    public ImportSummary importRealisticData() throws IOException {
+        return importFromFile("data/realistic_jwst.json");
+    }
 
     /**
      * Imports observations from a specified file.
