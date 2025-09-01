@@ -1,6 +1,8 @@
 package com.example.cosmiccatalog;
 
+import com.example.cosmiccatalog.dto.ErrorResponse;
 import com.example.cosmiccatalog.dto.ObservationDTO;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -27,20 +29,29 @@ public class ObservationController {
 
     @PostMapping("/{id}/approve")
     public ResponseEntity<?> approveObservation(@PathVariable Long id, 
-                                               @RequestParam(required = false) Integer expectedVersion) {
+                                               @RequestParam(required = false) Integer expectedVersion,
+                                               HttpServletRequest request) {
         var observationOpt = observationRepository.findById(id);
         
         return observationOpt.map(obs -> {
-            // Pattern matching for optimistic locking check
+            // Pattern matching for optimistic locking check with structured error response
             if (expectedVersion != null && !expectedVersion.equals(obs.getVersion())) {
-                return ResponseEntity.status(409)
-                    .body(String.format("Version conflict: expected %d, but was %d", 
-                          expectedVersion, obs.getVersion()));
+                var errorResponse = ErrorResponse.versionConflict(
+                    String.format("Version conflict: expected %d, but was %d", 
+                                expectedVersion, obs.getVersion()),
+                    request.getRequestURI()
+                );
+                return ResponseEntity.status(409).body(errorResponse);
             }
             
             obs.setStatus(Observation.Status.APPROVED);
             var saved = observationService.saveWithScore(obs);
             return ResponseEntity.ok(ObservationDTO.from(saved));
-        }).orElse(ResponseEntity.notFound().build());
+        }).orElse(ResponseEntity.status(404)
+            .body(ErrorResponse.notFound(
+                "Observation not found with id: " + id,
+                request.getRequestURI()
+            ))
+        );
     }
 }
