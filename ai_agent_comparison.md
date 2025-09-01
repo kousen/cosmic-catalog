@@ -437,44 +437,60 @@ class: compact
 
 ---
 class: compact
+background: 'linear-gradient(135deg, #312e81, #1e1b4b)'
 ---
 
-## MCP Configuration (CLI)
+## <span style="color: #fbbf24;">MCP Configuration: Each Tool is Different</span>
 
-CLI example (generic)
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.85em;">
 
+<div style="background: rgba(99,102,241,0.1); padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(99,102,241,0.3);">
+
+### <span style="color: #f472b6;">OpenAI Codex (TOML)</span>
+```toml
+# codex-mcp.toml - stdio only!
+[mcp_servers.playwright]
+command = "npx"
+args = ["@playwright/mcp@latest"]
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp", 
+        "--api-key", "ctx7sk-..."]
+```
+</div>
+
+<div style="background: rgba(59,130,246,0.1); padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(59,130,246,0.3);">
+
+### <span style="color: #60a5fa;">Gemini (JSON)</span>
 ```json
+// gemini-config.json
 {
-  "mcpServers": {
-    "context7": {
-      "transport": "sse",
-      "url": "https://example.com/mcp",
-      "headers": { "Authorization": "Bearer <token>" }
-    },
-    "playwright": {
-      "transport": "stdio",
-      "command": "npx",
-      "args": ["-y", "@playwright/mcp@latest"]
+  "playwright": {
+    "command": "npx",
+    "args": ["@playwright/mcp@latest"]
+  },
+  "context7": {
+    "httpUrl": "https://mcp.context7.com/mcp",
+    "headers": {
+      "CONTEXT7_API_KEY": "ctx7sk-..."
     }
   }
 }
 ```
+</div>
 
----
-class: compact
----
+</div>
 
-## MCP Configuration (IDE)
+<div style="background: rgba(168,85,247,0.1); padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(168,85,247,0.3); margin-top: 1rem;">
 
-```json
-{
-  "mcpServers": {
-    "context7": { "transport": "sse", "url": "https://…", "headers": { "Authorization": "Bearer …" } }
-  }
-}
+### <span style="color: #a78bfa;">Claude Code (CLI Command)</span>
+```bash
+# Add via CLI - supports multiple transports (stdio, http, sse)
+claude mcp add --transport http context7 https://mcp.context7.com/mcp \
+  --header "CONTEXT7_API_KEY: ctx7sk-..."
 ```
-
-Tip: Use env vars for secrets when supported; otherwise rotate keys frequently.
+</div>
 
 ---
 
