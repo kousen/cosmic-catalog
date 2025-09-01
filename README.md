@@ -56,6 +56,10 @@ Tests include unit and integration coverage. Integration tests boot the app on a
 - OpenAPI spec: `docs/openapi.yaml`
 - Postman collection: `docs/postman_collection.json`
 
+Swagger UI (auto-loaded from the spec):
+- Start the app, then open: `http://localhost:8080/swagger-ui.html` (or `/swagger-ui/index.html`)
+- The UI is configured to load `/openapi.yaml` served from static resources
+
 Key endpoints:
 - `GET /api/observations`: pageable list of observations (DTO)
 - `GET /api/featured?limit=10`: top-N approved observations
@@ -90,6 +94,19 @@ Pass JVM options if needed:
 
 ```bash
 docker run --rm -p 8080:8080 -e JAVA_OPTS="-Xms256m -Xmx512m" cosmic-catalog
+
+### Docker Compose (PostgreSQL persistence)
+
+Bring up Postgres and the app with the `postgres` profile enabled:
+
+```bash
+docker compose up --build
+```
+
+Details:
+- Postgres runs on `localhost:5432` with db/user/password `cosmic`
+- App runs on `localhost:8080` with `SPRING_PROFILES_ACTIVE=postgres`
+- Data persists in the `db-data` volume
 ```
 
 ## Architecture

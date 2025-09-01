@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: cosmic-db
+    environment:
+      POSTGRES_DB: cosmic
+      POSTGRES_USER: cosmic
+      POSTGRES_PASSWORD: cosmic
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cosmic -d cosmic"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build: .
+    container_name: cosmic-app
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: postgres
+      JAVA_OPTS: -Xms256m -Xmx512m
+
+volumes:
+  db-data:
+
