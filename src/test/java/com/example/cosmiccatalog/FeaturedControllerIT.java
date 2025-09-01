@@ -37,6 +37,37 @@ class FeaturedControllerIT {
     }
 
     @Test
+    void approveObservationVersionConflictReturns409() {
+        // 1. Create an Observation and save it
+        Observation obs = new Observation();
+        obs.setTelescope("HST");
+        obs.setTargetName("Andromeda");
+        obs.setFilters("F606W");
+        obs.setRa(11.0); obs.setDec(41.0);
+        obs.setObsDate(LocalDateTime.now().minusDays(5));
+        obs.setInstrument("ACS");
+        obs.setExposureSec(100);
+        obs.setStatus(Observation.Status.PENDING);
+        Observation savedObs = observationService.saveWithScore(obs);
+
+        // 2. Simulate a concurrent modification: fetch, modify, and save again
+        // This will increment the version of the observation in the database
+        Observation modifiedObs = observationRepository.findById(savedObs.getId()).orElseThrow();
+        modifiedObs.setStatus(Observation.Status.APPROVED); // Change status to increment version
+        observationService.saveWithScore(modifiedObs); // This increments the version
+
+        // 3. Attempt to approve the original observation with the outdated version
+        // The original savedObs has version 0, but the database now has version 1
+        String url = "http://localhost:" + port + "/api/observations/" + savedObs.getId() + "/approve?expectedVersion=" + savedObs.getVersion();
+        ResponseEntity<String> response = rest.postForEntity(url, null, String.class);
+
+        // 4. Assert that the response status is 409 Conflict
+        assertEquals(409, response.getStatusCode().value());
+        assertNotNull(response.getBody());
+        assertTrue(response.getBody().contains("Version conflict"));
+    }
+
+    @Test
     void featuredReturnsApprovedOnlySortedByScore() {
         // High score approved
         Observation o1 = new Observation();
