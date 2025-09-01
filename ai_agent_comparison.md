@@ -412,13 +412,17 @@ graph LR
 
 ---
 class: compact
+background: 'linear-gradient(135deg, #065f46, #064e3b)'
 ---
 
-## Deep Dive: OpenAI Codex CLI
+## <span style="color: #86efac;">Deep Dive: OpenAI Codex CLI</span>
 
-Codex CLI now runs GPT‑5 with three modes so you can trade latency for capability depending on the task.
+<div style="color: #d1fae5; font-size: 1.1em;">
+Codex CLI now runs <span style="color: #fbbf24; font-weight: bold;">GPT-5 with three modes</span> so you can trade latency for capability depending on the task.
+</div>
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 graph LR
     A[Prompt] --> B{Mode};
     B --> C[Low<br/>Fast];
@@ -426,14 +430,14 @@ graph LR
     B --> E[High<br/>Max Power];
 ```
 
----
-class: compact
----
+<div style="margin-top: 1em; background: rgba(52, 211, 153, 0.1); padding: 0.8em; border-radius: 8px;">
 
-### OpenAI Codex Modes: Notes
+**Mode Configuration:**
+- **Low:** Fastest response, basic tasks
+- **Medium:** Balanced performance
+- **High:** Maximum capability for complex work
 
-- Low: fastest; Medium: balanced; High: maximum capability
-- Configure via CLI flags or environment variables
+</div>
 
 ---
 class: compact
