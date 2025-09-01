@@ -4,22 +4,15 @@ title: "The Developer's AI Co‑pilot: A Comparative Analysis"
 layout: cover
 transition: slide-left
 mdc: true
+themeConfig:
+  primary: '#6366f1'  # indigo accent
 ---
 
 # The Developer's AI Co‑pilot: A Comparative Analysis
 
 A look at the current landscape of AI Agent tools for software developers.
 
-<style>
-/* Compact utilities to keep dense slides within viewport */
-.compact { font-size: 0.95rem; }
-.compact h1 { font-size: 2.2rem; margin-bottom: 0.6rem; }
-.compact h2 { font-size: 1.25rem; margin: 0.5rem 0; }
-.compact pre { font-size: 0.8rem; line-height: 1.25; white-space: pre-wrap; word-break: break-word; }
-.compact code { font-size: 0.95em; }
-.compact .grid { gap: 1rem; }
-.compact ul { margin: 0.25rem 0 0.5rem; }
-</style>
+ 
 
 ---
 
@@ -59,6 +52,8 @@ When evaluating AI agents, we consider several factors:
 - **Security:** Features like sandboxing and command previews (MCP servers).
 
 ---
+class: cli-pad
+---
 
 ## The CLI Agents
 
@@ -66,7 +61,7 @@ When evaluating AI agents, we consider several factors:
 - **OpenAI Codex CLI**
 - **Claude Code**
 
-These agents operate from the command line, integrating with your shell workflow.
+<div style="padding-bottom: 2.5rem">
 
 ```mermaid
 graph LR
@@ -85,6 +80,8 @@ graph LR
     A -- "prompt" --> B;
     B --> C & D & E;
 ```
+
+</div>
 
 ---
 
@@ -116,25 +113,143 @@ graph LR
 
 ---
 
-## Feature Matrix (1/2)
+## Feature Matrix
 
-| Feature | Gemini CLI | OpenAI Codex CLI | Claude Code | JetBrains Junie | Cursor |
-|---|---|---|---|---|---|
-| **Core Model** | Gemini (1.5/Pro family) | GPT‑5 (Low/Medium/High modes) | Claude 3 family | Uses configured providers (IDE context) | OpenAI + Anthropic |
-| **UI** | CLI | CLI | CLI | IDE Integrated | IDE (AI‑first) |
-| **Tooling** | MCP + shell/FS | Shell/FS + MCP (varies) | MCP + shell/FS | IDE actions, builds, VCS | Local FS + provider APIs |
+<style>
+#fm-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.5rem 0 0.75rem; }
+#fm-wrap table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border: 1px solid rgba(127,127,127,0.18);
+}
+#fm-wrap thead th {
+  position: sticky; top: 0; z-index: 2;
+  text-align: center; font-weight: 700; font-size: 1.0em; letter-spacing: 0.01em;
+  background: rgba(127,127,127,0.10);
+  border-bottom: 2px solid rgba(127,127,127,0.25);
+  backdrop-filter: saturate(120%) blur(2px);
+}
+#fm-wrap th, #fm-wrap td { padding: 0.6rem 0.8rem; border-bottom: 1px solid rgba(127,127,127,0.15); vertical-align: top; }
+#fm-wrap tbody tr:nth-child(even) td { background: rgba(127,127,127,0.06); }
+#fm-wrap tbody tr:last-child td { border-bottom: none; }
+#fm-wrap th:first-child, #fm-wrap td:first-child {
+  position: sticky; left: 0; z-index: 1;
+  background: rgba(127,127,127,0.08);
+  border-right: 1px solid rgba(127,127,127,0.15);
+}
+#fm-wrap thead th:first-child { z-index: 3; }
+.dark #fm-wrap thead th { background: rgba(255,255,255,0.06); }
+.dark #fm-wrap th, .dark #fm-wrap td { border-bottom-color: rgba(255,255,255,0.12); }
+.dark #fm-wrap tbody tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
+.dark #fm-wrap th:first-child, .dark #fm-wrap td:first-child { background: rgba(255,255,255,0.06); border-right-color: rgba(255,255,255,0.10); }
+.fm-badge { display: inline-block; padding: 0.18rem 0.5rem; border-radius: 9999px; background: rgba(99,102,241,0.14); font-size: 0.85em; line-height: 1.2; white-space: nowrap; }
+.fm-badge.ui { background: rgba(34,197,94,0.18); }
+.fm-badge.mcp { background: rgba(59,130,246,0.18); }
 
----
-class: compact
----
+/* ——— Enhancements: sizing, separators, spacing ——— */
+/* Wider first column for readability */
+#fm-wrap th:first-child, #fm-wrap td:first-child { min-width: 12rem; max-width: 14rem; }
+/* Allow header wrapping and balance line height */
+#fm-wrap th { white-space: normal; line-height: 1.2; }
+#fm-wrap td { vertical-align: middle; }
+/* Subtle vertical separators between columns */
+#fm-wrap th + th, #fm-wrap td + td { border-left: 1px solid rgba(127,127,127,0.10); }
+/* Slightly tighter cell padding */
+#fm-wrap th, #fm-wrap td { padding: 0.5rem 0.7rem; }
+/* Badge margins and weight for better wrapping */
+#fm-wrap td > .fm-badge { margin: 0 0.35rem 0.35rem 0; font-weight: 500; }
+</style>
 
-## Feature Matrix (2/2)
+<div id="fm-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Gemini CLI</th>
+      <th>OpenAI Codex CLI</th>
+      <th>Claude Code</th>
+      <th>JetBrains Junie</th>
+      <th>Cursor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Core Model</strong></td>
+      <td><span class="badge">Gemini 1.5 / Pro</span></td>
+      <td><span class="badge">GPT‑5 (Low/Med/High)</span></td>
+      <td><span class="badge">Claude 3 family</span></td>
+      <td><span class="badge">IDE‑configured providers</span></td>
+      <td><span class="badge">OpenAI + Anthropic</span></td>
+    </tr>
+    <tr>
+      <td><strong>UI</strong></td>
+      <td><span class="fm-badge ui" title="Command-line Interface">🖥️ CLI</span></td>
+      <td><span class="fm-badge ui" title="Command-line Interface">🖥️ CLI</span></td>
+      <td><span class="fm-badge ui" title="Command-line Interface">🖥️ CLI</span></td>
+      <td><span class="fm-badge ui" title="Integrated Development Environment">🧩 IDE</span></td>
+      <td><span class="fm-badge ui" title="Integrated Development Environment">🧩 IDE</span></td>
+    </tr>
+    <tr>
+      <td><strong>Tooling</strong></td>
+      <td>
+        <span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span>
+        <span class="fm-badge" title="Shell access">Shell</span>
+        <span class="fm-badge" title="File system access">FS</span>
+      </td>
+      <td>
+        <span class="fm-badge" title="Shell access">Shell</span>
+        <span class="fm-badge" title="File system access">FS</span>
+        <span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span>
+      </td>
+      <td>
+        <span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span>
+        <span class="fm-badge" title="Shell access">Shell</span>
+        <span class="fm-badge" title="File system access">FS</span>
+      </td>
+      <td>
+        <span class="fm-badge" title="IDE actions">IDE actions</span>
+        <span class="fm-badge" title="Build integration">Builds</span>
+        <span class="fm-badge" title="Version control">VCS</span>
+      </td>
+      <td>
+        <span class="fm-badge" title="Local file system">Local FS</span>
+        <span class="fm-badge" title="Provider APIs">Provider APIs</span>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Extensibility</strong></td>
+      <td><span class="fm-badge" title="Extensibility level">Standard</span></td>
+      <td><span class="fm-badge" title="Extensibility level">Standard</span></td>
+      <td><span class="fm-badge" title="Extensibility level">High (sub‑agents)</span></td>
+      <td><span class="fm-badge" title="Extensibility level">High (IDE plugins)</span></td>
+      <td><span class="fm-badge" title="Extensibility level">Moderate</span></td>
+    </tr>
+    <tr>
+      <td><strong>Tool Protocols &amp; Sandboxing</strong></td>
+      <td><span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span> <span class="fm-badge" title="Sandboxing and approval flows">Sandbox/Approvals</span></td>
+      <td><span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span> <span class="fm-badge" title="Approval flows">Approvals</span></td>
+      <td><span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span> <span class="fm-badge" title="Approval flows">Approvals</span></td>
+      <td><span class="badge">IDE sandbox</span></td>
+      <td><span class="badge">Local‑first options</span></td>
+    </tr>
+    <tr>
+      <td><strong>Context</strong></td>
+      <td><span class="fm-badge" title="Context window size">Large / growing</span></td>
+      <td><span class="fm-badge" title="Context window size">Large / growing</span></td>
+      <td><span class="fm-badge" title="Context window size">Very large</span></td>
+      <td><span class="fm-badge" title="Context source">IDE‑indexed</span></td>
+      <td><span class="fm-badge" title="Context window size">Large</span></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
 
-| Feature | Gemini CLI | OpenAI Codex CLI | Claude Code | JetBrains Junie | Cursor |
-|---|---|---|---|---|---|
-| **Extensibility**| Standard | Standard | High (sub‑agents) | High (IDE plugins) | Moderate |
-| **Tool Protocols & Sandboxing** | MCP; sandbox/approvals | MCP (where supported); approvals | MCP; approvals | IDE sandbox | Local‑first options |
-| **Context** | Large / growing | Large / growing | Very large | IDE‑indexed | Large |
+ 
 
 ---
 

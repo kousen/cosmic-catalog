@@ -1,0 +1,44 @@
+/* Deck-wide accent palette (light/dark aware) */
+:root {
+  --brand: #6366f1;        /* indigo-500 */
+  --brand-strong: #4f46e5; /* indigo-600 */
+  --brand-soft: rgba(99,102,241,0.14);
+}
+.dark {
+  --brand: #8b93ff;
+  --brand-strong: #a5b4fc; /* lighten for dark bg */
+  --brand-soft: rgba(165,180,252,0.16);
+}
+
+/* Headings get a touch of color */
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 { color: var(--brand-strong); }
+
+/* Link and marker accents */
+.slidev-layout a { color: var(--brand-strong); }
+.slidev-layout li::marker { color: var(--brand-strong); }
+
+/* Emphasis and highlights */
+.slidev-layout strong { color: var(--brand-strong); }
+.slidev-layout mark { background: var(--brand-soft); color: inherit; padding: 0 .2em; border-radius: 4px; }
+
+/* Accent pills you can use inline: `<span class="tag">MCP</span>` */
+.tag { display: inline-block; padding: .18rem .5rem; border-radius: 999px; background: var(--brand-soft); font-weight: 600; }
+
+/* Blockquotes become subtle callouts */
+.slidev-layout blockquote {
+  border-left: 4px solid var(--brand-strong);
+  background: var(--brand-soft);
+  padding: 0.6rem 0.9rem;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Table headers and zebra striping get a tint */
+.slidev-layout table thead th { background: rgba(99,102,241,0.06); }
+.dark .slidev-layout table thead th { background: rgba(165,180,252,0.10); }
+.slidev-layout table tbody tr:nth-child(even) td { background: rgba(99,102,241,0.03); }
+.dark .slidev-layout table tbody tr:nth-child(even) td { background: rgba(165,180,252,0.06); }
+
+/* Horizontal rules pick up the accent */
+.slidev-layout hr { border-color: rgba(99,102,241,0.35); }
