@@ -535,6 +535,217 @@ All these tools are moving towards a common set of goals:
 </div>
 
 ---
+background: 'linear-gradient(135deg, #dc2626, #991b1b)'
+---
+
+## <span style="color: #fbbf24;">Let's See Them in Action!</span>
+
+<div style="font-size: 1.1em;">
+
+<div style="background: rgba(254, 240, 138, 0.1); border: 2px solid #fbbf24; padding: 1.5em; border-radius: 12px; margin: 1em 0;">
+
+### <span style="color: #fde047;">The Cosmic Catalog Project</span>
+
+<span style="color: #e0f2fe;">A Spring Boot application that manages telescope observations from Hubble and JWST.</span>
+
+<div style="margin-top: 1em; color: #cbd5e1;">
+
+**Current State:**
+- ✅ Feature-complete but unreviewed
+- ✅ Java 21 with modern features
+- ⚠️ Needs production hardening
+- ⚠️ Missing comprehensive tests
+- ⚠️ Could use refactoring
+
+</div>
+
+<div style="margin-top: 1.5em; padding: 1em; background: rgba(168, 85, 247, 0.15); border-radius: 8px;">
+<strong style="color: #c4b5fd;">Perfect scenario for AI collaboration!</strong>
+</div>
+
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #1e40af, #1e3a8a)'
+---
+
+## <span style="color: #fbbf24;">The Collaborative Process</span>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: 0.95em;">
+
+<div>
+
+### <span style="color: #60a5fa;">Traditional Approach</span>
+
+<div style="background: rgba(96, 165, 250, 0.1); padding: 1em; border-radius: 8px; margin-top: 0.5em;">
+
+1. **Senior dev reviews** → Hours of meetings
+2. **QA writes tests** → Days of work
+3. **Tech writer documents** → More delays
+4. **DevOps configures** → Additional setup
+
+<div style="margin-top: 1em; color: #f87171;">
+⏱️ **Time:** Weeks<br>
+💰 **Cost:** High<br>
+🔄 **Consistency:** Variable
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+### <span style="color: #34d399;">AI Agent Approach</span>
+
+<div style="background: rgba(52, 211, 153, 0.1); padding: 1em; border-radius: 8px; margin-top: 0.5em;">
+
+1. **Gemini reviews** → Instant analysis
+2. **Claude refactors** → Immediate improvements
+3. **Codex documents** → Auto-generated docs
+4. **All agents test** → Comprehensive coverage
+
+<div style="margin-top: 1em; color: #86efac;">
+⏱️ **Time:** Minutes<br>
+💰 **Cost:** Minimal<br>
+🔄 **Consistency:** Reliable
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #7c3aed, #6d28d9)'
+---
+
+## <span style="color: #fbbf24;">Agent Collaboration Workflow</span>
+
+```mermaid
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#a78bfa', 'primaryTextColor':'#fff', 'primaryBorderColor':'#c4b5fd', 'lineColor':'#e9d5ff', 'secondaryColor':'#60a5fa', 'tertiaryColor':'#34d399'}}}%%
+graph TB
+    subgraph "Shared Resources"
+        A[GitHub Repository]
+        B[AI_AGENT_TASKS.md]
+        C[Git Tags/Branches]
+    end
+    
+    subgraph "AI Agents"
+        D[🔵 Gemini<br/>Code Review]
+        E[🟣 Claude<br/>Refactoring]
+        F[🟢 Codex<br/>Documentation]
+    end
+    
+    subgraph "Outputs"
+        G[Test Coverage]
+        H[Clean Architecture]
+        I[API Docs]
+    end
+    
+    A --> D & E & F
+    B --> D & E & F
+    D --> G --> C
+    E --> H --> C
+    F --> I --> C
+    C --> A
+```
+
+<div style="margin-top: 1em; text-align: center; color: #e9d5ff;">
+Each agent reads the shared task document, contributes their expertise, and tags their work for easy demonstration.
+</div>
+
+---
+background: 'linear-gradient(135deg, #059669, #047857)'
+---
+
+## <span style="color: #fbbf24;">Key Innovation: Agent Autonomy</span>
+
+<div style="font-size: 1.05em;">
+
+<div style="background: rgba(254, 240, 138, 0.1); border: 2px solid #fbbf24; padding: 1.2em; border-radius: 10px;">
+
+### <span style="color: #fde047;">Not Just Following Orders</span>
+
+Instead of rigid instructions:
+```markdown
+❌ "Do exactly this: Extract HealthService from HealthController"
+```
+
+We give creative freedom:
+```markdown
+✅ "Improve the service layer architecture using your judgment"
+```
+
+</div>
+
+<div style="margin-top: 1.5em; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+
+<div style="background: rgba(96, 165, 250, 0.15); padding: 0.8em; border-radius: 8px; text-align: center;">
+<strong style="color: #60a5fa;">Gemini</strong><br>
+<span style="color: #dbeafe; font-size: 0.9em;">Might find security issues we didn't expect</span>
+</div>
+
+<div style="background: rgba(168, 85, 247, 0.15); padding: 0.8em; border-radius: 8px; text-align: center;">
+<strong style="color: #a78bfa;">Claude</strong><br>
+<span style="color: #e9d5ff; font-size: 0.9em;">Could suggest architectural patterns</span>
+</div>
+
+<div style="background: rgba(52, 211, 153, 0.15); padding: 0.8em; border-radius: 8px; text-align: center;">
+<strong style="color: #34d399;">Codex</strong><br>
+<span style="color: #d1fae5; font-size: 0.9em;">May create interactive API playground</span>
+</div>
+
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #0891b2, #0e7490)'
+---
+
+## <span style="color: #fbbf24;">Demo Structure</span>
+
+<div style="font-size: 1.1em;">
+
+<div style="display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start;">
+
+<div style="background: linear-gradient(135deg, #6366f1, #4f46e5); padding: 0.6em 1em; border-radius: 8px; font-weight: bold; color: #fde047;">v5</div>
+<div style="background: rgba(99, 102, 241, 0.1); padding: 0.8em; border-radius: 8px;">
+<strong style="color: #c4b5fd;">Starting Point</strong><br>
+<span style="color: #e0f2fe;">Feature-complete Spring Boot app with modern Java 21</span>
+</div>
+
+<div style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); padding: 0.6em 1em; border-radius: 8px; font-weight: bold; color: #fde047;">v6-v7</div>
+<div style="background: rgba(139, 92, 246, 0.1); padding: 0.8em; border-radius: 8px;">
+<strong style="color: #c4b5fd;">Gemini's Contributions</strong><br>
+<span style="color: #e0f2fe;">Code review insights and critical test additions</span>
+</div>
+
+<div style="background: linear-gradient(135deg, #ec4899, #db2777); padding: 0.6em 1em; border-radius: 8px; font-weight: bold; color: #fde047;">v8</div>
+<div style="background: rgba(236, 72, 153, 0.1); padding: 0.8em; border-radius: 8px;">
+<strong style="color: #fbcfe8;">Claude's Refactoring</strong><br>
+<span style="color: #fce7f3;">Service layer improvements and clean architecture</span>
+</div>
+
+<div style="background: linear-gradient(135deg, #10b981, #059669); padding: 0.6em 1em; border-radius: 8px; font-weight: bold; color: #fde047;">v9-v10</div>
+<div style="background: rgba(16, 185, 129, 0.1); padding: 0.8em; border-radius: 8px;">
+<strong style="color: #86efac;">Codex's Documentation</strong><br>
+<span style="color: #d1fae5;">Comprehensive API docs and developer guides</span>
+</div>
+
+</div>
+
+<div style="margin-top: 2em; text-align: center; padding: 1em; background: rgba(251, 191, 36, 0.1); border-radius: 10px; border: 2px solid #fbbf24;">
+<span style="color: #fef3c7; font-size: 1.1em;">Each tag represents a production-ready improvement!</span>
+</div>
+
+</div>
+
+---
 background: 'linear-gradient(to bottom, #581c87, #6b21a8)'
 ---
 
