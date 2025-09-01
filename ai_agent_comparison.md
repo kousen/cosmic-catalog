@@ -538,7 +538,7 @@ All these tools are moving towards a common set of goals:
 background: 'linear-gradient(135deg, #dc2626, #991b1b)'
 ---
 
-## <span style="color: #fbbf24;">Let's See Them in Action!</span>
+## <span style="color: #fbbf24;">From Theory to Practice</span>
 
 <div style="font-size: 1.1em;">
 
