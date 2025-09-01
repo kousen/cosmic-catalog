@@ -711,40 +711,72 @@ We give creative freedom:
 background: 'linear-gradient(135deg, #0891b2, #0e7490)'
 ---
 
-## <span style="color: #fbbf24;">Demo Structure</span>
+## <span style="color: #fbbf24;">Demo Structure - Part 1</span>
 
-<div style="font-size: 1.1em;">
+<div style="font-size: 1.05em;">
 
-<div style="display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start;">
+<div style="display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: start;">
 
-<div style="background: linear-gradient(135deg, #6366f1, #4f46e5); padding: 0.6em 1em; border-radius: 8px; font-weight: bold; color: #fde047;">v5</div>
-<div style="background: rgba(99, 102, 241, 0.1); padding: 0.8em; border-radius: 8px;">
+<div style="background: linear-gradient(135deg, #6366f1, #4f46e5); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v5</div>
+<div style="background: rgba(99, 102, 241, 0.1); padding: 0.7em; border-radius: 8px;">
 <strong style="color: #c4b5fd;">Starting Point</strong><br>
-<span style="color: #e0f2fe;">Feature-complete Spring Boot app with modern Java 21</span>
+<span style="color: #e0f2fe; font-size: 0.9em;">Feature-complete Spring Boot app with modern Java 21</span>
 </div>
 
-<div style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); padding: 0.6em 1em; border-radius: 8px; font-weight: bold; color: #fde047;">v6-v7</div>
-<div style="background: rgba(139, 92, 246, 0.1); padding: 0.8em; border-radius: 8px;">
-<strong style="color: #c4b5fd;">Gemini's Contributions</strong><br>
-<span style="color: #e0f2fe;">Code review insights and critical test additions</span>
+<div style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v6-v7</div>
+<div style="background: rgba(139, 92, 246, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #c4b5fd;">Gemini's Review & Testing</strong><br>
+<span style="color: #e0f2fe; font-size: 0.9em;">Code review, version conflict tests, integration tests</span>
 </div>
 
-<div style="background: linear-gradient(135deg, #ec4899, #db2777); padding: 0.6em 1em; border-radius: 8px; font-weight: bold; color: #fde047;">v8</div>
-<div style="background: rgba(236, 72, 153, 0.1); padding: 0.8em; border-radius: 8px;">
-<strong style="color: #fbcfe8;">Claude's Refactoring</strong><br>
-<span style="color: #fce7f3;">Service layer improvements and clean architecture</span>
+<div style="background: linear-gradient(135deg, #ec4899, #db2777); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v8</div>
+<div style="background: rgba(236, 72, 153, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #fbcfe8;">Claude's Initial Refactoring</strong><br>
+<span style="color: #fce7f3; font-size: 0.9em;">Service extraction, ErrorResponse DTO, SOLID principles</span>
 </div>
 
-<div style="background: linear-gradient(135deg, #10b981, #059669); padding: 0.6em 1em; border-radius: 8px; font-weight: bold; color: #fde047;">v9-v10</div>
-<div style="background: rgba(16, 185, 129, 0.1); padding: 0.8em; border-radius: 8px;">
+<div style="background: linear-gradient(135deg, #10b981, #059669); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v9-v10</div>
+<div style="background: rgba(16, 185, 129, 0.1); padding: 0.7em; border-radius: 8px;">
 <strong style="color: #86efac;">Codex's Documentation</strong><br>
-<span style="color: #d1fae5;">Comprehensive API docs and developer guides</span>
+<span style="color: #d1fae5; font-size: 0.9em;">API docs, Swagger UI, Docker setup, CI pipeline</span>
 </div>
 
 </div>
 
-<div style="margin-top: 2em; text-align: center; padding: 1em; background: rgba(251, 191, 36, 0.1); border-radius: 10px; border: 2px solid #fbbf24;">
-<span style="color: #fef3c7; font-size: 1.1em;">Each tag represents a production-ready improvement!</span>
+</div>
+
+---
+background: 'linear-gradient(135deg, #dc2626, #991b1b)'
+---
+
+## <span style="color: #fbbf24;">Demo Structure - Part 2</span>
+
+<div style="font-size: 1.05em;">
+
+<div style="display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: start;">
+
+<div style="background: linear-gradient(135deg, #a855f7, #9333ea); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v11-v12</div>
+<div style="background: rgba(168, 85, 247, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #e9d5ff;">Claude's Advanced Services</strong><br>
+<span style="color: #f3e8ff; font-size: 0.9em;">ApprovalService, ImportService, caching, custom exceptions</span>
+</div>
+
+<div style="background: linear-gradient(135deg, #3b82f6, #2563eb); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v13</div>
+<div style="background: rgba(59, 130, 246, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #bfdbfe;">Gemini's Stabilization</strong><br>
+<span style="color: #dbeafe; font-size: 0.9em;">Global exception handling, error response fixes</span>
+</div>
+
+<div style="background: linear-gradient(135deg, #06b6d4, #0891b2); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v15</div>
+<div style="background: rgba(6, 182, 212, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #a5f3fc;">Claude's E2E Testing</strong><br>
+<span style="color: #cffafe; font-size: 0.9em;">Playwright tests, CI integration, smoke tests</span>
+</div>
+
+</div>
+
+<div style="margin-top: 1.5em; text-align: center; padding: 0.9em; background: rgba(251, 191, 36, 0.1); border-radius: 10px; border: 2px solid #fbbf24;">
+<span style="color: #fef3c7; font-size: 1em;"><strong>Result:</strong> Production-ready, tested, documented, deployed!</span>
 </div>
 
 </div>
