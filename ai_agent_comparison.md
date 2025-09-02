@@ -1,6 +1,6 @@
 ---
 theme: seriph
-title: "The Developer's AI Co‑pilot: A Comparative Analysis"
+title: "The Hitchhiker's Guide to AI Coding Agents (Don't Panic!)"
 layout: cover
 transition: slide-left
 mdc: true
@@ -10,10 +10,16 @@ colorSchema: 'dark'
 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
 ---
 
-# The Developer's AI Co‑pilot: A Comparative Analysis
+# The Hitchhiker's Guide to AI Coding Agents
+## <span style="color: #fbbf24; font-size: 1.3em;">(Don't Panic!)</span>
 
-<div style="color: #fbbf24; font-size: 1.2em; margin-top: 1em;">
-A look at the current landscape of AI Agent tools for software developers.
+<div style="color: #e0f2fe; font-size: 1.1em; margin-top: 1.5em;">
+Claude Code, Codex CLI, Gemini CLI, and 42 more:<br/>
+Your towel 🏖️ for navigating the AI agent universe
+</div>
+
+<div style="color: #c4b5fd; font-size: 0.9em; margin-top: 2em;">
+Ken Kousen • AI Codecon • September 2025
 </div>
 
  
@@ -417,25 +423,39 @@ background: 'linear-gradient(135deg, #065f46, #064e3b)'
 
 ## <span style="color: #86efac;">Deep Dive: OpenAI Codex CLI</span>
 
-<div style="color: #d1fae5; font-size: 1.1em;">
-Codex CLI now runs <span style="color: #fbbf24; font-weight: bold;">GPT-5 with three modes</span> so you can trade latency for capability depending on the task.
+<div style="color: #d1fae5; font-size: 1.05em;">
+Codex CLI runs <span style="color: #fbbf24; font-weight: bold;">GPT-5 with three performance modes</span> - trade speed for capability.
 </div>
+
+<div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.5rem; margin-top: 1em;">
+
+<div>
 
 ```mermaid
 %%{init: {'theme':'dark'}}%%
 graph LR
-    A[Prompt] --> B{Mode};
-    B --> C[Low<br/>Fast];
-    B --> D[Medium<br/>Balanced];
-    B --> E[High<br/>Max Power];
+    A[Prompt] --> B{Mode Selection}
+    B --> C[Low: Fast]
+    B --> D[Medium: Balanced]
+    B --> E[High: Max Power]
 ```
 
-<div style="margin-top: 1em; background: rgba(52, 211, 153, 0.1); padding: 0.8em; border-radius: 8px;">
+</div>
+
+<div style="background: rgba(52, 211, 153, 0.1); padding: 0.8em; border-radius: 8px;">
 
 **Mode Configuration:**
-- **Low:** Fastest response, basic tasks
-- **Medium:** Balanced performance
-- **High:** Maximum capability for complex work
+
+⚡ **Low:** Lightning fast  
+<span style="font-size: 0.9em; color: #d1fae5;">Simple edits, quick fixes</span>
+
+⚙️ **Medium:** Balanced  
+<span style="font-size: 0.9em; color: #d1fae5;">Most development tasks</span>
+
+🚀 **High:** Maximum power  
+<span style="font-size: 0.9em; color: #d1fae5;">Complex architecture, deep analysis</span>
+
+</div>
 
 </div>
 
@@ -497,18 +517,265 @@ claude mcp add --transport http context7 https://mcp.context7.com/mcp \
 </div>
 
 ---
-
-## Terminology Note
-
-- “Codex” historically referred to an OpenAI code model family. “Codex CLI” in this talk refers to an open‑source agentic CLI interface, not the legacy model.
-- “Security” in matrices is reframed as “Tool Protocols & Sandboxing” to reflect MCP support and approval modes.
-
+background: 'linear-gradient(135deg, #312e81, #4c1d95)'
 ---
 
-## Scope & Currency
+## <span style="color: #fbbf24;">Advanced Architecture: MCP Orchestration</span>
 
-- Details reflect the state of tools as of Sep 2025.
-- Names and capabilities evolve quickly; verify against the latest docs for your toolchain.
+<div style="color: #e9d5ff; font-size: 1.1em;">
+Instead of juggling multiple terminals, use Claude Code as an orchestrator with other CLI tools as MCP sub-agents.
+</div>
+
+<div style="margin-top: 1.5em;">
+
+### <span style="color: #a78bfa;">The Problem:</span>
+- Multiple terminal windows for different CLI tools
+- Context switching between Gemini, Codex, and Claude Code
+- Manual coordination of results between tools
+- Duplicated effort and lost context
+
+### <span style="color: #60a5fa;">The Solution:</span>
+Configure Gemini and Codex as MCP servers, accessible as sub-agents within Claude Code
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #1e1b4b, #312e81)'
+---
+
+## <span style="color: #fbbf24;">But Should We?</span>
+
+<div style="text-align: center;">
+<img src="./goldblum-quote.jpeg" style="max-width: 90%; height: auto; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.4);" />
+</div>
+
+<div style="margin-top: 1em; text-align: center; color: #e9d5ff; font-size: 1.2em;">
+<strong>Spoiler: Um, maybe? 🚀</strong>
+</div>
+
+---
+background: 'linear-gradient(135deg, #4c1d95, #5b21b6)'
+---
+
+## <span style="color: #fbbf24;">MCP Sub-Agent Architecture</span>
+
+```mermaid
+%%{init: {'theme':'dark'}}%%
+graph LR
+    subgraph "Single Interface"
+        A[Terminal]
+    end
+    
+    subgraph "Claude Code"
+        B[Orchestrator]
+    end
+    
+    subgraph "MCP Sub-Agents"
+        C[Gemini<br/>2M+ Context]
+        D[Codex<br/>GPT-5]
+        E[Custom<br/>Tools]
+    end
+    
+    A --> B
+    B --> C & D & E
+```
+
+<div style="margin-top: 1em; color: #e9d5ff; text-align: center;">
+Claude Code intelligently delegates to the right agent based on task requirements
+</div>
+
+---
+background: 'linear-gradient(135deg, #4c1d95, #5b21b6)'
+---
+
+## <span style="color: #fbbf24;">Architecture Benefits</span>
+
+<div style="font-size: 1.2em; line-height: 2.2;">
+
+### <span style="color: #a78bfa;">Why This Changes Everything:</span>
+
+<div style="margin-top: 1em;">
+
+🎯 **Single terminal interface** 
+<span style="color: #e9d5ff;">No more juggling multiple CLI windows</span>
+
+🧠 **Intelligent task routing**  
+<span style="color: #e9d5ff;">Claude automatically picks the best agent for each job</span>
+
+🔄 **Seamless result integration**  
+<span style="color: #e9d5ff;">Sub-agent outputs flow back without manual copying</span>
+
+🚀 **Combined superpowers**  
+<span style="color: #e9d5ff;">Gemini's 2M+ context + Codex's GPT-5 + Claude's reasoning</span>
+
+💡 **Context preservation**  
+<span style="color: #e9d5ff;">Claude maintains the full conversation history</span>
+
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #5b21b6, #6d28d9)'
+---
+
+## <span style="color: #fbbf24;">Practical Example: Large Codebase Analysis</span>
+
+<div style="font-size: 0.95em;">
+
+**Scenario:** Security audit of a 500K LOC Spring Boot application
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1em;">
+
+<div style="background: rgba(168,85,247,0.1); padding: 0.9em; border-radius: 8px;">
+
+**User Request:**
+```bash
+"Find all security vulnerabilities"
+```
+
+**Claude's Orchestration:**
+1. 🔍 Analyzes request scope
+2. 🚀 Delegates to **Gemini** (2M+ tokens)
+3. 📊 Gemini scans all 500K lines
+4. 🔄 Results return to Claude
+5. 🛠️ Claude generates fix PRs
+
+</div>
+
+<div style="background: rgba(96,165,250,0.1); padding: 0.9em; border-radius: 8px;">
+
+**Benefits Achieved:**
+
+✅ **Single command**  
+One request does everything
+
+✅ **Full context**  
+Entire codebase analyzed at once
+
+✅ **Smart fixes**  
+Claude reasons through solutions
+
+✅ **Automated flow**  
+No manual steps needed
+
+✅ **Fast results**  
+Minutes vs hours of review
+
+</div>
+
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #6d28d9, #7c3aed)'
+---
+
+## <span style="color: #fbbf24;">Configuration Strategy</span>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+
+<div>
+
+### <span style="color: #60a5fa;">MCP Integration Options</span>
+
+```bash
+# Option 1: Use Zen MCP Server
+# (Community orchestrator)
+claude mcp add zen-server \
+  stdio npx @beehive/zen-mcp \
+  --models gemini,openai
+
+# Option 2: Custom wrapper
+# (You'd need to build this)
+claude mcp add custom-orchestrator \
+  stdio python my_orchestrator.py
+```
+
+</div>
+
+<div>
+
+### <span style="color: #a78bfa;">Spring AI MCP Server</span>
+
+```java
+// Two approaches:
+// 1. Direct API calls via Spring AI
+@Service
+class DirectAPIApproach {
+  @Autowired ChatClient gemini;
+  @Autowired ChatClient openai;
+}
+
+// 2. CLI tools in headless mode
+@Service 
+class CLIWrapperApproach {
+  Process exec(String prompt) {
+    return new ProcessBuilder(
+      "gemini", "--headless", 
+      "--json", prompt).start();
+  }
+}
+```
+
+</div>
+
+</div>
+
+<div style="margin-top: 1em; background: rgba(251,191,36,0.1); padding: 0.8em; border-radius: 8px;">
+<span style="color: #fbbf24;">💡 Key Insight:</span> Each agent becomes a specialized tool in Claude's toolkit
+</div>
+
+---
+background: 'linear-gradient(135deg, #7c3aed, #8b5cf6)'
+---
+
+## <span style="color: #fbbf24;">Optimal Task Delegation</span>
+
+<div style="font-size: 1.05em;">
+
+Claude Code automatically selects the best agent for each task:
+
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1em;">
+
+<div style="background: rgba(96,165,250,0.15); padding: 1em; border-radius: 8px;">
+<strong style="color: #60a5fa;">Gemini Tasks</strong>
+<ul style="color: #dbeafe; font-size: 0.9em; margin: 0.5em 0;">
+<li>Repository-wide refactoring</li>
+<li>Cross-file dependency analysis</li>
+<li>Large document processing</li>
+<li>Context7 library downloads</li>
+</ul>
+</div>
+
+<div style="background: rgba(52,211,153,0.15); padding: 1em; border-radius: 8px;">
+<strong style="color: #34d399;">Codex Tasks</strong>
+<ul style="color: #d1fae5; font-size: 0.9em; margin: 0.5em 0;">
+<li>Rapid prototyping</li>
+<li>API client generation</li>
+<li>Test suite creation</li>
+<li>Documentation writing</li>
+</ul>
+</div>
+
+<div style="background: rgba(244,114,182,0.15); padding: 1em; border-radius: 8px;">
+<strong style="color: #f472b6;">Claude Tasks</strong>
+<ul style="color: #fce7f3; font-size: 0.9em; margin: 0.5em 0;">
+<li>Complex reasoning</li>
+<li>Architecture decisions</li>
+<li>Code review</li>
+<li>Task orchestration</li>
+</ul>
+</div>
+
+</div>
+
+<div style="margin-top: 1.5em; text-align: center; padding: 0.8em; background: rgba(168,85,247,0.1); border-radius: 8px;">
+Result: <strong style="color: #c4b5fd;">Best tool for every job, zero context switching</strong>
+</div>
+
+</div>
 
 ---
 background: 'linear-gradient(135deg, #0891b2, #06b6d4)'
@@ -544,29 +811,36 @@ background: 'linear-gradient(135deg, #dc2626, #991b1b)'
 
 ## <span style="color: #fbbf24;">From Theory to Practice</span>
 
-<div style="font-size: 1.1em;">
-
-<div style="background: rgba(254, 240, 138, 0.1); border: 2px solid #fbbf24; padding: 1.5em; border-radius: 12px; margin: 1em 0;">
+<div style="font-size: 1.05em;">
 
 ### <span style="color: #fde047;">The Cosmic Catalog Project</span>
 
-<span style="color: #e0f2fe;">A Spring Boot application that manages telescope observations from Hubble and JWST.</span>
+<span style="color: #e0f2fe;">Spring Boot app managing telescope observations from Hubble and JWST</span>
 
-<div style="margin-top: 1em; color: #cbd5e1;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1em;">
 
-**Current State:**
-- ✅ Feature-complete but unreviewed
-- ✅ Java 21 with modern features
-- ⚠️ Needs production hardening
-- ⚠️ Missing comprehensive tests
-- ⚠️ Could use refactoring
+<div style="background: rgba(52, 211, 153, 0.1); padding: 0.8em; border-radius: 8px;">
+<strong style="color: #34d399;">✅ What's Done:</strong>
+<ul style="font-size: 0.9em; margin: 0.5em 0;">
+<li>Feature-complete</li>
+<li>Java 21 with modern features</li>
+<li>Working application</li>
+</ul>
+</div>
+
+<div style="background: rgba(251, 191, 36, 0.1); padding: 0.8em; border-radius: 8px;">
+<strong style="color: #fbbf24;">⚠️ What's Needed:</strong>
+<ul style="font-size: 0.9em; margin: 0.5em 0;">
+<li>Production hardening</li>
+<li>Comprehensive tests</li>
+<li>Code refactoring</li>
+</ul>
+</div>
 
 </div>
 
-<div style="margin-top: 1.5em; padding: 1em; background: rgba(168, 85, 247, 0.15); border-radius: 8px;">
-<strong style="color: #c4b5fd;">Perfect scenario for AI collaboration!</strong>
-</div>
-
+<div style="margin-top: 1em; text-align: center; padding: 0.6em; background: rgba(168, 85, 247, 0.15); border-radius: 8px;">
+<strong style="color: #c4b5fd;">Perfect scenario for AI agent collaboration!</strong>
 </div>
 
 </div>
@@ -630,32 +904,28 @@ background: 'linear-gradient(135deg, #7c3aed, #6d28d9)'
 ## <span style="color: #fbbf24;">Agent Collaboration Workflow</span>
 
 ```mermaid
-%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#a78bfa', 'primaryTextColor':'#fff', 'primaryBorderColor':'#c4b5fd', 'lineColor':'#e9d5ff', 'secondaryColor':'#60a5fa', 'tertiaryColor':'#34d399'}}}%%
-graph TB
-    subgraph "Shared Resources"
-        A[GitHub Repository]
-        B[AI_AGENT_TASKS.md]
-        C[Git Tags/Branches]
+%%{init: {'theme':'dark'}}%%
+graph LR
+    subgraph "Input"
+        A[GitHub Repo]
+        B[Task Document]
     end
     
     subgraph "AI Agents"
-        D[🔵 Gemini<br/>Code Review]
-        E[🟣 Claude<br/>Refactoring]
-        F[🟢 Codex<br/>Documentation]
+        C[🔵 Gemini: Review]
+        D[🟣 Claude: Refactor]
+        E[🟢 Codex: Document]
     end
     
-    subgraph "Outputs"
-        G[Test Coverage]
-        H[Clean Architecture]
-        I[API Docs]
+    subgraph "Output"
+        F[Tests + Architecture + Docs]
+        G[Git Tags]
     end
     
-    A --> D & E & F
-    B --> D & E & F
-    D --> G --> C
-    E --> H --> C
-    F --> I --> C
-    C --> A
+    A --> C & D & E
+    B --> C & D & E
+    C & D & E --> F
+    F --> G
 ```
 
 <div style="margin-top: 1em; text-align: center; color: #e9d5ff;">
@@ -847,20 +1117,13 @@ background: 'linear-gradient(135deg, #7c3aed, #6d28d9)'
 
 ## <span style="color: #fbbf24;">About Ken Kousen</span>
 
-<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; align-items: start; margin-top: 1em;">
+<div style="color: #e0f2fe; font-size: 1em; max-width: 800px; margin: 0 auto;">
 
-<div style="text-align: center;">
-<img src="https://www.kousenit.com/wp-content/uploads/2020/08/ken_kousen_headshot.jpg" style="border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); width: 100%; max-width: 200px;" />
-</div>
-
-<div style="color: #e0f2fe; font-size: 0.9em;">
-
-### <span style="color: #fde047;">Kenneth A. Kousen</span>
 <span style="color: #c4b5fd;">President, Kousen IT, Inc.</span>
 
 <div style="margin-top: 0.8em; line-height: 1.4;">
 
-**🏆 Java Champion & Groovy Champion**
+**🏆 Java Champion & Grails Rock Star**
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em; margin-top: 0.5em;">
 <div>
@@ -877,10 +1140,8 @@ background: 'linear-gradient(135deg, #7c3aed, #6d28d9)'
 • O'Reilly Media instructor<br/>
 • NFJS tour speaker<br/>
 • Spring, Java, Kotlin, AI/ML<br/>
-• MIT MS, Princeton PhD
+• MIT BS(2), Princeton MA/PhD, RPI MS
 </div>
-</div>
-
 </div>
 
 </div>
