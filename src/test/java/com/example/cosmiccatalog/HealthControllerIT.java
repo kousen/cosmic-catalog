@@ -40,6 +40,7 @@ class HealthControllerIT {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     void healthReturnsVersionCountsAndLastImport() {
         // seed target + observations
         Target t = new Target();
@@ -99,6 +100,7 @@ class HealthControllerIT {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     void healthLastImportNullWhenNoImports() {
         ResponseEntity<Map> resp = rest.getForEntity("http://localhost:" + port + "/health", Map.class);
         assertEquals(200, resp.getStatusCode().value());

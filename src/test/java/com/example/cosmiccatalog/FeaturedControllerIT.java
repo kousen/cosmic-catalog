@@ -69,7 +69,7 @@ class FeaturedControllerIT {
 
     @Test
     void featuredReturnsApprovedOnlySortedByScore() {
-        // High score approved
+        // High-score approved
         Observation o1 = new Observation();
         o1.setTelescope("JWST");
         o1.setTargetName("Carina");
