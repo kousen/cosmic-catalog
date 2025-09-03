@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDateTime;
@@ -86,7 +85,7 @@ class HealthControllerIT {
         ib.setStatus(ImportBatch.Status.SUCCEEDED);
         importBatchRepository.save(ib);
 
-        ResponseEntity<Map> resp = rest.getForEntity("http://localhost:" + port + "/health", Map.class);
+        var resp = rest.getForEntity("http://localhost:" + port + "/health", Map.class);
         assertEquals(200, resp.getStatusCode().value());
         Map<String, Object> body = resp.getBody();
         assertNotNull(body);
@@ -104,7 +103,7 @@ class HealthControllerIT {
     @Test
     @SuppressWarnings("unchecked")
     void healthLastImportNullWhenNoImports() {
-        ResponseEntity<Map> resp = rest.getForEntity("http://localhost:" + port + "/health", Map.class);
+        var resp = rest.getForEntity("http://localhost:" + port + "/health", Map.class);
         assertEquals(200, resp.getStatusCode().value());
         Map<String, Object> body = resp.getBody();
         assertNotNull(body);
