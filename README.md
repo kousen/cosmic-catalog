@@ -5,9 +5,9 @@ A simple Spring Boot application for curating astronomical observations from tel
 ## Tech Stack
 
 *   **Java 21** (virtual threads available, standard features used)
-*   **Spring Boot 3.1.0** (intentionally a bit outdated for demo purposes)
+*   **Spring Boot 3.5.5**
 *   **Gradle (Groovy DSL)** via the included wrapper
-*   **Spring Data JPA** with **H2** (in-memory database)
+*   **Spring Data JPA** with **H2** (file-backed by default; in-memory in tests)
 *   **Thymeleaf** for the simple UI
 *   **JUnit 5** for unit and integration tests
 

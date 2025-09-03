@@ -234,7 +234,7 @@
         })
         .then(response => response.json())
         .then(data => {
-            statusEl.innerHTML = `<span class="badge badge-success">✓ Imported ${data.importedCount} observations, ${data.duplicateCount} duplicates skipped</span>`;
+            statusEl.innerHTML = `<span class="badge badge-success">✓ Imported ${data.imported} observations, ${data.duplicatesFound} duplicates skipped</span>`;
             // Reload page after 2 seconds to show new data
             setTimeout(() => {
                 window.location.reload();

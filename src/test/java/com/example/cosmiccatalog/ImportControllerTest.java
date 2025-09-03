@@ -64,4 +64,39 @@ class ImportControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isInternalServerError());
     }
+
+    @Test
+    void testImportRealisticData() throws Exception {
+        // Mock the import service
+        var now = LocalDateTime.now();
+        var summary = new ImportSummary(
+            "data/realistic_jwst.json",
+            now.minusSeconds(5),
+            now,
+            12,
+            1,
+            11,
+            ImportSummary.ImportStatus.SUCCEEDED,
+            "Import successful"
+        );
+        when(importService.importRealisticData()).thenReturn(summary);
+
+        mockMvc.perform(post("/api/import/realistic")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.totalProcessed").value(12))
+                .andExpect(jsonPath("$.imported").value(11))
+                .andExpect(jsonPath("$.duplicatesFound").value(1));
+    }
+
+    @Test
+    void testImportRealisticDataHandlesIOException() throws Exception {
+        // Mock IO exception
+        when(importService.importRealisticData())
+                .thenThrow(new java.io.IOException("File not found"));
+
+        mockMvc.perform(post("/api/import/realistic")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isInternalServerError());
+    }
 }
