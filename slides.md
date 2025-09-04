@@ -1,1179 +1,1186 @@
 ---
 theme: seriph
-title: 'AI Codecon Demo: Cosmic Catalog'
-info: |
-  ## AI Agents as Senior Collaborators
-  
-  Demonstrating AI-driven code review, testing, and release management
-  for the Cosmic Catalog Spring Boot application.
-
-highlighter: shiki
-drawings:
-  enabled: false
+title: "The Hitchhiker's Guide to AI Coding Agents (Don't Panic!)"
+layout: cover
 transition: slide-left
 mdc: true
-layout: cover
+themeConfig:
+  primary: '#6366f1'  # indigo accent
+colorSchema: 'dark'
+background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
 ---
 
-# AI Agents as Senior Collaborators
+# The Hitchhiker's Guide to AI Coding Agents
+## <span style="color: #fbbf24; font-size: 1.3em;">(Don't Panic!)</span>
 
-## Cosmic Catalog Demo
-### Spring Boot Code Review & Release Management
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    AI Codecon 2025 • Ken Kousen
-  </span>
+<div style="color: #e0f2fe; font-size: 1.1em; margin-top: 1.5em;">
+Claude Code, Codex CLI, Gemini CLI, and 42 more:<br/>
+Your towel 🏖️ for navigating the AI agent universe
 </div>
 
-<!--
-Welcome to the AI Codecon demo where we'll see AI agents working as senior collaborators on a real Spring Boot project. 
+<div style="color: #c4b5fd; font-size: 0.9em; margin-top: 2em;">
+Ken Kousen • AI Codecon • September 2025
+</div>
 
-Today's premise: Start with feature-complete but un-reviewed code, then use multiple AI agents to review, harden, test, and polish for release.
-
-This isn't about AI replacing developers - it's about AI as "B-students with infinite office hours" helping us deliver better code.
--->
-
-<style>
-/* Compact utility to keep content within viewport on dense slides */
-.compact { font-size: 0.95rem; }
-.compact h1 { font-size: 2.2rem; margin-bottom: 0.6rem; }
-.compact h2 { font-size: 1.25rem; margin: 0.5rem 0; }
-.compact pre { font-size: 0.8rem; line-height: 1.25; white-space: pre-wrap; word-break: break-word; }
-.compact code { font-size: 0.95em; }
-.compact .grid { gap: 1rem; }
-.compact ul { margin: 0.25rem 0 0.5rem; }
-</style>
+ 
 
 ---
 layout: default
+background: 'linear-gradient(to bottom right, #1e293b, #334155)'
 ---
 
-# The Premise
+## <span style="color: #60a5fa;">What is an AI Agent?</span>
 
-<div class="grid grid-cols-2 gap-8">
-<div>
+<div style="font-size: 1.1em; line-height: 1.8;">
 
-## Starting Point
-- Feature-complete Spring Boot app
-- Zero code review
-- Basic functionality working
-- Ready for AI collaboration
+An AI Agent is more than a chatbot. It's a system that can:
 
-</div>
-<div>
-
-## End Goal
-- Production-ready release
-- Comprehensive test coverage
-- Optimized performance
-- Professional code quality
-
-</div>
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.1em 0.5em; border-radius: 8px; margin: 0.5em 0;">
+1. 🎯 Understand a high-level goal.
 </div>
 
-<v-clicks>
+<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 0.1em 0.5em; border-radius: 8px; margin: 0.5em 0;">
+2. 📋 Create a step-by-step plan.
+</div>
 
-## The Narrative
-- **Human creativity** builds the foundation
-- **AI agents** provide rigorous review & polish
-- **Collaboration** between human insight and AI diligence
-- **Result**: Enterprise-grade software
+<div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 0.1em 0.5em; border-radius: 8px; margin: 0.5em 0;">
+3. ⚙️ Execute the plan using tools.
+</div>
 
-</v-clicks>
+<div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); padding: 0.1em 0.5em; border-radius: 8px; margin: 0.5em 0;">
+4. 🔄 Observe the results and self-correct.
+</div>
 
-<!--
-We start with a working but unrefined Spring Boot application called "Cosmic Catalog" - it manages telescope observations from Hubble and JWST.
-
-The code works, but it hasn't been through the rigorous review process that enterprise software demands. That's where our AI agents come in.
-
-Think of this as having access to multiple senior developers who never get tired, never get distracted, and can work around the clock to improve our code.
--->
+</div>
 
 ---
-layout: section
+background: 'linear-gradient(to bottom right, #0f172a, #1e293b)'
 ---
 
-# The Cosmic Catalog
-## A Spring Boot Application for Astronomical Data
+## <span style="color: #a78bfa;">A Typical Agent Workflow</span>
 
----
-layout: default
----
-
-# Project Overview
-
-<div class="grid grid-cols-2 gap-8">
-<div>
-
-## Tech Stack
-- `Java 21` - Modern features
-- `Spring Boot 3.1.0` - Web framework  
-- `Spring Data JPA` - Data persistence
-- `H2 Database` - In-memory storage
-- `Thymeleaf` - Template engine
-- `JUnit 5` - Testing framework
-
-</div>
-<div>
-
-## Core Features
-- Telescope observation management
-- Target catalog with coordinates
-- Scoring algorithm for observations
-- De-duplication logic
-- REST API endpoints
-- Health monitoring
-
-</div>
-</div>
-
-<v-clicks>
-
-<div class="mt-8 text-center p-4 bg-gray-100 rounded-lg text-gray-900">
-<h3 class="font-bold">The "Don't Panic" Easter Egg</h3>
-<p class="text-sm">A fun detail: any observation scoring exactly **42** gets a special badge - a nod to Douglas Adams' *Hitchhiker's Guide to the Galaxy*. This is the kind of domain-specific logic our agents must understand and preserve.</p>
-</div>
-
-</v-clicks>
-
-<!--
-Our demo application manages astronomical observations from major telescopes like Hubble and JWST.
-
-It's a real-world scenario - scientific data management with complex scoring algorithms, coordinate calculations, and data quality concerns.
-
-The "42" easter egg isn't just fun - it shows how AI agents can understand and preserve domain-specific business logic during refactoring.
--->
-
----
-layout: default
----
-
-# Modern Java 21 Features
-
-<div class="grid grid-cols-2 gap-6">
-<div>
-
-## Record Classes
-```java {all|1-4|5}
-public record HealthInfo(
-    String version,
-    Counts counts,
-    String lastImport
-) {
-    public record Counts(int obs, int targets) {}
-}
+```mermaid
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#9333ea', 'primaryTextColor':'#fff', 'primaryBorderColor':'#a855f7', 'lineColor':'#e879f9', 'secondaryColor':'#6366f1', 'tertiaryColor':'#3b82f6', 'background':'#1e293b', 'mainBkg':'#9333ea', 'secondBkg':'#6366f1', 'tertiaryBkg':'#3b82f6'}}}%%
+graph LR
+    A[User Goal] --> B{Core LLM};
+    B --> C{Planning};
+    C --> D[Tool Execution];
+    D --> E[Observe Results];
+    E --> B;
+    D --> F[Final Output];
 ```
 
-</div>
-<div>
-
-## Switch Expressions
-```java {all|1-6|7-9}
-private int calculateInstrumentScore(String instrument) {
-    return switch (instrument) {
-        case String i when i.contains("NIRCAM") -> 30;
-        case String i when i.contains("WFC3") -> 25;  
-        case String i when i.contains("ACS") -> 10;
-        default -> 0;
-    };
-}
-```
-
-</div>
-</div>
-
-<v-clicks>
-
-## Pattern Matching & Var
-```java {1-3|4-6}
-var observations = observationRepository.findAll(pageable);
-return observations.map(ObservationDTO::from);
-
-var latest = importBatchRepository.findTopByOrderByCompletedAtDesc()
-    .map(ib -> ib.getCompletedAt() != null ? 
-        ib.getCompletedAt().format(DateTimeFormatter.ISO_DATE_TIME) : null)
-```
-
-</v-clicks>
-
-<!--
-The application showcases modern Java 21 features that make code more readable and maintainable.
-
-Records eliminate boilerplate for data classes, while switch expressions with pattern matching make the scoring algorithm much cleaner than traditional if-else chains.
-
-The var keyword and method references show how modern Java can be both concise and type-safe.
--->
-
 ---
-layout: default
+background: 'linear-gradient(135deg, #1a365d 0%, #2c5282 100%)'
 ---
 
-# Run of Show (15 minutes)
+## <span style="color: #fbbf24;">Key Capabilities for Comparison</span>
 
-- Claude Code + context7: Safe dependency upgrades + one targeted bug fix
-- Gemini CLI (Developer): Implement GET /health with counts and lastImport
-- Playwright (QA): E2E UI flow check and screenshot artifact
-- Gemini CLI (Reviewer): Summarize risks, missing tests, and release notes
-- Junie/IntelliJ (Finisher): Small refactor with tests green
+<div style="font-size: 1.05em;">
 
-<!-- Quick agenda to anchor the demo flow. -->
+When evaluating AI agents, we consider several factors:
 
----
-layout: default
----
-
-# How to Run the Demo
-
-- Build: `cd cosmic-catalog && ./gradlew build`
-- Start app: `./gradlew bootRun` (serves at `http://localhost:8080`)
-- Hit endpoints:
-  - `GET /health` → version, counts, lastImport
-  - `GET /api/featured?limit=5` → top approved observations
-- Run tests (unit + integration): `./gradlew test`
-- Notes:
-  - Tests use a random port and in-memory H2.
-  - `app.version` comes from `src/main/resources/application.properties`.
-
-<!-- Operational crib sheet for live demo flow. -->
-
----
-layout: default
----
-
-# Live Checklist
-
-- Port check: ensure `:8080` free (fallback `server.port=8081`)
-- Warm up app: open `/health` once before demo
-- Data: sample JSON present under `cosmic-catalog/data/`
-- Tests: E2E can be @Disabled until live run
-- Artifacts: screenshots under `build/reports/` (e.g., playwright.png)
-- Backups: have static UI screenshot as fallback
-
-<!-- Quick pre-flight to reduce live-demo risks. -->
-
----
-layout: section
----
-
-# Agent Scoreboard
-## Tracking AI Performance
-
----
-layout: default
----
-
-# Scoreboard Template
-
-<div class="grid grid-cols-4 gap-4 text-center">
-<div class="bg-blue-100 p-4 rounded-lg text-gray-900">
-
-### Claude Code + context7
-#### Dependency Specialist
-<div class="text-6xl font-bold mt-4 text-blue-600">?</div>
-<div class="mt-2 text-sm text-gray-600">Grade pending</div>
+- **<span style="color: #60a5fa;">Core Model:</span>** The underlying Large Language Model (e.g., Gemini, GPT-4, Claude).
+- **<span style="color: #a78bfa;">Context Window:</span>** How much information the agent can hold at once.
+- **<span style="color: #34d399;">Tool Integration:</span>** The ability to use external tools like shell, file system, or web search.
+- **<span style="color: #f472b6;">User Interface:</span>** Is it a Command-Line Interface (CLI) or integrated into an IDE?
+- **<span style="color: #fbbf24;">Extensibility:</span>** Can you add custom commands, sub-agents, or other configurations?
+- **<span style="color: #fb923c;">Security:</span>** Features like sandboxing and command previews (MCP servers).
 
 </div>
-<div class="bg-green-100 p-4 rounded-lg text-gray-900">
-
-### Gemini CLI  
-#### Feature Developer
-<div class="text-6xl font-bold mt-4 text-green-600">?</div>
-<div class="mt-2 text-sm text-gray-600">Grade pending</div>
-
-</div>
-<div class="bg-purple-100 p-4 rounded-lg text-gray-900">
-
-### Playwright
-#### QA Agent
-<div class="text-6xl font-bold mt-4 text-purple-600">?</div>
-<div class="mt-2 text-sm text-gray-600">Grade pending</div>
-
-</div>
-<div class="bg-orange-100 p-4 rounded-lg text-gray-900">
-
-### Junie/IntelliJ
-#### Finisher (Refactoring)
-<div class="text-6xl font-bold mt-4 text-orange-600">?</div>
-<div class="mt-2 text-sm text-gray-600">Grade pending</div>
-
-</div>
-</div>
-
-<v-clicks>
-
-## Grading Criteria
-- **Code Quality**: Readability, maintainability, best practices
-- **Test Coverage**: Completeness and quality of tests  
-- **Performance**: Optimizations and efficiency improvements
-- **Documentation**: Clear comments and API documentation
-
-</v-clicks>
-
-<!--
-Throughout our demo, we'll track how each AI agent performs in their specialized role.
-
-Each agent gets graded on their specific contributions - this isn't about competition, but about understanding where different AI tools excel.
-
-Remember: we're looking for "B-student" performance with unlimited availability, not perfection.
--->
 
 ---
-layout: section
+class: cli-pad
+background: 'linear-gradient(to bottom, #312e81, #1e1b4b)'
 ---
 
-# Phase 1: Code Review
-## Gemini CLI as Senior Developer
-### (0:00 - 4:00)
+## <span style="color: #818cf8;">The CLI Agents</span>
 
----
-layout: default
----
+<div style="font-size: 1.2em; line-height: 2;">
 
-# Initial Code Review
-
-<p style="color: #333;">I'll ask Gemini to analyze all the changes since the initial commit.</p>
-
-<div class="grid grid-cols-2 gap-6">
-<div>
-
-## Gemini CLI Analysis
-- Architecture assessment
-- Code quality review  
-- Security vulnerability scan
-- Performance bottlenecks
-- Best practice violations
-
-<v-clicks>
-
-### Key Findings
-- Missing input validation
-- Inconsistent error handling
-- Suboptimal database queries
-- Missing documentation
-- Thread safety concerns
-
-</v-clicks>
+- **<span style="color: #60a5fa;">Gemini CLI</span>**
+- **<span style="color: #34d399;">OpenAI Codex CLI</span>**
+- **<span style="color: #f472b6;">Claude Code</span>**
 
 </div>
-<div>
 
-## Before: Approval Endpoint
-```java
-@PostMapping("/{id}/approve")
-public ResponseEntity<?> approveObservation(
-    @PathVariable Long id, 
-    @RequestParam(required = false) Integer expectedVersion
-) {
-    var observationOpt = observationRepository.findById(id);
-    
-    return observationOpt.map(obs -> {
-        obs.setStatus(Observation.Status.APPROVED);
-        var saved = observationService.saveWithScore(obs);
-        return ResponseEntity.ok(ObservationDTO.from(saved));
-    }).orElse(ResponseEntity.notFound().build());
-}
-```
-
-</div>
-</div>
-
-<!--
-The first phase involves Gemini CLI acting as our senior code reviewer.
-
-It examines the entire codebase with fresh eyes, identifying issues that humans often miss after working on code for weeks.
-
-Notice the original approval endpoint lacks optimistic locking validation - a classic concurrency issue that could cause data corruption in production.
-
-The AI reviewer catches these subtle but critical issues that could become major problems under load.
--->
-
----
-layout: default
-class: compact
----
-
-# Code Review Improvements
-
-<div class="grid grid-cols-2 gap-6">
-<div>
-
-## After: Optimistic Locking
-```java {all|4-9|11-12}
-@PostMapping("/{id}/approve")
-public ResponseEntity<?> approveObservation(
-    @PathVariable Long id, 
-    @RequestParam(required = false) Integer expectedVersion
-) {
-    var observationOpt = observationRepository.findById(id);
-    
-    return observationOpt.map(obs -> {
-        // Optimistic locking check
-        if (expectedVersion != null && 
-            !expectedVersion.equals(obs.getVersion())) {
-            return ResponseEntity.status(409)
-                .body(String.format(
-                    "Version conflict: expected %d, but was %d", 
-                    expectedVersion, obs.getVersion()));
-        }
-        
-        obs.setStatus(Observation.Status.APPROVED);
-        var saved = observationService.saveWithScore(obs);
-        return ResponseEntity.ok(ObservationDTO.from(saved));
-    }).orElse(ResponseEntity.notFound().build());
-}
-```
-
-</div>
-<div>
-
-<v-clicks>
-
-## Review Impact
-- **Concurrency Safety**: Version conflict detection
-- **Error Handling**: Clear HTTP status codes
-- **Data Integrity**: Prevents lost updates
-- **API Design**: RESTful error responses
-
-### Performance Benefits
-- Prevents database corruption
-- Handles concurrent modifications
-- Maintains data consistency
-- Improves user experience
-
-</v-clicks>
-
-</div>
-</div>
-
-<!--
-After the AI review, we see significant improvements in the approval endpoint.
-
-The optimistic locking implementation prevents the classic "lost update" problem where two users try to modify the same observation simultaneously.
-
-This is exactly the kind of subtle but critical improvement that AI agents excel at - they have infinite patience to check every edge case and concurrency scenario.
--->
-
----
-layout: section
----
-
-# Phase 2: Test Engineering  
-## Gemini CLI as QA Engineer
-### (4:00 - 8:00)
-
----
-layout: default
----
-
-# Test Coverage Analysis
-
-<p style="color: #333;">In phase two, the AI switches roles to become our test engineer, analyzing existing test coverage and identifying gaps.</p>
-
-<div class="grid grid-cols-2 gap-6">
-<div>
-
-## Current Test Coverage
-```java
-@SpringBootTest(webEnvironment = RANDOM_PORT)
-class HealthControllerIT {
-    
-    @LocalServerPort
-    int port;
-    
-    @Autowired
-    TestRestTemplate rest;
-    
-    @Test
-    void healthReturnsVersionCountsAndLastImport() {
-        // Seed test data
-        Target t = new Target();
-        t.setName("Carina");
-        t.setRa(10.0);
-        t.setDec(-59.0);
-        targetRepository.save(t);
-        
-        // Test endpoint
-        ResponseEntity<Map> resp = rest.getForEntity(
-            "http://localhost:" + port + "/health", 
-            Map.class);
-        assertEquals(200, resp.getStatusCode().value());
-        Map body = resp.getBody();
-        assertEquals("1.0.0", body.get("version"));
-    }
-}
-```
-
-</div>
-<div>
-
-<v-clicks>
-
-## AI Test Recommendations
-- **Integration tests** for all endpoints
-- **Edge case testing** for scoring algorithm  
-- **Concurrency tests** for approval conflicts
-- **Performance tests** for large datasets
-- **Error scenario coverage**
-
-### New Test Categories
-- Boundary value testing
-- Negative path validation  
-- Data integrity verification
-- API contract testing
-- Load testing scenarios
-
-</v-clicks>
-
-</div>
-</div>
-
-<!--
-In phase two, the AI switches roles to become our test engineer, analyzing existing test coverage and identifying gaps.
-
-The current integration test is solid but limited. The AI identifies missing test scenarios that could catch regressions during future development.
-
-Notice how the AI thinks systematically about testing - it's not just adding more tests, but ensuring we have the RIGHT tests for production reliability.
--->
-
----
-layout: default
-class: compact
----
-
-# Enhanced Test Suite
-
-<div class="grid grid-cols-2 gap-6">
-<div>
-
-## Concurrency Testing
-```java
-@Test
-void approveObservationHandlesVersionConflict() {
-    // Setup observation
-    Observation obs = createTestObservation();
-    obs = observationRepository.save(obs);
-    
-    // Test optimistic locking
-    String url = "http://localhost:" + port + "/api/observations/" + obs.getId() + "/approve?expectedVersion=999"; // Wrong version
-    ResponseEntity<String> result = rest.postForEntity(url, null, String.class);
-        
-    assertEquals(409, result.getStatusCode().value());
-    assertTrue(result.getBody().toString()
-        .contains("Version conflict"));
-}
-```
-
-</div>
-<div>
-
-## Scoring Edge Cases
-```java
-@Test
-void scoringAlgorithmDeterministicExample() {
-    Observation obs = new Observation();
-    obs.setInstrument("WFC3");        // 25 points
-    obs.setExposureSec(700);          // 30 points (>600s)
-    obs.setObsDate(LocalDateTime.now().minusDays(30)); // 20 points
-    obs.setFilters("none");           // 0 points
-
-    int score = scoringService.calculateScore(obs);
-    assertEquals(75, score);
-}
-```
-
-</div>
-</div>
-
-<v-clicks>
-
-## Test Quality Metrics
-- **Coverage**: Expanded line and branch coverage
-- **Edge Cases**: All boundary conditions tested  
-- **Error Paths**: Negative scenarios validated
-- **Integration**: Full API contract testing
-
-</v-clicks>
-
-<!--
-The enhanced test suite shows the AI's systematic approach to quality assurance.
-
-The concurrency test specifically validates our optimistic locking implementation, while the scoring test ensures our "Don't Panic" easter egg works correctly.
-
-This is where AI agents really shine - they have the patience to write comprehensive test suites that human developers often skip due to time pressure.
--->
-
----
-layout: default
-class: compact
----
-
-# Integration Test Outputs
-
-## Sample Responses (example shape)
-
-```bash
-# Health endpoint
-curl -s http://localhost:8080/health | jq
-```
-
-```json
-{
-  "version": "1.0.0",
-  "counts": { "obs": 2, "targets": 1 },
-  "lastImport": "2025-08-30T14:23:15"
-}
-```
-
-```bash
-# Featured observations (showing selected fields)
-curl -s 'http://localhost:8080/api/featured?limit=2' \
-  | jq '[.[] | {id, targetName, score, status}]'
-```
-
-```json
-[
-  { "id": 1, "targetName": "Carina", "score": 90, "status": "APPROVED" },
-  { "id": 2, "targetName": "Carina", "score": 10, "status": "APPROVED" }
-]
-```
-
-> Values vary by data; shapes match the implemented DTOs and endpoints.
-
----
-layout: section  
----
-
-# Phase 3: Refactoring
-## Junie in IntelliJ
-### (8:00 - 12:00)
-
----
-layout: default
----
-
-# AI-Powered Refactoring
-
-<p style="color: #333;">In phase three, we bring in Junie - the AI pair programmer integrated into IntelliJ IDEA.</p>
-
-<div class="grid grid-cols-2 gap-6">
-<div>
-
-## Junie's Analysis
-- Code smell detection
-- Design pattern opportunities
-- Performance optimizations
-- Maintainability improvements
-- Architecture refinements
-
-<v-clicks>
-
-### Refactoring Targets
-- Extract service interfaces
-- Implement caching strategies
-- Optimize database queries
-- Improve error handling
-- Standardize naming conventions
-
-</v-clicks>
-
-</div>
-<div>
-
-## Health Endpoint Optimization
-> Note: Conceptual refactor example (not implemented in repo)
-```java
-@GetMapping("/health")
-public HealthInfo getHealth() {
-    long obs = observationRepository.count();
-    long targets = targetRepository.count();
-    
-    var latest = importBatchRepository
-        .findTopByOrderByCompletedAtDesc()
-        .map(ib -> ib.getCompletedAt() != null
-            ? ib.getCompletedAt()
-                .format(DateTimeFormatter.ISO_DATE_TIME)
-            : null)
-        .orElse(null);
-        
-    return new HealthInfo(
-        version, 
-        new HealthInfo.Counts((int) obs, (int) targets), 
-        latest
-    );
-}
-```
-
-</div>
-</div>
-
-<!--
-In phase three, we bring in Junie - the AI pair programmer integrated into IntelliJ IDEA.
-
-Junie excels at contextual refactoring, understanding both the immediate code and the broader project structure.
-
-The health endpoint looks clean, but Junie identifies opportunities for caching these database counts and optimizing the query patterns.
--->
-
----
-layout: default
----
-
-# Refactoring Results
-
-<div class="grid grid-cols-2 gap-6">
-<div>
-
-## Before: Multiple Repository Calls
-```java
-@Service
-public class HealthService {
-    public HealthInfo getHealth() {
-        long obs = observationRepository.count();
-        long targets = targetRepository.count();
-        var latest = importBatchRepository
-            .findTopByOrderByCompletedAtDesc();
-        // ... rest of method
-    }
-}
-```
-
-</div>
-<div>
-
-## After: Optimized with Caching
-> Note: Conceptual refactor example (not implemented in repo)
-```java
-@Service
-public class HealthService {
-    
-    @Cacheable("health-counts")
-    public HealthInfo getHealth() {
-        var counts = healthRepository.getCombinedCounts();
-        var latest = importBatchRepository
-            .findLatestCompletedBatch();
-        
-        return new HealthInfo(
-            version,
-            new HealthInfo.Counts(
-                counts.observationCount(),
-                counts.targetCount()
-            ),
-            formatLastImport(latest)
-        );
-    }
-}
-```
-
-</div>
-</div>
-
-<v-clicks>
-
-## Refactoring Impact
-- **Performance**: 60% reduction in database calls
-- **Maintainability**: Clear service boundaries
-- **Caching**: Automatic cache invalidation
-- **Testability**: Improved mock injection points
-
-</v-clicks>
-
-<!--
-Junie's refactoring demonstrates the value of AI that understands project context.
-
-Instead of just cleaning up syntax, it optimizes the data access patterns and introduces proper caching strategies.
-
-The "60% reduction in database calls" isn't just a performance win - it's a scalability improvement that becomes critical as the application grows.
--->
-
----
-layout: section
----
-
-# Phase 4: Release Management
-## Gemini CLI as Reviewer  
-### (12:00 - 15:00)
-
----
-layout: default
-class: compact
----
-
-# Release Readiness Assessment
-
-<div class="grid grid-cols-2 gap-6">
-<div>
-
-## Pre-Release Checklist
-<v-clicks>
-
-- ✅ Code quality metrics passed
-  - ✅ Broader test coverage  
-- ✅ Security vulnerabilities addressed
-- ✅ Performance benchmarks met
-- ✅ Documentation updated
-- ✅ Configuration externalized
-- ✅ Health checks implemented
-- ✅ Monitoring endpoints ready
-
-</v-clicks>
-
-</div>
-<div>
-
-## Health Endpoint Response
-```json
-{
-  "version": "1.0.0",
-  "counts": { "obs": 2, "targets": 1 },
-  "lastImport": "2025-08-30T14:23:15"
-}
-```
-
-</div>
-</div>
-
-<v-clicks>
-
-## Release Configuration
-```yaml
-spring:
-  profiles:
-    active: production
-  datasource:
-    url: ${DATABASE_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-app:
-  version: ${APP_VERSION:1.0.0}
-  features:
-    scoring-cache: true
-    async-imports: true
-```
-
-</v-clicks>
-
-<!--
-In the final phase, our AI release manager ensures everything is production-ready.
-
-This isn't just about running tests - it's about validating the entire deployment pipeline and production configuration.
-
-The enhanced health endpoint now provides comprehensive runtime information that operations teams need for monitoring and troubleshooting.
--->
-
----
-layout: default
----
-
-# Final Scoreboard
-
-<div class="grid grid-cols-4 gap-4 text-center">
-<div class="bg-blue-100 p-4 rounded-lg text-gray-900">
-
-### Claude Code + context7
-#### Dependency Specialist
-<div class="text-6xl font-bold mt-4 text-blue-600">B+</div>
-<div class="mt-2 text-sm text-gray-600">Safe upgrades + one fix</div>
-
-</div>
-<div class="bg-green-100 p-4 rounded-lg text-gray-900">
-
-### Gemini CLI  
-#### Feature Developer
-<div class="text-6xl font-bold mt-4 text-green-600">B</div>
-<div class="mt-2 text-sm text-gray-600">/health shipped + tests</div>
-
-</div>
-<div class="bg-purple-100 p-4 rounded-lg text-gray-900">
-
-### Playwright
-#### QA Agent
-<div class="text-6xl font-bold mt-4 text-purple-600">B</div>
-<div class="mt-2 text-sm text-gray-600">E2E flow validated</div>
-
-</div>
-<div class="bg-orange-100 p-4 rounded-lg text-gray-900">
-
-### Junie/IntelliJ
-#### Finisher (Refactoring)
-<div class="text-6xl font-bold mt-4 text-orange-600">A-</div>
-<div class="mt-2 text-sm text-gray-600">Safe polish, tests green</div>
-
-</div>
-</div>
-
-<v-clicks>
-
-## Overall Assessment
-- **Code Quality**: From working prototype to production-ready
-- **Test Coverage**: From basic to comprehensive
-- **Performance**: Significant optimization gains  
-- **Maintainability**: Enterprise-grade structure
-
-### The B-Student Effect
-Each agent performed at "B-student" level, but with **infinite availability** and **systematic thoroughness** that humans rarely match.
-
-</v-clicks>
-
-<!--
-Our final scoreboard shows how each AI agent performed in their specialized role.
-
-The release manager gets a special score of 42 - our "Don't Panic" easter egg, showing that AI agents can appreciate and preserve the fun elements of our code.
-
-Notice that none of the agents achieved "A+" grades - they're B-students, but B-students who work 24/7 and never get distracted or tired.
--->
-
----
-layout: section
----
-
-# Key Takeaways
-## Lessons from AI Collaboration
-
----
-layout: default
----
-
-# Lessons Learned
-
-<div class="grid grid-cols-2 gap-8">
-<div>
-
-## AI Strengths
-<v-clicks>
-
-- **Systematic review** of entire codebase
-- **Pattern recognition** across languages/frameworks  
-- **Infinite patience** for comprehensive testing
-- **Consistent application** of best practices
-- **Fresh perspective** on familiar code
-
-</v-clicks>
-
-</div>
-<div>
-
-## Human Advantages
-<v-clicks>
-
-- **Creative problem solving**
-- **Business context understanding**
-- **Architectural vision**
-- **User experience intuition**  
-- **Strategic decision making**
-
-</v-clicks>
-
-</div>
-</div>
-
-<v-clicks>
-
-## The Collaboration Model
+<div style="padding-bottom: 2.5rem">
 
 ```mermaid
 graph LR
-    A[Human Creativity] --> B[Feature Implementation]
-    B --> C[AI Code Review]
-    C --> D[AI Test Engineering] 
-    D --> E[AI Refactoring]
-    E --> F[AI Release Management]
-    F --> G[Production Ready]
-    
-    style A fill:#e1f5fe
-    style G fill:#e8f5e8
+    subgraph Terminal
+        A[zsh/bash]
+    end
+    subgraph Agent
+        B[CLI]
+    end
+    subgraph Tools
+        C[FS]
+        D[Shell]
+        E[Web]
+    end
+
+    A -- "prompt" --> B;
+    B --> C & D & E;
 ```
 
-</v-clicks>
-
-<!--
-The real insight from this demo isn't that AI can code - it's that AI excels as a collaborative partner in the development process.
-
-Human creativity and architectural vision remain irreplaceable, but AI agents provide the systematic diligence that ensures nothing falls through the cracks.
-
-This collaboration model scales beautifully - the human focuses on creative problem-solving while AI handles the methodical review and polish work.
--->
+</div>
 
 ---
-layout: default
+background: 'linear-gradient(135deg, #065f46, #047857)'
 ---
 
-# Production Impact
+## <span style="color: #86efac;">The IDE-Native Agents</span>
 
-<div class="grid grid-cols-3 gap-6">
+<div style="color: #d1fae5; font-size: 1.1em;">
+These agents live directly inside your code editor, offering a more integrated experience.
+</div>
+
+<div style="font-size: 1.3em; line-height: 2.5; margin-top: 1em;">
+
+- **<span style="color: #fbbf24;">JetBrains Junie</span>**
+- **<span style="color: #60a5fa;">Cursor</span>**
+
+</div>
+
+```mermaid
+graph LR
+    subgraph Your IDE
+        A[Editor Window]
+        B[Agent Chat Panel]
+        C[Inline Actions]
+    end
+    subgraph Tools
+        D[File System]
+        E[Build System]
+        F[Debugger]
+    end
+
+    A -- "Code context" --> B;
+    B -- "Understands project" --> D;
+    B -- "Triggers builds/tests" --> E;
+    C -- "Refactors code directly" --> A;
+```
+
+---
+background: 'linear-gradient(to bottom, #0f172a, #1e293b)'
+---
+
+## <span style="color: #fbbf24;">Feature Matrix</span>
+
+<style>
+#fm-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.5rem 0 0.75rem; }
+#fm-wrap table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  border: 2px solid rgba(99,102,241,0.3);
+  background: rgba(15, 23, 42, 0.95);
+}
+#fm-wrap thead th {
+  position: sticky; top: 0; z-index: 2;
+  text-align: center; font-weight: 700; font-size: 1.0em; letter-spacing: 0.01em;
+  background: linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(168,85,247,0.2) 100%);
+  border-bottom: 2px solid rgba(99,102,241,0.4);
+  backdrop-filter: saturate(120%) blur(2px);
+  color: #fbbf24;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+#fm-wrap th, #fm-wrap td { 
+  padding: 0.6rem 0.8rem; 
+  border-bottom: 1px solid rgba(99,102,241,0.15); 
+  vertical-align: top;
+  color: #e2e8f0;
+}
+#fm-wrap tbody tr:nth-child(even) td { 
+  background: rgba(99,102,241,0.05); 
+}
+#fm-wrap tbody tr:hover td {
+  background: rgba(168,85,247,0.1) !important;
+  transition: background 0.2s;
+}
+#fm-wrap tbody tr:last-child td { border-bottom: none; }
+#fm-wrap th:first-child, #fm-wrap td:first-child {
+  position: sticky; left: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(99,102,241,0.15) 0%, rgba(99,102,241,0.08) 100%);
+  border-right: 2px solid rgba(99,102,241,0.25);
+  font-weight: 600;
+  color: #a78bfa;
+}
+#fm-wrap thead th:first-child { 
+  z-index: 3; 
+  background: linear-gradient(135deg, rgba(99,102,241,0.3) 0%, rgba(168,85,247,0.3) 100%);
+}
+#fm-wrap td strong {
+  color: #c4b5fd;
+}
+.fm-badge, .badge { 
+  display: inline-block; 
+  padding: 0.25rem 0.6rem; 
+  border-radius: 9999px; 
+  font-size: 0.85em; 
+  line-height: 1.2; 
+  white-space: nowrap;
+  font-weight: 500;
+  background: linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(168,85,247,0.2) 100%);
+  border: 1px solid rgba(168,85,247,0.3);
+  color: #e9d5ff;
+}
+.fm-badge.ui { 
+  background: linear-gradient(135deg, rgba(34,197,94,0.2) 0%, rgba(16,185,129,0.2) 100%);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: #86efac;
+}
+.fm-badge.mcp { 
+  background: linear-gradient(135deg, rgba(59,130,246,0.2) 0%, rgba(37,99,235,0.2) 100%);
+  border: 1px solid rgba(59,130,246,0.3);
+  color: #93c5fd;
+}
+.fm-badge[title*="Shell"], .fm-badge[title*="FS"] {
+  background: linear-gradient(135deg, rgba(251,146,60,0.2) 0%, rgba(249,115,22,0.2) 100%);
+  border: 1px solid rgba(251,146,60,0.3);
+  color: #fed7aa;
+}
+.fm-badge[title*="IDE"] {
+  background: linear-gradient(135deg, rgba(236,72,153,0.2) 0%, rgba(219,39,119,0.2) 100%);
+  border: 1px solid rgba(236,72,153,0.3);
+  color: #fbcfe8;
+}
+
+/* ——— Enhancements: sizing, separators, spacing ——— */
+/* Wider first column for readability */
+#fm-wrap th:first-child, #fm-wrap td:first-child { min-width: 12rem; max-width: 14rem; }
+/* Allow header wrapping and balance line height */
+#fm-wrap th { white-space: normal; line-height: 1.2; }
+#fm-wrap td { vertical-align: middle; }
+/* Subtle vertical separators between columns */
+#fm-wrap th + th, #fm-wrap td + td { 
+  border-left: 1px solid rgba(99,102,241,0.15); 
+}
+/* Slightly tighter cell padding */
+#fm-wrap th, #fm-wrap td { padding: 0.5rem 0.7rem; }
+/* Badge margins and weight for better wrapping */
+#fm-wrap td > .fm-badge, #fm-wrap td > .badge { margin: 0 0.35rem 0.35rem 0; }
+</style>
+
+<div id="fm-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Gemini CLI</th>
+      <th>OpenAI Codex CLI</th>
+      <th>Claude Code</th>
+      <th>JetBrains Junie</th>
+      <th>Cursor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Core Model</strong></td>
+      <td><span class="badge">Gemini 2.5-Pro / 2.5-Flash</span></td>
+      <td><span class="badge">GPT‑5 (Low/Med/High)</span></td>
+      <td><span class="badge">Claude Opus 4.1 / Sonnet 4</span></td>
+      <td><span class="badge">IDE‑configured providers</span></td>
+      <td><span class="badge">OpenAI + Anthropic</span></td>
+    </tr>
+    <tr>
+      <td><strong>UI</strong></td>
+      <td><span class="fm-badge ui" title="Command-line Interface">🖥️ CLI</span></td>
+      <td><span class="fm-badge ui" title="Command-line Interface">🖥️ CLI</span></td>
+      <td><span class="fm-badge ui" title="Command-line Interface">🖥️ CLI</span></td>
+      <td><span class="fm-badge ui" title="Integrated Development Environment">🧩 IDE</span></td>
+      <td><span class="fm-badge ui" title="Integrated Development Environment">🧩 IDE</span></td>
+    </tr>
+    <tr>
+      <td><strong>Tooling</strong></td>
+      <td>
+        <span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span>
+        <span class="fm-badge" title="Shell access">Shell</span>
+        <span class="fm-badge" title="File system access">FS</span>
+      </td>
+      <td>
+        <span class="fm-badge" title="Shell access">Shell</span>
+        <span class="fm-badge" title="File system access">FS</span>
+        <span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span>
+      </td>
+      <td>
+        <span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span>
+        <span class="fm-badge" title="Shell access">Shell</span>
+        <span class="fm-badge" title="File system access">FS</span>
+      </td>
+      <td>
+        <span class="fm-badge" title="IDE actions">IDE actions</span>
+        <span class="fm-badge" title="Build integration">Builds</span>
+        <span class="fm-badge" title="Version control">VCS</span>
+      </td>
+      <td>
+        <span class="fm-badge" title="Local file system">Local FS</span>
+        <span class="fm-badge" title="Provider APIs">Provider APIs</span>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Extensibility</strong></td>
+      <td><span class="fm-badge" title="Extensibility level">Standard</span></td>
+      <td><span class="fm-badge" title="Extensibility level">Standard</span></td>
+      <td><span class="fm-badge" title="Extensibility level">High (sub‑agents)</span></td>
+      <td><span class="fm-badge" title="Extensibility level">High (IDE plugins)</span></td>
+      <td><span class="fm-badge" title="Extensibility level">Moderate</span></td>
+    </tr>
+    <tr>
+      <td><strong>Tool Protocols &amp; Sandboxing</strong></td>
+      <td><span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span> <span class="fm-badge" title="Sandboxing and approval flows">Sandbox/Approvals</span></td>
+      <td><span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span> <span class="fm-badge" title="Approval flows">Approvals</span></td>
+      <td><span class="fm-badge mcp" title="Model Context Protocol">🔌 MCP</span> <span class="fm-badge" title="Approval flows">Approvals</span></td>
+      <td><span class="badge">IDE sandbox</span></td>
+      <td><span class="badge">Local‑first options</span></td>
+    </tr>
+    <tr>
+      <td><strong>Context</strong></td>
+      <td><span class="fm-badge" title="Context window size">Large / growing</span></td>
+      <td><span class="fm-badge" title="Context window size">Large / growing</span></td>
+      <td><span class="fm-badge" title="Context window size">Very large</span></td>
+      <td><span class="fm-badge" title="Context source">IDE‑indexed</span></td>
+      <td><span class="fm-badge" title="Context window size">Large</span></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+ 
+
+---
+background: 'linear-gradient(135deg, #7c3aed, #a855f7)'
+---
+
+## <span style="color: #fbbf24;">Deep Dive: Claude Code</span>
+
+<div style="color: #e9d5ff; font-size: 1.1em;">
+Claude Code stands out with its powerful extensibility features.
+</div>
+
+<div style="margin-top: 1em;">
+
+- **<span style="color: #c4b5fd;">/custom_commands:</span>** Users can define their own slash commands to automate repetitive workflows.
+- **<span style="color: #ddd6fe;">Sub-agents:</span>** The ability to delegate complex tasks to specialized, subordinate agents.
+
+</div>
+
+```mermaid
+graph TD
+    subgraph Main Agent
+        A[Claude Code]
+    end
+    subgraph Sub-Agents
+        B[Test Writer]
+        C[Refactoring Engine]
+        D[Documentation Bot]
+    end
+
+    A -- "/write_tests" --> B;
+    A -- "/refactor_all" --> C;
+    A -- "/docs" --> D;
+```
+
+---
+background: 'linear-gradient(to bottom right, #1e40af, #3b82f6)'
+---
+
+## <span style="color: #93c5fd;">Deep Dive: Gemini CLI</span>
+
+<div style="color: #dbeafe; font-size: 1.1em;">
+Gemini's key advantage is its <span style="color: #fbbf24; font-weight: bold;">massive context window</span>. This allows the agent to load an entire codebase into memory, enabling repository-wide understanding and changes.
+</div>
+
+```mermaid
+graph LR
+    subgraph Codebase
+        F1[file1.js]
+        F2[...]
+    end
+
+    subgraph Agent
+        A[Context] --> B{Logic};
+    end
+
+    subgraph Outputs
+        C[Code Change]
+        D[New Test]
+    end
+
+    Codebase --> A;
+    B --> Outputs;
+```
+
+---
+class: compact
+background: 'linear-gradient(135deg, #065f46, #064e3b)'
+---
+
+## <span style="color: #86efac;">Deep Dive: OpenAI Codex CLI</span>
+
+<div style="color: #d1fae5; font-size: 1.05em;">
+Codex CLI runs <span style="color: #fbbf24; font-weight: bold;">GPT-5 with three performance modes</span> - trade speed for capability.
+</div>
+
+<div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.5rem; margin-top: 1em;">
+
 <div>
 
-## Code Quality
-<div class="text-4xl font-bold text-blue-600 mb-4">Improved</div>
-
-- Optimistic locking implemented
-- Error handling standardized  
-- Best practices enforced
+```mermaid
+%%{init: {'theme':'dark'}}%%
+graph LR
+    A[Prompt] --> B{Mode Selection}
+    B --> C[Low: Fast]
+    B --> D[Medium: Balanced]
+    B --> E[High: Max Power]
+```
 
 </div>
+
+<div style="background: rgba(52, 211, 153, 0.1); padding: 0.8em; border-radius: 8px;">
+
+**Mode Configuration:**
+
+⚡ **Low:** Lightning fast  
+<span style="font-size: 0.9em; color: #d1fae5;">Simple edits, quick fixes</span>
+
+⚙️ **Medium:** Balanced  
+<span style="font-size: 0.9em; color: #d1fae5;">Most development tasks</span>
+
+🚀 **High:** Maximum power  
+<span style="font-size: 0.9em; color: #d1fae5;">Complex architecture, deep analysis</span>
+
+</div>
+
+</div>
+
+---
+class: compact
+background: 'linear-gradient(135deg, #312e81, #1e1b4b)'
+---
+
+## <span style="color: #fbbf24;">MCP Configuration: Each Tool is Different</span>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.85em;">
+
+<div style="background: rgba(99,102,241,0.1); padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(99,102,241,0.3);">
+
+### <span style="color: #f472b6;">OpenAI Codex (TOML)</span>
+```toml
+# codex-mcp.toml - stdio only!
+[mcp_servers.playwright]
+command = "npx"
+args = ["@playwright/mcp@latest"]
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp", 
+        "--api-key", "ctx7sk-..."]
+```
+</div>
+
+<div style="background: rgba(59,130,246,0.1); padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(59,130,246,0.3);">
+
+### <span style="color: #60a5fa;">Gemini (JSON)</span>
+```json
+// gemini-config.json
+{
+  "playwright": {
+    "command": "npx",
+    "args": ["@playwright/mcp@latest"]
+  },
+  "context7": {
+    "httpUrl": "https://mcp.context7.com/mcp",
+    "headers": {
+      "CONTEXT7_API_KEY": "ctx7sk-..."
+    }
+  }
+}
+```
+</div>
+
+</div>
+
+<div style="background: rgba(168,85,247,0.1); padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(168,85,247,0.3); margin-top: 1rem;">
+
+### <span style="color: #a78bfa;">Claude Code (CLI Command)</span>
+```bash
+# Add via CLI - supports multiple transports (stdio, http, sse)
+claude mcp add --transport http context7 https://mcp.context7.com/mcp \
+  --header "CONTEXT7_API_KEY: ctx7sk-..."
+```
+</div>
+
+---
+background: 'linear-gradient(135deg, #312e81, #4c1d95)'
+---
+
+## <span style="color: #fbbf24;">Advanced Architecture: MCP Orchestration</span>
+
+<div style="color: #e9d5ff; font-size: 1.1em;">
+Instead of juggling multiple terminals, use Claude Code as an orchestrator with other CLI tools as MCP sub-agents.
+</div>
+
+<div style="margin-top: 1.5em;">
+
+### <span style="color: #a78bfa;">The Problem:</span>
+- Multiple terminal windows for different CLI tools
+- Context switching between Gemini, Codex, and Claude Code
+- Manual coordination of results between tools
+- Duplicated effort and lost context
+
+### <span style="color: #60a5fa;">The Solution:</span>
+Configure Gemini and Codex as MCP servers, accessible as sub-agents within Claude Code
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #1e1b4b, #312e81)'
+---
+
+## <span style="color: #fbbf24;">But Should We?</span>
+
+<div style="text-align: center;">
+<img src="./goldblum-quote.jpeg" style="max-width: 90%; height: auto; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.4);" />
+</div>
+
+<div style="margin-top: 1em; text-align: center; color: #e9d5ff; font-size: 1.2em;">
+<strong>Spoiler: Um, maybe? 🚀</strong>
+</div>
+
+---
+background: 'linear-gradient(135deg, #4c1d95, #5b21b6)'
+---
+
+## <span style="color: #fbbf24;">MCP Sub-Agent Architecture</span>
+
+```mermaid
+%%{init: {'theme':'dark'}}%%
+graph LR
+    subgraph "Single Interface"
+        A[Terminal]
+    end
+    
+    subgraph "Claude Code"
+        B[Orchestrator]
+    end
+    
+    subgraph "MCP Sub-Agents"
+        C[Gemini<br/>2M+ Context]
+        D[Codex<br/>GPT-5]
+        E[Custom<br/>Tools]
+    end
+    
+    A --> B
+    B --> C & D & E
+```
+
+<div style="margin-top: 1em; color: #e9d5ff; text-align: center;">
+Claude Code intelligently delegates to the right agent based on task requirements
+</div>
+
+---
+background: 'linear-gradient(135deg, #4c1d95, #5b21b6)'
+---
+
+## <span style="color: #fbbf24;">Architecture Benefits</span>
+
+<div style="font-size: 1.2em; line-height: 2.2;">
+
+### <span style="color: #a78bfa;">Why This Changes Everything:</span>
+
+<div style="margin-top: 1em;">
+
+🎯 **Single terminal interface** 
+<span style="color: #e9d5ff;">No more juggling multiple CLI windows</span>
+
+🧠 **Intelligent task routing**  
+<span style="color: #e9d5ff;">Claude automatically picks the best agent for each job</span>
+
+🔄 **Seamless result integration**  
+<span style="color: #e9d5ff;">Sub-agent outputs flow back without manual copying</span>
+
+🚀 **Combined superpowers**  
+<span style="color: #e9d5ff;">Gemini's 2M+ context + Codex's GPT-5 + Claude's reasoning</span>
+
+💡 **Context preservation**  
+<span style="color: #e9d5ff;">Claude maintains the full conversation history</span>
+
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #5b21b6, #6d28d9)'
+---
+
+## <span style="color: #fbbf24;">Practical Example: Large Codebase Analysis</span>
+
+<div style="font-size: 0.95em;">
+
+**Scenario:** Security audit of a 500K LOC Spring Boot application
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1em;">
+
+<div style="background: rgba(168,85,247,0.1); padding: 0.9em; border-radius: 8px;">
+
+**User Request:**
+```bash
+"Find all security vulnerabilities"
+```
+
+**Claude's Orchestration:**
+1. 🔍 Analyzes request scope
+2. 🚀 Delegates to **Gemini** (2M+ tokens)
+3. 📊 Gemini scans all 500K lines
+4. 🔄 Results return to Claude
+5. 🛠️ Claude generates fix PRs
+
+</div>
+
+<div style="background: rgba(96,165,250,0.1); padding: 0.9em; border-radius: 8px;">
+
+**Benefits Achieved:**
+
+✅ **Single command**  
+One request does everything
+
+✅ **Full context**  
+Entire codebase analyzed at once
+
+✅ **Smart fixes**  
+Claude reasons through solutions
+
+✅ **Automated flow**  
+No manual steps needed
+
+✅ **Fast results**  
+Minutes vs hours of review
+
+</div>
+
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #6d28d9, #7c3aed)'
+---
+
+## <span style="color: #fbbf24;">Configuration Strategy</span>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+
 <div>
 
-## Test Coverage  
-<div class="text-4xl font-bold text-green-600 mb-4">Broader</div>
+### <span style="color: #60a5fa;">MCP Integration Options</span>
 
-- Integration tests added
-- Edge cases covered
-- Concurrency scenarios included
+```bash
+# Option 1: Use Zen MCP Server
+# (Community orchestrator)
+claude mcp add zen-server \
+  stdio npx @beehive/zen-mcp \
+  --models gemini,openai
+
+# Option 2: Custom wrapper
+# (You'd need to build this)
+claude mcp add custom-orchestrator \
+  stdio python my_orchestrator.py
+```
 
 </div>
+
 <div>
 
-## Performance
-<div class="text-4xl font-bold text-purple-600 mb-4">More Efficient</div>
+### <span style="color: #a78bfa;">Spring AI MCP Server</span>
 
-- Database access streamlined
-- Caching opportunities identified (conceptual)
-- Response paths simplified
+```java
+// Two approaches:
+// 1. Direct API calls via Spring AI
+@Service
+class DirectAPIApproach {
+  @Autowired ChatClient gemini;
+  @Autowired ChatClient openai;
+}
+
+// 2. CLI tools in headless mode
+@Service 
+class CLIWrapperApproach {
+  Process exec(String prompt) {
+    return new ProcessBuilder(
+      "gemini", "--headless", 
+      "--json", prompt).start();
+  }
+}
+```
 
 </div>
+
 </div>
 
-<v-clicks>
-
-## Business Value
-- **Reduced bugs** in production
-- **Faster release cycles** with confidence
-- **Lower maintenance costs** over time
-- **Improved developer productivity**
-
-</v-clicks>
+<div style="margin-top: 1em; background: rgba(251,191,36,0.1); padding: 0.8em; border-radius: 8px;">
+<span style="color: #fbbf24;">💡 Key Insight:</span> Each agent becomes a specialized tool in Claude's toolkit
+</div>
 
 ---
-layout: default
+background: 'linear-gradient(135deg, #7c3aed, #8b5cf6)'
 ---
 
-# Grades and Next Steps
+## <span style="color: #fbbf24;">Optimal Task Delegation</span>
 
-## Grades (demo narrative)
-- Claude (Deps + Bug Fix): B+
-- Gemini (Feature Dev): B
-- Playwright (QA): Hall monitor energy
-- Junie (Finisher): A-
+<div style="font-size: 1.05em;">
 
-## Next Steps
-- Add approve 409 integration test
-- Wire import runner and apply scoring on import
-- Consider caching health counts (conceptual)
-- Optional: Add `/api/observations` filters + pagination demo
+Claude Code automatically selects the best agent for each task:
 
-<!-- Close with a pragmatic roadmap. -->
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1em;">
 
-<!--
-The quantifiable results demonstrate real business value from AI collaboration.
+<div style="background: rgba(96,165,250,0.15); padding: 1em; border-radius: 8px;">
+<strong style="color: #60a5fa;">Gemini Tasks</strong>
+<ul style="color: #dbeafe; font-size: 0.9em; margin: 0.5em 0;">
+<li>Repository-wide refactoring</li>
+<li>Cross-file dependency analysis</li>
+<li>Large document processing</li>
+<li>Context7 library downloads</li>
+</ul>
+</div>
 
-The 300% code quality improvement isn't just a number - it translates to fewer production bugs, easier maintenance, and more confident releases.
+<div style="background: rgba(52,211,153,0.15); padding: 1em; border-radius: 8px;">
+<strong style="color: #34d399;">Codex Tasks</strong>
+<ul style="color: #d1fae5; font-size: 0.9em; margin: 0.5em 0;">
+<li>Rapid prototyping</li>
+<li>API client generation</li>
+<li>Test suite creation</li>
+<li>Documentation writing</li>
+</ul>
+</div>
 
-This is the practical benefit of treating AI as senior collaborators rather than replacement tools.
--->
+<div style="background: rgba(244,114,182,0.15); padding: 1em; border-radius: 8px;">
+<strong style="color: #f472b6;">Claude Tasks</strong>
+<ul style="color: #fce7f3; font-size: 0.9em; margin: 0.5em 0;">
+<li>Complex reasoning</li>
+<li>Architecture decisions</li>
+<li>Code review</li>
+<li>Task orchestration</li>
+</ul>
+</div>
+
+</div>
+
+<div style="margin-top: 1.5em; text-align: center; padding: 0.8em; background: rgba(168,85,247,0.1); border-radius: 8px;">
+Result: <strong style="color: #c4b5fd;">Best tool for every job, zero context switching</strong>
+</div>
+
+</div>
 
 ---
-layout: default
+background: 'linear-gradient(135deg, #0891b2, #06b6d4)'
 ---
 
-# GitHub Repository
+## <span style="color: #fde047;">The Future is Autonomous</span>
 
-<div class="text-center">
+<div style="font-size: 1.1em;">
 
-## 🚀 Get the Code
+All these tools are moving towards a common set of goals:
 
-<div class="text-6xl mt-8 mb-8">
-<a href="https://github.com/kousen/cosmic-catalog" class="text-blue-600">
+<div style="background: rgba(254, 240, 138, 0.1); border-left: 4px solid #fbbf24; padding: 0.5em; margin: 0.5em 0;">
+<strong style="color: #fbbf24;">🚀 Massive Context Windows:</strong> <span style="color: #e0f2fe;">Ingesting entire codebases for complete understanding.</span>
+</div>
+
+<div style="background: rgba(167, 139, 250, 0.1); border-left: 4px solid #a78bfa; padding: 0.5em; margin: 0.5em 0;">
+<strong style="color: #a78bfa;">🤖 Increased Autonomy:</strong> <span style="color: #e0f2fe;">Moving from co-pilot to autonomous agent that can handle entire features from a single prompt.</span>
+</div>
+
+<div style="background: rgba(52, 211, 153, 0.1); border-left: 4px solid #34d399; padding: 0.5em; margin: 0.5em 0;">
+<strong style="color: #34d399;">🎨 Multi-modality:</strong> <span style="color: #e0f2fe;">Understanding not just code, but also diagrams, mockups, and audio/video feedback.</span>
+</div>
+
+<div style="background: rgba(251, 146, 60, 0.1); border-left: 4px solid #fb923c; padding: 0.5em; margin: 0.5em 0;">
+<strong style="color: #fb923c;">🔧 Self-Healing Code:</strong> <span style="color: #e0f2fe;">Agents that can detect, diagnose, and fix bugs on their own.</span>
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #dc2626, #991b1b)'
+---
+
+## <span style="color: #fbbf24;">From Theory to Practice</span>
+
+<div style="font-size: 1.05em;">
+
+### <span style="color: #fde047;">The Cosmic Catalog Project</span>
+
+<span style="color: #e0f2fe;">Spring Boot app managing telescope observations from Hubble and JWST</span>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1em;">
+
+<div style="background: rgba(52, 211, 153, 0.1); padding: 0.8em; border-radius: 8px;">
+<strong style="color: #34d399;">✅ What's Done:</strong>
+<ul style="font-size: 0.9em; margin: 0.5em 0;">
+<li>Feature-complete</li>
+<li>Java 21 with modern features</li>
+<li>Working application</li>
+</ul>
+</div>
+
+<div style="background: rgba(251, 191, 36, 0.1); padding: 0.8em; border-radius: 8px;">
+<strong style="color: #fbbf24;">⚠️ What's Needed:</strong>
+<ul style="font-size: 0.9em; margin: 0.5em 0;">
+<li>Production hardening</li>
+<li>Comprehensive tests</li>
+<li>Code refactoring</li>
+</ul>
+</div>
+
+</div>
+
+<div style="margin-top: 1em; text-align: center; padding: 0.6em; background: rgba(168, 85, 247, 0.15); border-radius: 8px;">
+<strong style="color: #c4b5fd;">Perfect scenario for AI agent collaboration!</strong>
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #1e40af, #1e3a8a)'
+---
+
+## <span style="color: #fbbf24;">The Collaborative Process</span>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: 0.95em;">
+
+<div>
+
+### <span style="color: #60a5fa;">Traditional Approach</span>
+
+<div style="background: rgba(96, 165, 250, 0.1); padding: 1em; border-radius: 8px; margin-top: 0.5em;">
+
+1. **Senior dev reviews** → Hours of meetings
+2. **QA writes tests** → Days of work
+3. **Tech writer documents** → More delays
+4. **DevOps configures** → Additional setup
+
+<div style="margin-top: 1em; color: #f87171;">
+⏱️ **Time:** Weeks<br>
+💰 **Cost:** High<br>
+🔄 **Consistency:** Variable
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+### <span style="color: #34d399;">AI Agent Approach</span>
+
+<div style="background: rgba(52, 211, 153, 0.1); padding: 1em; border-radius: 8px; margin-top: 0.5em;">
+
+1. **Gemini reviews** → Instant analysis
+2. **Claude refactors** → Immediate improvements
+3. **Codex documents** → Auto-generated docs
+4. **All agents test** → Comprehensive coverage
+
+<div style="margin-top: 1em; color: #86efac;">
+⏱️ **Time:** Minutes<br>
+💰 **Cost:** Minimal<br>
+🔄 **Consistency:** Reliable
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #7c3aed, #6d28d9)'
+---
+
+## <span style="color: #fbbf24;">Agent Collaboration Workflow</span>
+
+```mermaid
+%%{init: {'theme':'dark'}}%%
+graph LR
+    subgraph "Input"
+        A[GitHub Repo]
+        B[Task Document]
+    end
+    
+    subgraph "AI Agents"
+        C[🔵 Gemini: Review]
+        D[🟣 Claude: Refactor]
+        E[🟢 Codex: Document]
+    end
+    
+    subgraph "Output"
+        F[Tests + Architecture + Docs]
+        G[Git Tags]
+    end
+    
+    A --> C & D & E
+    B --> C & D & E
+    C & D & E --> F
+    F --> G
+```
+
+<div style="margin-top: 1em; text-align: center; color: #e9d5ff;">
+Each agent reads the shared task document, contributes their expertise, and tags their work for easy demonstration.
+</div>
+
+---
+background: 'linear-gradient(135deg, #059669, #047857)'
+---
+
+## <span style="color: #fbbf24;">Key Innovation: Agent Autonomy</span>
+
+<div style="font-size: 1.05em;">
+
+<div style="background: rgba(254, 240, 138, 0.1); border: 2px solid #fbbf24; padding: 1.2em; border-radius: 10px;">
+
+### <span style="color: #fde047;">Not Just Following Orders</span>
+
+Instead of rigid instructions:
+```markdown
+❌ "Do exactly this: Extract HealthService from HealthController"
+```
+
+We give creative freedom:
+```markdown
+✅ "Improve the service layer architecture using your judgment"
+```
+
+</div>
+
+<div style="margin-top: 1.5em; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+
+<div style="background: rgba(96, 165, 250, 0.15); padding: 0.8em; border-radius: 8px; text-align: center;">
+<strong style="color: #60a5fa;">Gemini</strong><br>
+<span style="color: #dbeafe; font-size: 0.9em;">Might find security issues we didn't expect</span>
+</div>
+
+<div style="background: rgba(168, 85, 247, 0.15); padding: 0.8em; border-radius: 8px; text-align: center;">
+<strong style="color: #a78bfa;">Claude</strong><br>
+<span style="color: #e9d5ff; font-size: 0.9em;">Could suggest architectural patterns</span>
+</div>
+
+<div style="background: rgba(52, 211, 153, 0.15); padding: 0.8em; border-radius: 8px; text-align: center;">
+<strong style="color: #34d399;">Codex</strong><br>
+<span style="color: #d1fae5; font-size: 0.9em;">May create interactive API playground</span>
+</div>
+
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #0891b2, #0e7490)'
+---
+
+## <span style="color: #fbbf24;">Demo Structure - Part 1</span>
+
+<div style="font-size: 1.05em;">
+
+<div style="display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: start;">
+
+<div style="background: linear-gradient(135deg, #6366f1, #4f46e5); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v5</div>
+<div style="background: rgba(99, 102, 241, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #c4b5fd;">Starting Point</strong><br>
+<span style="color: #e0f2fe; font-size: 0.9em;">Feature-complete Spring Boot app with modern Java 21</span>
+</div>
+
+<div style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v6-v7</div>
+<div style="background: rgba(139, 92, 246, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #c4b5fd;">Gemini's Review & Testing</strong><br>
+<span style="color: #e0f2fe; font-size: 0.9em;">Code review, version conflict tests, integration tests</span>
+</div>
+
+<div style="background: linear-gradient(135deg, #ec4899, #db2777); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v8</div>
+<div style="background: rgba(236, 72, 153, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #fbcfe8;">Claude's Initial Refactoring</strong><br>
+<span style="color: #fce7f3; font-size: 0.9em;">Service extraction, ErrorResponse DTO, SOLID principles</span>
+</div>
+
+<div style="background: linear-gradient(135deg, #10b981, #059669); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v9-v10</div>
+<div style="background: rgba(16, 185, 129, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #86efac;">Codex's Documentation</strong><br>
+<span style="color: #d1fae5; font-size: 0.9em;">API docs, Swagger UI, Docker setup, CI pipeline</span>
+</div>
+
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #dc2626, #991b1b)'
+---
+
+## <span style="color: #fbbf24;">Demo Structure - Part 2</span>
+
+<div style="font-size: 1.05em;">
+
+<div style="display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: start;">
+
+<div style="background: linear-gradient(135deg, #a855f7, #9333ea); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v11-v12</div>
+<div style="background: rgba(168, 85, 247, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #e9d5ff;">Claude's Advanced Services</strong><br>
+<span style="color: #f3e8ff; font-size: 0.9em;">ApprovalService, ImportService, caching, custom exceptions</span>
+</div>
+
+<div style="background: linear-gradient(135deg, #3b82f6, #2563eb); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v13</div>
+<div style="background: rgba(59, 130, 246, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #bfdbfe;">Gemini's Stabilization</strong><br>
+<span style="color: #dbeafe; font-size: 0.9em;">Global exception handling, error response fixes</span>
+</div>
+
+<div style="background: linear-gradient(135deg, #06b6d4, #0891b2); padding: 0.5em 0.9em; border-radius: 8px; font-weight: bold; color: #fde047;">v15</div>
+<div style="background: rgba(6, 182, 212, 0.1); padding: 0.7em; border-radius: 8px;">
+<strong style="color: #a5f3fc;">Claude's E2E Testing</strong><br>
+<span style="color: #cffafe; font-size: 0.9em;">Playwright tests, CI integration, smoke tests</span>
+</div>
+
+</div>
+
+<div style="margin-top: 1.5em; text-align: center; padding: 0.9em; background: rgba(251, 191, 36, 0.1); border-radius: 10px; border: 2px solid #fbbf24;">
+<span style="color: #fef3c7; font-size: 1em;"><strong>Result:</strong> Production-ready, tested, documented, deployed!</span>
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(to bottom, #581c87, #6b21a8)'
+---
+
+## <span style="color: #fbbf24;">Conclusion</span>
+
+<div style="font-size: 1.15em; line-height: 1.8;">
+
+<div style="background: linear-gradient(135deg, #3b82f6, #6366f1); padding: 1em; border-radius: 10px; margin: 0.5em 0;">
+<strong style="color: #fde047;">🖥️ CLI Agents (Gemini, OpenAI, Claude):</strong> <span style="color: #e0f2fe;">Best for developers who live in the terminal and want a powerful, scriptable assistant.</span>
+</div>
+
+<div style="background: linear-gradient(135deg, #10b981, #059669); padding: 1em; border-radius: 10px; margin: 0.5em 0;">
+<strong style="color: #fde047;">🧩 IDE Agents (Junie, Cursor):</strong> <span style="color: #d1fae5;">Best for developers who want a deeply integrated, visual co-pilot within their existing workflow.</span>
+</div>
+
+<div style="margin-top: 2em; padding: 1em; background: rgba(251, 191, 36, 0.1); border-radius: 10px; border: 2px solid #fbbf24;">
+<span style="color: #fef3c7;">The right tool depends on your personal workflow and the specific tasks you need to accomplish. The field is evolving rapidly, so expect capabilities to expand across the board.</span>
+</div>
+
+</div>
+
+---
+background: 'linear-gradient(135deg, #1e40af, #1e3a8a)'
+---
+
+## <span style="color: #fbbf24;">🚀 Get the Code</span>
+
+<div style="text-align: center; font-size: 1.1em;">
+
+<div style="margin: 1em 0; padding: 1em; background: rgba(251, 191, 36, 0.1); border-radius: 10px; border: 2px solid #fbbf24;">
+
+<div style="font-size: 1.6em; margin: 0.5em 0;">
+<a href="https://github.com/kousen/cosmic-catalog" style="color: #60a5fa; text-decoration: none;">
 github.com/kousen/cosmic-catalog
 </a>
 </div>
 
-### What's Included:
-- Complete Spring Boot application with all AI agent contributions
-- Git tags showing progression (v5 through v15)
-- Documentation of each agent's work
-- CI/CD pipeline configuration
-- E2E tests with Playwright
-- This presentation
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin: 0.8em 0; color: #e0f2fe; font-size: 0.95em;">
+<div style="text-align: left;">
+• Complete Spring Boot app<br/>
+• All AI contributions (v5-v15)<br/>
+• Full documentation
+</div>
+<div style="text-align: left;">
+• CI/CD pipeline<br/>
+• E2E Playwright tests<br/>
+• This presentation
+</div>
+</div>
 
-<div class="mt-8 p-4 bg-blue-50 rounded-lg">
-<strong>Clone and explore:</strong>
-<pre class="text-left">
-git clone https://github.com/kousen/cosmic-catalog.git
-cd cosmic-catalog
-git tag -l  # See all version tags
-./gradlew bootRun  # Start the application
-</pre>
+<div style="margin-top: 0.8em; padding: 0.6em; background: rgba(16, 185, 129, 0.15); border-radius: 8px;">
+<pre style="color: #86efac; font-size: 0.85em; margin: 0;">git clone https://github.com/kousen/cosmic-catalog.git
+./gradlew bootRun    # Start the application</pre>
 </div>
 
 </div>
 
----
-layout: default
----
-
-# About Ken Kousen
-
-<div class="grid grid-cols-3 gap-8">
-<div class="col-span-1">
-<img src="https://www.kousenit.com/wp-content/uploads/2020/08/ken_kousen_headshot.jpg" class="rounded-lg shadow-lg" />
-</div>
-<div class="col-span-2">
-
-## Kenneth A. Kousen
-
-### President, Kousen IT, Inc.
-- **Java Champion** and **Groovy Champion**
-- **Author** of multiple programming books including:
-  - *Help Your Boss Help You* (Pragmatic Programmers)
-  - *Modern Java Recipes* (O'Reilly)
-  - *Gradle Recipes for Android* (O'Reilly)
-  - *Making Java Groovy* (Manning)
-
-### Trainer & Speaker
-- **O'Reilly Learning Platform** instructor
-- **NFJS (No Fluff Just Stuff)** tour speaker
-- Specializes in Spring, Java, Groovy, Kotlin, Android, and AI/ML
-
-### Education
-- MS in Mechanical Engineering, MIT
-- PhD in Aerospace Engineering, Princeton
-
-</div>
-</div>
-
-<div class="mt-6 text-center">
-<strong>Newsletter:</strong> Subscribe to "Tales from the jar side" at kousenit.substack.com
 </div>
 
 ---
-layout: end
+background: 'linear-gradient(135deg, #7c3aed, #6d28d9)'
 ---
 
-# Thank You!
+## <span style="color: #fbbf24;">About Ken Kousen</span>
 
-## Questions & Discussion
+<div style="color: #e0f2fe; font-size: 1em; max-width: 800px; margin: 0 auto;">
 
-<div class="text-center text-2xl mt-12">
+<span style="color: #c4b5fd;">President, Kousen IT, Inc.</span>
 
-### Let's Connect!
+<div style="margin-top: 0.8em; line-height: 1.4;">
 
-- **Email**: ken@kousenit.com
-- **Twitter/X**: @kenkousen  
-- **LinkedIn**: kenneth-kousen
-- **GitHub**: kousen
-- **Newsletter**: kousenit.substack.com
+**🏆 Java Champion & Grails Rock Star**
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em; margin-top: 0.5em;">
+<div>
+<strong>📚 Books:</strong><br/>
+• Help Your Boss Help You<br/>
+• Modern Java Recipes<br/>
+• Kotlin Cookbook<br/>
+• Mockito Made Clear<br/>
+• Gradle Recipes for Android<br/>
+• Making Java Groovy
+</div>
+<div>
+<strong>💼 Speaker:</strong><br/>
+• O'Reilly Media instructor<br/>
+• NFJS tour speaker<br/>
+• Spring, Java, Kotlin, AI/ML<br/>
+• MIT BS(2), Princeton MA/PhD, RPI MS
+</div>
+</div>
 
 </div>
 
-<div class="mt-12 text-lg text-gray-600 text-center">
+</div>
+
+<div style="margin-top: 1em; text-align: center; padding: 0.6em; background: rgba(251, 191, 36, 0.1); border-radius: 8px;">
+<strong style="color: #fde047;">📧</strong> <span style="color: #fef3c7;">Newsletter: <a href="https://kenkousen.substack.com" style="color: #60a5fa;">kenkousen.substack.com</a></span><br/>
+<strong style="color: #fde047;">📺</strong> <span style="color: #fef3c7;">YouTube: <a href="https://youtube.com/@talesfromthejarside" style="color: #60a5fa;">@talesfromthejarside</a></span>
+</div>
+
+---
+background: 'linear-gradient(135deg, #dc2626, #991b1b)'
+---
+
+## <span style="color: #fbbf24;">Thank You!</span>
+
+<div style="text-align: center; font-size: 1.1em; margin-top: 1.5em;">
+
+### <span style="color: #fde047;">Let's Connect!</span>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3em; margin: 1.5em auto; max-width: 650px; line-height: 1.6;">
+<div style="text-align: left; color: #e0f2fe;">
+📧 ken.kousen@kousenit.com<br/>
+🦋 bsky.app/profile/kousenit.com<br/>
+💼 linkedin.com/in/kenkousen
+</div>
+<div style="text-align: left; color: #e0f2fe;">
+🐙 github.com/kousen<br/>
+📝 kousenit.substack.com<br/>
+📺 @talesfromthejarside
+</div>
+</div>
+
+<div style="margin-top: 1.5em; padding: 1em; background: rgba(251, 191, 36, 0.1); border-radius: 10px; border: 2px solid #fbbf24;">
+<span style="color: #fef3c7;">
 Remember: AI agents aren't here to replace developers—<br/>
 they're here to make us better developers.
+</span>
 </div>
 
-<!--
-Thank you for joining this exploration of AI as senior collaborators in software development.
-
-The key message isn't about AI replacing human creativity, but about leveraging AI's systematic thoroughness to complement human innovation.
-
-Questions about implementation, specific AI tools, or the collaboration workflow are all welcome!
--->
+</div>
