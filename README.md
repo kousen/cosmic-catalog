@@ -1,6 +1,16 @@
 # Cosmic Catalog
 
-A simple Spring Boot application for curating astronomical observations from telescopes like Hubble and JWST. This project serves as the basis for the "AI Codecon Demo" where multiple AI agents collaborate on a codebase.
+A Spring Boot application for managing astronomical observations from telescopes like Hubble and JWST. This project demonstrates the power of AI agent collaboration, evolving from v5 to v15 through contributions from multiple AI agents (Gemini CLI, Claude Code, and OpenAI Codex CLI).
+
+## 🚀 AI Agent Collaboration Demo
+
+This repository showcases four methods of AI agent collaboration:
+1. **Programmatic Orchestration** - See [OperaGenerator](https://github.com/kousen/OperaGenerator)
+2. **Manual Multi-Terminal** - Used to create v5-v15 of this project
+3. **MCP Server Wrapping** - See [GeminiMcpServer](https://github.com/kousen/GeminiMcpServer)
+4. **Claude Code Agent Orchestration** - Using gemini-analyzer agent
+
+View the presentation slides: `npm run dev` (after `npm install`)
 
 ## Tech Stack
 
@@ -134,6 +144,38 @@ Details:
 ## Architecture
 
 See `docs/ARCHITECTURE.md` for layers, decisions, and future enhancements.
+
+## Presentation
+
+This project includes a Slidev presentation about AI agent collaboration:
+
+```bash
+# Install dependencies
+npm install
+
+# Start the presentation server
+npm run dev
+
+# Build static presentation
+npm run build
+```
+
+The presentation covers:
+- Four methods of AI agent collaboration
+- Real examples with working code
+- Screenshots of the running application
+- Links to all related repositories
+
+## Git Tags
+
+The repository includes tags v5 through v15 showing the evolution through AI agent contributions:
+- **v5**: Starting point - feature-complete Spring Boot app
+- **v6-v7**: Gemini CLI - Added integration tests, version conflict tests
+- **v8**: Claude Code - Service extraction, SOLID principles
+- **v9-v10**: OpenAI Codex CLI - API documentation, Docker, CI/CD
+- **v11-v12**: Claude Code - Advanced services, caching, exceptions
+- **v13**: Gemini CLI - Global exception handling
+- **v15**: Claude Code - E2E Playwright tests
 
 ## Contributing
 
