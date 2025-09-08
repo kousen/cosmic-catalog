@@ -32,17 +32,24 @@ dependencies {
     implementation 'com.github.ben-manes.caffeine:caffeine'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+
+    // Remove transitive vulnerability
+    implementation 'org.apache.commons:commons-lang3:3.18.0'
+
+    // Database drivers
     runtimeOnly 'org.postgresql:postgresql'
     runtimeOnly 'com.h2database:h2'
+
+    // Testing libraries
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-tasks.named('test') {
+tasks.named('test', Test) {
 	useJUnitPlatform()
 	jvmArgs '-XX:+EnableDynamicAgentLoading', '-Xshare:off'
 }
 
-tasks.named('bootRun') {
+tasks.named('bootRun', JavaExec) {
 	jvmArgs '-XX:+EnableDynamicAgentLoading', '-Xshare:off'
 }
