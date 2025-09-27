@@ -78,4 +78,22 @@ public class DeDupServiceTest {
 
         assertTrue(result.isEmpty(), "Observations beyond threshold should not be treated as duplicates");
     }
+
+    @Test
+    void testFindDuplicate_shouldNotFindWhenNoCandidates() {
+        Observation fresh = new Observation();
+        fresh.setTelescope("JWST");
+        fresh.setTargetName("Andromeda");
+        fresh.setFilters("F444W");
+        fresh.setRa(10.684708);
+        fresh.setDec(-59.70444);
+        fresh.setObsDate(LocalDateTime.now());
+
+        when(observationRepository.findByTelescopeAndTargetNameAndFilters("JWST", "Andromeda", "F444W"))
+                .thenReturn(Collections.emptyList());
+
+        Optional<Observation> result = deDupService.findDuplicate(fresh);
+
+        assertTrue(result.isEmpty(), "Should not find a duplicate when there are no candidates");
+    }
 }

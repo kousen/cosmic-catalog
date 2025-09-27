@@ -90,3 +90,6 @@ dist/
 .claude/settings.local.json
 gemini-analysis-*.md
 gemini-mcp-server.log*
+
+.gemini/
+gha-creds-*.json
